@@ -295,7 +295,7 @@ function onSearchButtonClick() {
 		lockSearchControl(false);
 
 		appendToList(searchResult);
-		storeLastSearchResult(searchResult);
+        // storeLastSearchResult(searchResult);
 
 		var outputString = "";
 		var j =0;
@@ -389,23 +389,24 @@ function listStoreData(data) {
 	var currentLon = getLastGeolocationLongitude();
 
 	for(i=0; i< dataList.length; i++) {
-		items = dataList[i].split("|");
-		dataArray[i] = {
-			latitude: items[0],
-		    longitude: items[1],
-	    	id: items[2],
-		    country: items[3],
-		    section: items[4],
-		    name: items[5],
-		    phone: items[6],
-		    address: items[7],
-		    menu: items[8],
-		    openTime: items[9],
-		    remark: items[11],
-		    comment: items[12],
-		    foodType: items[15],
-		    backup_food: items[16]
-		};
+        // items = dataList[i].split("|");
+        // dataArray[i] = {
+            // latitude: items[0],
+            // longitude: items[1],
+            // id: items[2],
+            // country: items[3],
+            // section: items[4],
+            // name: items[5],
+            // phone: items[6],
+            // address: items[7],
+            // menu: items[8],
+            // openTime: items[9],
+            // remark: items[11],
+            // comment: items[12],
+            // foodType: items[15],
+            // backup_food: items[16]
+        // };
+        dataArray[i] = dataList[i];
 
 		dataArray[i].distance = getDistance(currentLat, currentLon,
 			dataArray[i].latitude,  dataArray[i].longitude);
@@ -571,9 +572,9 @@ function appendToList(dataArray) {
 	var i =0;
 	for( i =0; i < searchResulArray.length; i++) {
 
-		if(searchResulArray[i].remark.indexOf("結束營業") != -1) {
-			continue;
-		}
+        // if(searchResulArray[i].remark.indexOf("結束營業") != -1) {
+            // continue;
+        // }
 
 		itemTempalte =
 			"<li class='ui-li ui-li-static ui-btn-up-c'" +
