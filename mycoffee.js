@@ -442,6 +442,9 @@ function updateSearchResult(data) {
 
 	if(DBG)console.log("+ updateSearchResult");
 
+    // clear list view first
+    $("#listView").empty();
+
 	searchResult = data;
 	appendToList(searchResult);
 }
