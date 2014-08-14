@@ -596,7 +596,9 @@ function appendToList(dataArray) {
 
 		if(searchResulArray[i].phone !== "無") {
 			itemTempalte +=
-			"<a class='goog_qs-tidbit goog_qs-tidbit-0' href=''>tel:" + searchResulArray[i].phone + "</a>" +
+            "<p class='ui-li-desc'>電話:" +
+			"<a class='goog_qs-tidbit goog_qs-tidbit-0' href='tel:" + searchResulArray[i].phone + "'>" + searchResulArray[i].phone + "</a>" +
+            "</p>" +
 			"</li>";
 		}
 
