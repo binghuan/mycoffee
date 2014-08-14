@@ -1,35 +1,42 @@
 <!DOCTYPE html>
 <!--<html manifest="mycoffee.appcache">-->
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-  		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-		<link rel="SHORTCUT ICON" href="icon/mycoffee.ico" >
-    	<link rel="shortcut icon" sizes="128x128" href="icon/mycoffee-128.png">
-    	<link rel="shortcut icon" sizes="196x196" href="icon/mycoffee-196.png">
-    	<link rel="apple-touch-icon" href="icon/mycoffee-64.png">
-    	<link rel="apple-touch-icon" sizes="76x76" href="icon/mycoffee-76.png">
-    	<link rel="apple-touch-icon" sizes="120x120" href="icon/mycoffee-120.png">
-    	<link rel="apple-touch-icon" sizes="152x152" href="icon/mycoffee-152.png">
+    <link rel="SHORTCUT ICON" href="icon/mycoffee.ico" >
+    <link rel="shortcut icon" sizes="128x128" href="icon/mycoffee-128.png">
+    <link rel="shortcut icon" sizes="196x196" href="icon/mycoffee-196.png">
+    <link rel="apple-touch-icon" href="icon/mycoffee-64.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="icon/mycoffee-76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="icon/mycoffee-120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icon/mycoffee-152.png">
 
-		<link rel="stylesheet" href="jquery.mobile-1.3.1.min.css"/>
-		<title>My Coffee</title>
-		<style>
-			.ui-icon-pin {
-			  background: url("images/pin.png") 50% 50% no-repeat;
-			  background-size: 18px 18px;
-			  width: 18px;
-			  height: 18px;
-			  box-shadow: none;
-			  -webkit-box-shadow: none;
-			}
-		</style>
-	</head>
-	<body>
-		<div data-role="page" id='index'>
+    <link rel="stylesheet" href="jquery.mobile-1.3.1.min.css"/>
+    <title>My Coffee</title>
+    <style>
+        .ui-icon-pin {
+          background: url("images/pin.png") 50% 50% no-repeat;
+          background-size: 18px 18px;
+          width: 18px;
+          height: 18px;
+          box-shadow: none;
+          -webkit-box-shadow: none;
+        }
+        
+        .page-map, .ui-content, #map-canvas { 
+            width: 100%; 
+            height: 100%; 
+            padding: 0; 
+        }
+    </style>
+</head>
+<body>
+    <!-- main page -->
+	<div data-role="page" id='index'>
 		<div data-theme="e" data-role="header">
 			<a id="pinButton" data-ajax="false" data-role="button" data-theme='c' href='javascript:(function(){var newUrl = location.href.replace("food.html", "pinSetting.html") + "?url=" + location.href + "&icon=icon/food.png&fontColor=white&label=Food Finder"; sessionStorage.PIN_TILE_STAY = "1";console.log("navigate to " + newUrl); location.href = newUrl;})()' class="ui-btn-right" data-icon="pin" data-iconpos="left">Pin</a>
 			<h3>My Coffee</h3>
@@ -60,15 +67,66 @@
 		<div data-theme="e" data-role="footer" data-position='fixed'>
 			<div>
 				<p align="center">
-					Powered by BH_Lin & Powen_Tan
+					Powered by BH_Lin &amp; Powen_Tan
 				</p>
 			</div>
 		</div>
 	</div>
+    <!-- gmap page -->
+    <div data-role="page" id="gmap" class='page-map'>
+		<div data-role="content" id="content">
+            <div id="map-canvas"></div>
+        </div>
+    </div>
 
     <script src="jquery-1.11.1.min.js"></script>
     <script src="jquery.mobile-1.3.1.min.js"></script>
+
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=&sensor=true"></script>
+    <script src="gmap.js" type="text/javascript" charset="utf-8"></script>
     <script src="dataList.js"></script>
+    <script type="text/javascript">
+        function initialize(mapID, mapCSS) {
+            if(mapCSS == null) {
+                $('#' + mapID).css({height: '100%'});
+            } else {
+                $('#' + mapID).css(mapCSS);
+            }
+            // new a map
+            window.gmap = new GMap(mapID);
+
+            // detect current location
+            window.gmap.setCurrentLocation();
+        }
+
+        $(function() {
+            initialize('map-canvas', {
+                width: '100%',
+                height: '100%',
+                position: 'absolute'
+                // ,float: 'right'
+            });
+            initialize('map-canvas');
+
+            // set markers
+            dataList.forEach(function(location) {
+                window.gmap.addMarkers([location], {
+                    icon: 'icon/mycoffee-40.png'
+                });
+            });
+
+            // bind events
+            $('button#removeMarker').on('click', function() {
+                window.gmap.clearMarkers();
+            });
+            $('button#route').on('click', function() {
+                var start = window.current_pos;
+                GMap.utils.geocode($('#endPos').val()).done(function(end) {
+                    window.gmap.route(start, end);
+                });
+            });
+        });
+    </script>
     <script src="mycoffee.js"></script>
 </body>
 </html>

@@ -291,7 +291,9 @@ var dataList = [
         "name": "AKUMA CACA II 敦南店",
         "address": "台北市大安區敦化南路二段218號",
         "phone": "02 2739 2150",
-        "openTime": "週一 - 週五: 8:30-17:30"
+        "openTime": "週一 - 週五: 8:30-17:30",
+        "latitude": 25.0219684,
+        "longitude": 121.5482905
     },
     {
         "name": "沛洛瑟自家焙煎咖啡店",
