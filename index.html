@@ -27,7 +27,7 @@
           -webkit-box-shadow: none;
         }
         
-        .page-map, .ui-content, #map-canvas { 
+        .page-map, #map-canvas { 
             width: 100%; 
             height: 100%; 
             padding: 0; 
@@ -43,15 +43,20 @@
 		</div>
 
         <input type="search" name="postcode" id="searchbox" value="" placeholder="搜尋範例: 台北 咖啡"/>
-        <input id="searchButton" type="button"  data-icon="search" value="開始搜尋" class='ui-block-b'>
-
-        <select id="selectRangeCondition"  class='ui-block-a'>
-            <option value="500">&lt; 0.5公里</option>
-            <option value="1000">&lt; 1公里</option>
-            <option value="2000">&lt; 2公里</option>
-            <option value="5000">&lt; 5公里</option>
-            <option value="10000" selected>&lt; 10公里</option>
-        </select>
+        <div class="ui-grid-a">
+            <div class="ui-block-a">
+                <select id="selectRangeCondition"  class='ui-block-a'>
+                    <option value="500">&lt; 0.5公里</option>
+                    <option value="1000">&lt; 1公里</option>
+                    <option value="2000">&lt; 2公里</option>
+                    <option value="5000">&lt; 5公里</option>
+                    <option value="10000" selected>&lt; 10公里</option>
+                </select>
+            </div>
+            <div class="ui-block-b">
+                <input id="searchButton" type="button"  data-icon="search" value="開始搜尋" class='ui-block-b'>
+            </div>
+        </div>
 
 		<div id="messageBar">
 			<p id="messageText" style="margin-left:10px;margin-right:auto;"	>
@@ -74,7 +79,7 @@
 	</div>
     <!-- gmap page -->
     <div data-role="page" id="gmap" class='page-map'>
-		<div data-role="content" id="content">
+		<div data-role="content" id="content" style="height: 100%; width: 100%">
             <div id="map-canvas"></div>
         </div>
     </div>

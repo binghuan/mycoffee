@@ -3,7 +3,12 @@
     function GMap(mapId, mapOptions) {
         var defaultMapOptions = {
             center: new google.maps.LatLng(25.1044810, 121.5164450),
-            zoom: 18,
+            panControl: false,
+            zoomControl: false,
+            streetViewControl: false,
+            mapTypeControl: false,
+            scaleControl: true,
+            zoom: 16,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
