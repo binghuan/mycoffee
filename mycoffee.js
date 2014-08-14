@@ -44,8 +44,7 @@ function sortDistance(a,b)
 }
 
 function getSearchRangeInDB() {
-	if( (localStorage.SEARCH_RANGE == undefined) ||
-			(localStorage.SEARCH_RANGE == null)) {
+	if(localStorage.SEARCH_RANGE == null) {
 		localStorage.SEARCH_RANGE = 500;
 	}
 
@@ -99,22 +98,6 @@ function getDistance(lat1, lon1, lat2, lon2) {
   return returnDistance;
 }
 
-
-// try to get current location info.
-function getLocation() {
-  	if (navigator.geolocation) {
-    	navigator.geolocation.getCurrentPosition(successGetGeoInfo,errorGetGeoInfo);
-	} else {
-		console.warn("Geolocation is not supported by this browser.");
-	}
-}
-
-function setLastGeolocation(latitude, longitude) {
-	localStorage.latitude = latitude;
-	localStorage.longitude = longitude;
-
-}
-
 function getLastGeolocationLatitude() {
 	return localStorage.latitude;
 }
@@ -123,9 +106,13 @@ function getLastGeolocationLongitude() {
 	return localStorage.longitude;
 }
 
-var isGeoinfoAvailable = false;
 
-var isNeededToLoadForNextPlace = false;
+
+function setLastGeolocation(latitude, longitude) {
+	localStorage.latitude = latitude;
+	localStorage.longitude = longitude;
+
+}
 
 function successGetGeoInfo(position) {
 
@@ -155,6 +142,19 @@ function successGetGeoInfo(position) {
 
 }
 
+
+// try to get current location info.
+function getLocation() {
+  	if (navigator.geolocation) {
+    	navigator.geolocation.getCurrentPosition(successGetGeoInfo,errorGetGeoInfo);
+	} else {
+		console.warn("Geolocation is not supported by this browser.");
+	}
+}
+var isGeoinfoAvailable = false;
+
+var isNeededToLoadForNextPlace = false;
+
 function errorGetGeoInfo(error) {
 
 	if(DBG)console.log("++ errorGetGeoInfo");
@@ -176,7 +176,7 @@ function errorGetGeoInfo(error) {
 }
 
 function showProgressBar(enabled) {
-	if(enabled == true ) {
+	if(enabled === true ) {
 		$.mobile.showPageLoadingMsg();
 	} else  {
 		$.mobile.hidePageLoadingMsg();
@@ -185,15 +185,15 @@ function showProgressBar(enabled) {
 
 var mRestaurantDBDataArray = dataList;
 var totalDataCount = 0;
-var searchResult = new Array();
+var searchResult = [];
 var barOflocationInfo;
 
 function storeLastStoreInRange(latitude, longitude) {
 
 	if(DBG)console.log("+ storeLastStoreInRange with geo: " + latitude + "," + longitude);
-	var limitRange = document.getElementById('selectRangeCondition').value
+	var limitRange = document.getElementById('selectRangeCondition').value;
 
-	storeNearByMe = new Array();
+	storeNearByMe = [];
 	var distance = 0;
 	var i=0;
 	for (i =0; i< mRestaurantDBDataArray.length; i++) {
@@ -209,7 +209,7 @@ function storeLastStoreInRange(latitude, longitude) {
 	if(DBG)console.log("+ storeLastStoreInRange -> ok");
 }
 
-var listResultDistance = new Array();
+var listResultDistance = [];
 
 var toString = Object.prototype.toString;
 function isString(obj) {
@@ -244,7 +244,7 @@ function onSearchButtonClick() {
 
 		var queryString = "";
 		if (queryText.indexOf(",") != -1) {
-			queryText = queryText.replace(/,/g," ")
+			queryText = queryText.replace(/,/g," ");
 		}
 
 		if(queryText.indexOf(" ") != -1) {
@@ -264,7 +264,8 @@ function onSearchButtonClick() {
 		search = new RegExp(queryString, "gi");
 		if(DBG)console.log("reay query ___" + queryString
 			+ "___ in DB Array length:" + mRestaurantDBDataArray.length);
-		var i=0;
+
+		i = 0;
 		for ( i=0; i < mRestaurantDBDataArray.length; i++) {
 			//console.log("query time: " + i);
 			var dataString = "";
@@ -281,10 +282,10 @@ function onSearchButtonClick() {
 			}
 
 			//console.log(result);
-			if(hit == true) {
+			if(hit === true) {
 				searchResult.push(mRestaurantDBDataArray[i]);
 			}
-		};
+		}
 
 		if(DBG)console.log("searchDataByKeyWord --> done");
 		if(DBG)console.log(searchResult);
@@ -321,60 +322,6 @@ function setUIisReady(isReady) {
 		//window.top.postMessage({action: WM_IFRAME_UI_READY}, "*");
 		if(DBG)console.log("sent message: WM_IFRAME_UI_READY");
 	}
-}
-
-function init() {
-
-	if(DBG)console.log("++ init");
-
-	if(navigator.userAgent.toLowerCase().indexOf("trident") === -1) {
-		var pinButton = document.getElementById("pinButton");
-		if(pinButton != undefined) {
-			pinButton.style.visibility = "hidden";
-		}
-	}
-
-	window.applicationCache.addEventListener('updateready', function(e) {
-        if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
-          // Browser downloaded a new app cache.
-          // Swap it in and reload the page to get the new hotness.
-          window.applicationCache.swapCache();
-            window.location.reload();
-        } else {
-          console.log("Manifest didn't changed. Nothing new to server.");
-        }
-    }, false);
-
-	$("#messageText").hide();
-
-	getLocation();
-
-	barOflocationInfo = document.getElementById("locationInfo");
-	$("#loadRemoteData").click(function() {
-		if(DBG)console.log("button onclick: loadRemoteData");
-		tryToLoadRemoteData();
-	});
-
-	lockSearchControl(true);
-
-/*
-	$("#searchbox").keyup(function(event){
-		if(event.keyCode === 13){
-			onSearchButtonClick();
-		}
-	});
-*/
-	$("#searchButton").click(onSearchButtonClick);
-
-
-	$("#buttonShowProgress").click(function() {
-		showProgressBar(true);
-	});
-
-	$("#buttonHideProgress").click(function() {
-		showProgressBar(false);
-	});
-
 }
 
 var mStoreNearByMe = [];
@@ -428,12 +375,12 @@ function listStoreData(data) {
 	lockSearchControl(false);
 
 	// sub code id for testing.
-	if(isGeoinfoAvailable == true) {
+	if(isGeoinfoAvailable === true) {
 		storeLastStoreInRange(getLastGeolocationLatitude(), getLastGeolocationLongitude());
 	}
 
-	if((searchResult.length ==0) ||
-		(isNeededToLoadForNextPlace == true)) {
+	if((searchResult.length === 0) ||
+		(isNeededToLoadForNextPlace === true)) {
 		updateSearchResult(mStoreNearByMe);
 	}
 }
@@ -471,9 +418,7 @@ function lockSearchControl(enabled) {
 
 function updateMessageBar(msg) {
 	$("#messageText").fadeOut('fast');
-	if(msg == null || msg === undefined) {
-
-	} else {
+	if(msg != null) {
 		document.getElementById("messageText").innerHTML =  msg;
 	}
 
@@ -510,9 +455,7 @@ function getCurrentAddress(latitude, longitude) {
 		console.log(data);
 
 		// need to modify sub code into a function.
-		if(data.status.indexOf('OVER_QUERY_LIMIT') != -1) {
-
-		} else {
+		if(data.status.indexOf('OVER_QUERY_LIMIT') == -1) {
 			console.log(data['results'][0].formatted_address);
 			updateAddressBar(data['results'][0].formatted_address);
 		}
@@ -523,7 +466,7 @@ function tryToLoadRemoteData() {
 
 	if(DBG)console.log("try to load remote data from server:" + remoteDataURL);
 
-	updateMessageBar("資料載入中... ")
+	updateMessageBar("資料載入中... ");
 
 	$.ajax({
         url: remoteDataURL,
@@ -538,9 +481,60 @@ function tryToLoadRemoteData() {
 }
 
 //window.addEventListener("load", handlePageLoad);
-$(document).ready(init);
+$(function() {
 
-var testDataArray = new Array();
+	if(DBG)console.log("++ init");
+
+	if(navigator.userAgent.toLowerCase().indexOf("trident") === -1) {
+		var pinButton = document.getElementById("pinButton");
+		if(pinButton != null) {
+			pinButton.style.visibility = "hidden";
+		}
+	}
+
+	window.applicationCache.addEventListener('updateready', function(e) {
+        if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+          // Browser downloaded a new app cache.
+          // Swap it in and reload the page to get the new hotness.
+          window.applicationCache.swapCache();
+            window.location.reload();
+        } else {
+          console.log("Manifest didn't changed. Nothing new to server.");
+        }
+    }, false);
+
+	$("#messageText").hide();
+
+	getLocation();
+
+	barOflocationInfo = document.getElementById("locationInfo");
+	$("#loadRemoteData").click(function() {
+		if(DBG)console.log("button onclick: loadRemoteData");
+		tryToLoadRemoteData();
+	});
+
+	lockSearchControl(true);
+
+/*
+	$("#searchbox").keyup(function(event){
+		if(event.keyCode === 13){
+			onSearchButtonClick();
+		}
+	});
+*/
+	$("#searchButton").click(onSearchButtonClick);
+
+
+	$("#buttonShowProgress").click(function() {
+		showProgressBar(true);
+	});
+
+	$("#buttonHideProgress").click(function() {
+		showProgressBar(false);
+	});
+});
+
+var testDataArray = [];
 function appendToList(dataArray) {
 
 	if(DBG)console.log("+ appendToList: " + dataArray.length);
@@ -550,7 +544,7 @@ function appendToList(dataArray) {
 
 	// if the geolocation is available
 	// calculate the distance.
-	if(isGeoinfoAvailable == true) {
+	if(isGeoinfoAvailable === true) {
 		console.log("geolocation is available !");
 		var currentLatitude = getLastGeolocationLatitude();
 		var currentLongitude = getLastGeolocationLongitude();
@@ -572,7 +566,7 @@ function appendToList(dataArray) {
 
 	var injectHTML = "";
 	var itemTempalte = "";
-	var i =0;
+	i = 0;
 	for( i =0; i < searchResulArray.length; i++) {
 
         // if(searchResulArray[i].remark.indexOf("結束營業") != -1) {
@@ -614,7 +608,7 @@ function appendToList(dataArray) {
 	updateSearchResultBar("約有 " + searchResulArray.length +
 			" 項結果 (搜尋時間: " + (mSearchEnd - mSearchStart)/1000 + " 秒)");
 
-};
+}
 
 
 

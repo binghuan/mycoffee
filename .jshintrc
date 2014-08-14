@@ -1,0 +1,28 @@
+{
+	// enforcing
+	"regexdash": true,
+    // "camelcase": true,
+	"trailing": true,
+	// "indent": 4,
+    // "latedef": true,
+	"newcap": true,
+	"noarg": true,
+	"noempty": true,
+	// "undef": true,
+	// "unused": true,
+	// "maxlen": 78,
+	// relaxing
+	"evil": true,
+	"eqnull": true,
+	"funcscope": true,
+	"laxbreak": true,
+	"laxcomma": true,
+	"sub": true,
+	"boss": true,
+
+	// env
+	"browser": true,
+	"jquery": true
+	// "node": true,
+	// "wsh": true
+}
