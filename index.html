@@ -34,21 +34,23 @@
 			<a id="pinButton" data-ajax="false" data-role="button" data-theme='c' href='javascript:(function(){var newUrl = location.href.replace("food.html", "pinSetting.html") + "?url=" + location.href + "&icon=icon/food.png&fontColor=white&label=Food Finder"; sessionStorage.PIN_TILE_STAY = "1";console.log("navigate to " + newUrl); location.href = newUrl;})()' class="ui-btn-right" data-icon="pin" data-iconpos="left">Pin</a>
 			<h3>My Coffee</h3>
 		</div>
-		<input type="search" name="postcode" id="searchbox" value="" placeholder="搜尋範例: 台北 咖啡"/>
+
 		<fieldset class="ui-grid-a">
 			<div class="ui-block-a">
-				<select id="selectRangeCondition"  class='ui-block-a'>
-					<option value="500">&lt; 0.5公里</option>
-					<option value="1000">&lt; 1公里</option>
-					<option value="2000">&lt; 2公里</option>
-					<option value="5000">&lt; 5公里</option>
-					<option value="10000" selected>&lt; 10公里</option>
-				</select>
+                <input type="search" name="postcode" id="searchbox" value="" placeholder="搜尋範例: 台北 咖啡"/>
 			</div>
 			<div class="ui-block-b">
 				<input id="searchButton" type="button"  data-icon="search" value="開始搜尋" class='ui-block-b'>
 			</div>
 		</fieldset>
+
+        <select id="selectRangeCondition"  class='ui-block-a'>
+            <option value="500">&lt; 0.5公里</option>
+            <option value="1000">&lt; 1公里</option>
+            <option value="2000">&lt; 2公里</option>
+            <option value="5000">&lt; 5公里</option>
+            <option value="10000" selected>&lt; 10公里</option>
+        </select>
 
 		<div id="messageBar">
 			<p id="messageText" style="margin-left:10px;margin-right:auto;"	>
@@ -58,7 +60,7 @@
 
 		<br>
 		<div data-role="content" id="content">
-			<ul id="listView" data-role='listview' data-inset='true' data-theme='e'></ul>
+			<ul id="listView" data-role='listview' data-theme='e'></ul>
 		</div>
 
 		<div data-theme="e" data-role="footer" data-position='fixed'>
