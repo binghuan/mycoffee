@@ -1,179 +1,123 @@
-var DBG = true;
-
 /*
  * use the sub techK
  * Jquery Mobile: http://jquerymobile.com/
  */
 
+var DBG = true;
 var VERSION = "1848";
+var DEFAULT_RANGE = 9999 ; // meter for distance
+var mSearchStart = null;
+var mSearchEnd = null;
 
 console.log("### version: " + VERSION);
 
-var MAX_DATA_SIZE = -1;
-// for testing.
-var remoteDataURL = "http://127.0.0.1/data.html";
-// for formal release
-var remoteDataURL2 = "http://ec2-23-20-250-204.compute-1.amazonaws.com/data.html";
-
-var ITEM_ID = 0;
-var ITEM_NAME = 3;
-var ITEM_PHONE = 4;
-var ITEM_ADDRESS = 5;
-var ITEM_MENU = 6;
-var ITEM_OPEN_TIME = 7;
-var ITEM_REMARK = 9;
-var ITEM_LONGITUDE = 11;
-var ITEM_LATITUDE = 12;
-
-
-
-var DEFAULT_RANGE = 9999 ; // meter for distance
-
-if(document.location.host === "ec2-23-20-250-204.compute-1.amazonaws.com") {
-	DBG = false;
-	console.log("The server is located in remote !");
-	remoteDataURL = remoteDataURL2;
+function LocationData(dataList) {
+    this.dataList = dataList;
 }
 
-// for calculate
-var ITEM_DISTANCE = 22;
+LocationData.prototype.getData = function() {
+    return this.dataList;
+};
 
-function sortDistance(a,b)
-{
-    return a.distance - b.distance;
-}
+LocationData.prototype.parse = function() {
+    // this.dataList.forEach(function(_, index, array) {
+        // array.distance = getDistance(currentLat, currentLon, dataArray[i].latitude,  dataArray[i].longitude);
+    // });
+};
 
-function getSearchRangeInDB() {
-	if(localStorage.SEARCH_RANGE == null) {
-		localStorage.SEARCH_RANGE = 500;
-	}
-
-	return JSON.parse(localStorage.SEARCH_RANGE);
-}
-
-function setSearchRangeInDB(value) {
-	localStorage.SEARCH_RANGE = value;
-}
-
+var searchResult = [];
+var locationData = new LocationData(dataList);
 
 // get the distance between two places.
-
-var returnDistance = 0;
-/*
-function getDistance(lat1,lon1,lat2,lon2) {
-	returnDistance = 0;
-
-    var R = 6378.137; // km (change this constant to get miles)
+function getDistance(lat1, lon1, lat2, lon2) {
+    var R = 6371; // km
     var dLat = (lat2-lat1) * Math.PI / 180;
     var dLon = (lon2-lon1) * Math.PI / 180;
     var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-    Math.cos(lat1 * Math.PI / 180 ) * Math.cos(lat2 * Math.PI / 180 ) *
-    Math.sin(dLon/2) * Math.sin(dLon/2);
-    var c = 2 * Math.asin(Math.sqrt(a));
-    var d = R * c;
-
-    if ( d > 1 ) {
-    	returnDistance = Math.round(d*1000); // meter
-    } else if (d<=1) {
-    	returnDistance = Math.round(d*1000) ; // meter
-    }
-
-	return returnDistance;
-}
-*/
-
-
-
-function getDistance(lat1, lon1, lat2, lon2) {
-  var R = 6371; // km
-  var dLat = (lat2-lat1) * Math.PI / 180;
-  var dLon = (lon2-lon1) * Math.PI / 180;
-  var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
           Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
           Math.sin(dLon/2) * Math.sin(dLon/2);
-  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-  var d = R * c;
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    var d = R * c;
 
-  returnDistance = Math.round(d*1000,10);
-  return returnDistance;
+    var returnDistance = Math.round(d*1000,10);
+    return returnDistance;
 }
 
-function getLastGeolocationLatitude() {
-	return localStorage.latitude;
+function setLastGeolocation(geolocation) {
+    localStorage.latitude = geolocation.latitude;
+    localStorage.longitude = geolocation.longitude;
 }
 
-function getLastGeolocationLongitude() {
-	return localStorage.longitude;
+function getLastGeolocation() {
+    return {
+        latitude: localStorage.latitude,
+        longitude: localStorage.longitude
+    };
 }
-
-
-
-function setLastGeolocation(latitude, longitude) {
-	localStorage.latitude = latitude;
-	localStorage.longitude = longitude;
-
-}
-
-function successGetGeoInfo(position) {
-
-	if(DBG)console.log("++ successGetGeoInfo");
-
-	var latlon=position.coords.latitude+","+position.coords.longitude;
-
-	var img_url="http://maps.googleapis.com/maps/api/staticmap?center=" +latlon+"&zoom=14&size=240x320&sensor=false";
-
-	if(DBG)console.log("get current possision is " + latlon);
-
-	if(getDistance(getLastGeolocationLatitude(), getLastGeolocationLongitude(),
-		position.coords.latitude, position.coords.longitude) > (DEFAULT_RANGE/3)) {
-			isNeededToLoadForNextPlace = true;
-	}
-
-	setLastGeolocation(position.coords.latitude, position.coords.longitude);
-	// longitude - 經度 - 縱線
-	// latitude - 緯度 - 水平線
-
-	isGeoinfoAvailable = true;
-
-	//getCurrentAddress(position.coords.latitude, position.coords.longitude);
-
-	// try to get the store info. which is near by me
-	listStoreData(dataList);
-
-}
-
 
 // try to get current location info.
-function getLocation() {
+function getCurrentLocation() {
+
+    function successGetGeoInfo(position) {
+
+        if(DBG)console.log("++ successGetGeoInfo");
+
+        var latlon = position.coords.latitude + "," + position.coords.longitude;
+
+        var img_url = "http://maps.googleapis.com/maps/api/staticmap?center=" + latlon + "&zoom=14&size=240x320&sensor=false";
+
+        if(DBG)console.log("get current possision is " + latlon);
+
+        var geolocation = getLastGeolocation();
+        var distance = getDistance(geolocation.latitude, 
+                                   geolocation.longitude, 
+                                   position.coords.latitude, 
+                                   position.coords.longitude);
+        // if(distance > (DEFAULT_RANGE / 3)) {
+            // isNeededToLoadForNextPlace = true;
+        // }
+
+        setLastGeolocation({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+        });
+        // longitude - 經度 - 縱線
+        // latitude - 緯度 - 水平線
+
+        isGeoinfoAvailable = true;
+
+        // try to get the store info. which is near by me
+        listStoreData(locationData.getData());
+    }
+
+    function errorGetGeoInfo(error) {
+        if(DBG)console.log("++ errorGetGeoInfo");
+
+        switch(error.code) {
+        case error.PERMISSION_DENIED:
+            console.warn("User denied the request for Geolocation.");
+            break;
+        case error.POSITION_UNAVAILABLE:
+            console.warn("Location information is unavailable.");
+            break;
+        case error.TIMEOUT:
+            console.warn("The request to get user location timed out.");
+            break;
+        case error.UNKNOWN_ERROR:
+            console.warn("An unknown error occurred.");
+            break;
+        }
+    }
+
   	if (navigator.geolocation) {
     	navigator.geolocation.getCurrentPosition(successGetGeoInfo,errorGetGeoInfo);
 	} else {
 		console.warn("Geolocation is not supported by this browser.");
 	}
 }
+
 var isGeoinfoAvailable = false;
-
 var isNeededToLoadForNextPlace = false;
-
-function errorGetGeoInfo(error) {
-
-	if(DBG)console.log("++ errorGetGeoInfo");
-
-  switch(error.code) {
-    case error.PERMISSION_DENIED:
-    	console.warn("User denied the request for Geolocation.");
-      break;
-    case error.POSITION_UNAVAILABLE:
-      console.warn("Location information is unavailable.");
-      break;
-    case error.TIMEOUT:
-      console.warn("The request to get user location timed out.");
-      break;
-    case error.UNKNOWN_ERROR:
-      console.warn("An unknown error occurred.");
-      break;
-	}
-}
 
 function showProgressBar(enabled) {
 	if(enabled === true ) {
@@ -183,137 +127,32 @@ function showProgressBar(enabled) {
 	}
 }
 
-var mRestaurantDBDataArray = dataList;
-var totalDataCount = 0;
-var searchResult = [];
-var barOflocationInfo;
-
 function storeLastStoreInRange(latitude, longitude) {
 
 	if(DBG)console.log("+ storeLastStoreInRange with geo: " + latitude + "," + longitude);
-	var limitRange = document.getElementById('selectRangeCondition').value;
+    var limitRange = $('#selectRangeCondition').val();
 
-	storeNearByMe = [];
+    var storeNearBy = [];
 	var distance = 0;
-	var i=0;
-	for (i =0; i< mRestaurantDBDataArray.length; i++) {
-		distance = getDistance(latitude,longitude,
-			mRestaurantDBDataArray[i].latitude, mRestaurantDBDataArray[i].longitude);
+	var i = 0;
+    var dataList = locationData.getData();
+	for (i =0; i< dataList.length; i++) {
+		distance = getDistance(latitude, longitude,
+                               dataList[i].latitude, dataList[i].longitude);
 		if(distance <= limitRange) {
-			mRestaurantDBDataArray[i].distance = distance;
-			mStoreNearByMe.push(mRestaurantDBDataArray[i]);
+			dataList[i].distance = distance;
+			storeNearBy.push(dataList[i]);
 		}
 	}
 
-	if(DBG)console.log("+ storeLastStoreInRange count: " + mStoreNearByMe.length);
+	if(DBG)console.log("+ storeLastStoreInRange count: " + storeNearBy.length);
 	if(DBG)console.log("+ storeLastStoreInRange -> ok");
+
+    return storeNearBy;
 }
 
-var listResultDistance = [];
-
-var toString = Object.prototype.toString;
 function isString(obj) {
-  return toString.call(obj) == '[object String]';
-}
-
-function onSearchButtonClick() {
-
-	var queryText = document.getElementById("searchbox").value;
-	if(DBG)console.log("searchDataByKeyWord with keyword(" + queryText);
-
-		searchResult = [];
-
-		if(queryText.length < 1) {
-
-			updateSearchResult(mStoreNearByMe);
-
-			return;
-		}
-
-		showProgressBar(true);
-		$("#listView").empty();
-		updateMessageBar("@_@ 搜尋中 ...");
-		mSearchStart = new Date();
-
-		lockSearchControl(true);
-
-		//empty serach result
-		searchResult = [];
-
-		var result ;
-
-		var queryString = "";
-		if (queryText.indexOf(",") != -1) {
-			queryText = queryText.replace(/,/g," ");
-		}
-
-		if(queryText.indexOf(" ") != -1) {
-			var queryArray = queryText.split(" ");
-			var i=0;
-			for( i=0; i< queryArray.length; i++) {
-				if(queryString.length > 0) {
-					queryString += ".*" + queryArray[i];
-				} else {
-					queryString = queryArray[i];
-				}
-			}
-		} else {
-			queryString = queryText;
-		}
-
-		search = new RegExp(queryString, "gi");
-		if(DBG)console.log("reay query ___" + queryString
-			+ "___ in DB Array length:" + mRestaurantDBDataArray.length);
-
-		i = 0;
-		for ( i=0; i < mRestaurantDBDataArray.length; i++) {
-			//console.log("query time: " + i);
-			var dataString = "";
-			var hit = false;
-			var k = 0;
-			for( k =0; k< Object.keys(mRestaurantDBDataArray[i]).length ; k++) {
-				dataString += mRestaurantDBDataArray[i][Object.keys(mRestaurantDBDataArray[i])[k]];
-			}
-
-			if(dataString.match(search)) {
-			//if(dataString.indexOf(queryString) != -1) {
-				hit = true;
-				console.log(" search --> hit");
-			}
-
-			//console.log(result);
-			if(hit === true) {
-				searchResult.push(mRestaurantDBDataArray[i]);
-			}
-		}
-
-		if(DBG)console.log("searchDataByKeyWord --> done");
-		if(DBG)console.log(searchResult);
-		updateMessageBar("^_^b 搜尋完成.");
-		showProgressBar(false);
-		mSearchEnd = new Date();
-
-		lockSearchControl(false);
-
-		appendToList(searchResult);
-        // storeLastSearchResult(searchResult);
-
-		var outputString = "";
-		var j =0;
-		for( j=0; j< searchResult.length ; j++) {
-			outputString += searchResult[j] + "<br>";
-		}
-		//document.getElementById("searchResultArea").innerHTML = outputString;
-}
-
-var mSearchStart = new Date();
-var mSearchEnd = new Date();
-
-var isBase64ApiSupported = false;
-function checkBase64ApiSupported() {
-	if(isChrome() || isSafari() || isFirefox() || isOpera()) {
-		isBase64ApiSupported = true;
-	}
+  return Object.prototype.toString.call(obj) == '[object String]';
 }
 
 function setUIisReady(isReady) {
@@ -324,65 +163,37 @@ function setUIisReady(isReady) {
 	}
 }
 
-var mStoreNearByMe = [];
+function listStoreData(dataList) {
+	if(DBG){console.log("listStoreData from server:" + dataList.length);}
 
-function listStoreData(data) {
-	if(DBG){console.log("listStoreData from server:" + data.length);}
-	var items = [];
-	var dataArray = new Array(dataList.length);
-	var i=0;
+    var currentGeolocation = getLastGeolocation();
 
-	var currentLat = getLastGeolocationLatitude();
-	var currentLon = getLastGeolocationLongitude();
+    dataList.forEach(function(item, index) {
+        item.distance = getDistance(currentGeolocation.latitude, currentGeolocation.longitude, 
+                                    item.latitude, item.longitude);
+    });
 
-	for(i=0; i< dataList.length; i++) {
-        // items = dataList[i].split("|");
-        // dataArray[i] = {
-            // latitude: items[0],
-            // longitude: items[1],
-            // id: items[2],
-            // country: items[3],
-            // section: items[4],
-            // name: items[5],
-            // phone: items[6],
-            // address: items[7],
-            // menu: items[8],
-            // openTime: items[9],
-            // remark: items[11],
-            // comment: items[12],
-            // foodType: items[15],
-            // backup_food: items[16]
-        // };
-        dataArray[i] = dataList[i];
+	if(DBG)console.log(dataList);
 
-		dataArray[i].distance = getDistance(currentLat, currentLon,
-			dataArray[i].latitude,  dataArray[i].longitude);
-
-	}
-	if(DBG)console.log(dataArray[0]);
-	if(DBG)console.log(dataArray[1]);
-	mRestaurantDBDataArray = dataArray;
-	if(DBG)console.log(mRestaurantDBDataArray[0]);
-
-	totalDataCount = mRestaurantDBDataArray.length;
-	console.log("get total data from server: " + totalDataCount);
-
-	if(DBG)console.log("Data is ready ^_^ b :" + mRestaurantDBDataArray.length);
+	if(DBG)console.log("Data is ready ^_^ b :" + dataList.length);
 
 	// try to filter the store info. which is near by me
 
 	updateMessageBar("資料載入完成 ^_^ b");
-	lockSearchControl(false);
+	disableSearchControl(false);
 
+    var storeNearBy = [];
 	// sub code id for testing.
 	if(isGeoinfoAvailable === true) {
-		storeLastStoreInRange(getLastGeolocationLatitude(), getLastGeolocationLongitude());
+        var geolocation = getLastGeolocation();
+		storeNearBy = storeLastStoreInRange(geolocation.latitude, geolocation.longitude);
 	}
 
-	if((searchResult.length === 0) ||
-		(isNeededToLoadForNextPlace === true)) {
-		updateSearchResult(mStoreNearByMe);
-	}
+    // if((searchResult.length === 0) ||
+        // (isNeededToLoadForNextPlace === true)) {
+        // updateSearchResult(mStoreNearByMe);
+    // }
+    updateSearchResult(storeNearBy);
 }
 
 function updateSearchResult(data) {
@@ -403,23 +214,23 @@ function updateAddressBar(address) {
 	if(address.length < 1) {
 		$("#messageText").fadeOut('fast');
 	} else {
-		document.getElementById('addressInfo').innerHTML = "最近的位置:" + address;
+        $('#addressInfo').html("最近的位置:" + address);
 		$("#messageText").fadeIn('slow');
 	}
 
 }
 
-function lockSearchControl(enabled) {
-	var searchButton = document.getElementById('searchButton');
-	if(searchButton) {
-		searchButton.disabled = enabled;
+function disableSearchControl(isLock) {
+	var $searchButton = $('#searchButton');
+	if($searchButton.length != 0) {
+		$searchButton.prop('disabled', isLock);
 	}
 }
 
 function updateMessageBar(msg) {
 	$("#messageText").fadeOut('fast');
 	if(msg != null) {
-		document.getElementById("messageText").innerHTML =  msg;
+        $('#messageText').html(msg);
 	}
 
 	$("#messageText").fadeIn('slow');
@@ -429,22 +240,12 @@ function updateMessageBar(msg) {
 
 function updateSearchResultBar(msg) {
 	$("#searchResultText").fadeOut('fast');
-	document.getElementById("searchResultText").innerHTML =  msg;
+	$("#searchResultText").html(msg);
 	$("#searchResultText").fadeIn('slow');
 }
 
-function receiveDataFail (e) {
-	//
-	if(e.status != 200) {
-		console.error("retrieve remote data -> FAIL");
-		console.log(e);
-	} else {
-		console.log("retrieve remote data -> OK");
-	}
-
-}
-
 //http://maps.googleapis.com/maps/api/geocode/json?language=zh-TW&sensor=true&address=
+/*
 function getCurrentAddress(latitude, longitude) {
 	var apiUrl = "http://maps.googleapis.com/maps/api/geocode/json?";
 	apiUrl += "language=zh-TW";
@@ -461,34 +262,116 @@ function getCurrentAddress(latitude, longitude) {
 		}
 	});
 }
+*/
 
-function tryToLoadRemoteData() {
+var testDataArray = [];
+function appendToList(dataArray) {
 
-	if(DBG)console.log("try to load remote data from server:" + remoteDataURL);
+	if(DBG)console.log("+ appendToList: " + dataArray.length);
+	var searchResult = dataArray;
 
-	updateMessageBar("資料載入中... ");
+	// if the geolocation is available
+	// calculate the distance.
+	if(isGeoinfoAvailable === true) {
+		console.log("geolocation is available !");
+        var geolocation = getLastGeolocation();
 
-	$.ajax({
-        url: remoteDataURL,
-        type: 'get',
-        jsonpCallback: "jsonCallback",
-        dataType: 'jsonp',
-        contentType: "application/json",
-        //contentType: "plain/text",
-        success: receiveData,
-        error: receiveDataFail
-	});
+        searchResult.forEach(function(item) {
+            item.distance = getDistance(geolocation.latitude, geolocation.longitude,
+                                        item.latitude, item.longitude);
+
+        });
+
+		testDataArray = searchResult;
+		searchResult.sort(function (a,b) {
+            return a.distance - b.distance;
+        });
+	}
+
+	if(DBG)console.log("ready to append item count:" + dataArray.length);
+	if(DBG)console.log("ready to create item for listView: " + searchResult.length);
+    if(DBG)console.log(searchResult);
+
+	var itemTempalte = "";
+    /*
+	i = 0;
+	for( i =0; i < searchResult.length; i++) {
+
+		itemTempalte =
+			"<li class='ui-li ui-li-static ui-btn-up-c'" +
+			"<div class='ui-btn-inner ui-li'><div class='ui-btn-text'>" +
+			"<p class='ui-li-aside ui-li-desc'><strong>"  + "距離: " + searchResult[i].distance + "公尺</strong></p>"+
+			"<h2 class='ui-li-heading'>" + searchResult[i].name + "</h2>"+
+			"<a class='ui-li-desc' href='http://maps.google.com.tw/?q=" + searchResult[i].address  + "' target='_blank'>" + searchResult[i].address + "</a>" +
+			"<p class='ui-li-desc' style='white-space: normal;'>推廌餐點: " + searchResult[i].menu +  "</p>";
+
+		if(searchResult[i].openTime !== "無") {
+			itemTempalte += "<p class='ui-li-desc'>營業時間: <strong>" + searchResult[i].openTime +  "</strong></p>";
+		}
+		if(searchResult[i].remark !== "無") {
+			itemTempalte += "<p class='ui-li-desc' style='white-space: normal;'>ps: " + searchResult[i].remark +  "</p>";
+		}
+
+		if(searchResult[i].phone !== "無") {
+			itemTempalte +=
+            "<p class='ui-li-desc'>電話:" +
+			"<a class='goog_qs-tidbit goog_qs-tidbit-0' href='tel:" + searchResult[i].phone + "'>" + searchResult[i].phone + "</a>" +
+            "</p>" +
+			"</li>";
+		}
+
+		$("#listView").append(itemTempalte);
+
+	}
+    */
+
+    searchResult.forEach(function(item) {
+		itemTempalte =
+			"<li class='ui-li ui-li-static ui-btn-up-c'" +
+			"<div class='ui-btn-inner ui-li'><div class='ui-btn-text'>" +
+			"<p class='ui-li-aside ui-li-desc'><strong>"  + "距離: " + item.distance + "公尺</strong></p>"+
+			"<h2 class='ui-li-heading'>" + item.name + "</h2>"+
+			"<a class='ui-li-desc' href='http://maps.google.com.tw/?q=" + item.address  + "' target='_blank'>" + item.address + "</a>";
+
+        if(item.menu != null) {
+			itemTempalte += "<p class='ui-li-desc' style='white-space: normal;'>推廌餐點: " + item.menu +  "</p>";
+        }
+
+		if(item.openTime != null && item.openTime !== "無") {
+			itemTempalte += "<p class='ui-li-desc'>營業時間: <strong>" + item.openTime +  "</strong></p>";
+		}
+		if(item.remark != null && item.remark !== "無") {
+			itemTempalte += "<p class='ui-li-desc' style='white-space: normal;'>ps: " + item.remark +  "</p>";
+		}
+
+		if(item.phone != null && item.phone !== "無") {
+			itemTempalte +=
+                "<p class='ui-li-desc'>電話:" +
+                "<a class='goog_qs-tidbit goog_qs-tidbit-0' href='tel:" + item.phone + "'>" + item.phone + "</a>" +
+                "</p>" +
+                "</li>";
+		}
+
+		$("#listView").append(itemTempalte);
+    });
+
+	if(DBG)console.log("*** create item for listView -> start");
+
+	$("#listView").listview("refresh");
+	setUIisReady(true);
+
+	if(DBG)console.log("*** create item for listView -> done");
+	updateSearchResultBar("約有 " + searchResult.length +
+			" 項結果 (搜尋時間: " + (mSearchEnd - mSearchStart)/1000 + " 秒)");
 }
 
-//window.addEventListener("load", handlePageLoad);
 $(function() {
-
 	if(DBG)console.log("++ init");
 
 	if(navigator.userAgent.toLowerCase().indexOf("trident") === -1) {
-		var pinButton = document.getElementById("pinButton");
-		if(pinButton != null) {
-			pinButton.style.visibility = "hidden";
+		var $pinButton = $("#pinButton");
+		if($pinButton != null) {
+			$pinButton.hide();
 		}
 	}
 
@@ -503,112 +386,101 @@ $(function() {
         }
     }, false);
 
-	$("#messageText").hide();
+    function onSearchButtonClick() {
+        var queryText = $("#searchbox").val();
+        if(DBG)console.log("searchDataByKeyWord with keyword(" + queryText);
 
-	getLocation();
+        searchResult = [];
 
-	barOflocationInfo = document.getElementById("locationInfo");
-	$("#loadRemoteData").click(function() {
-		if(DBG)console.log("button onclick: loadRemoteData");
-		tryToLoadRemoteData();
-	});
+        // if(queryText.length < 1) {
 
-	lockSearchControl(true);
-
-/*
-	$("#searchbox").keyup(function(event){
-		if(event.keyCode === 13){
-			onSearchButtonClick();
-		}
-	});
-*/
-	$("#searchButton").click(onSearchButtonClick);
-
-
-	$("#buttonShowProgress").click(function() {
-		showProgressBar(true);
-	});
-
-	$("#buttonHideProgress").click(function() {
-		showProgressBar(false);
-	});
-});
-
-var testDataArray = [];
-function appendToList(dataArray) {
-
-	if(DBG)console.log("+ appendToList: " + dataArray.length);
-	if(DBG)console.log(dataArray[0]);
-	if(DBG)console.log(dataArray[1]);
-	var searchResulArray = dataArray;
-
-	// if the geolocation is available
-	// calculate the distance.
-	if(isGeoinfoAvailable === true) {
-		console.log("geolocation is available !");
-		var currentLatitude = getLastGeolocationLatitude();
-		var currentLongitude = getLastGeolocationLongitude();
-		var i=0;
-		for( i=0; i< dataArray.length ; i++) {
-			var distance = getDistance(currentLatitude, currentLongitude,
-					searchResulArray[i].latitude, searchResulArray[i].longitude);
-
-			searchResulArray[i].distance = distance;
-		}
-
-		testDataArray = searchResulArray;
-		searchResulArray.sort(sortDistance);
-	}
-
-	if(DBG)console.log("ready to append item count:" + dataArray.length);
-	if(DBG)console.log("ready to create item for listView: " + searchResulArray.length);
-	//if(DBG)console.log(searchResulArray);
-
-	var injectHTML = "";
-	var itemTempalte = "";
-	i = 0;
-	for( i =0; i < searchResulArray.length; i++) {
-
-        // if(searchResulArray[i].remark.indexOf("結束營業") != -1) {
-            // continue;
+            // updateSearchResult(mStoreNearByMe);
+            // return;
         // }
 
-		itemTempalte =
-			"<li class='ui-li ui-li-static ui-btn-up-c'" +
-			"<div class='ui-btn-inner ui-li'><div class='ui-btn-text'>" +
-			"<p class='ui-li-aside ui-li-desc'><strong>"  + "距離: " + searchResulArray[i].distance + "公尺</strong></p>"+
-			"<h2 class='ui-li-heading'>" + searchResulArray[i].name + "</h2>"+
-			"<a class='ui-li-desc' href='http://maps.google.com.tw/?q=" + searchResulArray[i].address  + "' target='_blank'>" + searchResulArray[i].address + "</a>" +
-			"<p class='ui-li-desc' style='white-space: normal;'>推廌餐點: " + searchResulArray[i].menu +  "</p>";
+        showProgressBar(true);
+        $("#listView").empty();
+        updateMessageBar("@_@ 搜尋中 ...");
+        mSearchStart = new Date();
 
-		if(searchResulArray[i].openTime !== "無") {
-			itemTempalte += "<p class='ui-li-desc'>營業時間: <strong>" + searchResulArray[i].openTime +  "</strong></p>";
-		}
-		if(searchResulArray[i].remark !== "無") {
-			itemTempalte += "<p class='ui-li-desc' style='white-space: normal;'>ps: " + searchResulArray[i].remark +  "</p>";
-		}
+        disableSearchControl(true);
 
-		if(searchResulArray[i].phone !== "無") {
-			itemTempalte +=
-            "<p class='ui-li-desc'>電話:" +
-			"<a class='goog_qs-tidbit goog_qs-tidbit-0' href='tel:" + searchResulArray[i].phone + "'>" + searchResulArray[i].phone + "</a>" +
-            "</p>" +
-			"</li>";
-		}
+        //empty serach result
+        searchResult = [];
 
-		$("#listView").append(itemTempalte);
+        var result ;
 
-	}
-	if(DBG)console.log("*** create item for listView -> start");
+        var queryString = "";
+        if (queryText.indexOf(",") != -1) {
+            queryText = queryText.replace(/,/g," ");
+        }
 
-	$("#listView").listview("refresh");
-	setUIisReady(true);
+        if(queryText.indexOf(" ") != -1) {
+            var queryArray = queryText.split(" ");
+            var i=0;
+            for( i=0; i< queryArray.length; i++) {
+                if(queryString.length > 0) {
+                    queryString += ".*" + queryArray[i];
+                } else {
+                    queryString = queryArray[i];
+                }
+            }
+        } else {
+            queryString = queryText;
+        }
 
-	if(DBG)console.log("*** create item for listView -> done");
-	updateSearchResultBar("約有 " + searchResulArray.length +
-			" 項結果 (搜尋時間: " + (mSearchEnd - mSearchStart)/1000 + " 秒)");
+        var search = new RegExp(queryString, "gi");
+        var dataList = locationData.getData();
+        if(DBG)console.log("reay query ___" + queryString + 
+                           "___ in DB Array length:" + dataList.length);
 
-}
+        i = 0;
+        for ( i=0; i < dataList.length; i++) {
+            var dataString = "";
+            var hit = false;
+            var k = 0;
+            for( k =0; k< Object.keys(dataList[i]).length ; k++) {
+                dataString += dataList[i][Object.keys(dataList[i])[k]];
+            }
 
+            if(dataString.match(search)) {
+                hit = true;
+                console.log(" search --> hit");
+            }
 
+            //console.log(result);
+            if(hit === true) {
+                searchResult.push(dataList[i]);
+            }
+        }
+        // 1. filtering distance
+        var limitRange = $('#selectRangeCondition').val();
+        searchResult = searchResult.filter(function(item) {
+            return item.distance <= limitRange;
+        });
 
+        if(DBG)console.log("searchDataByKeyWord --> done");
+        if(DBG)console.log(searchResult);
+        updateMessageBar("^_^b 搜尋完成.");
+        showProgressBar(false);
+        mSearchEnd = new Date();
+
+        disableSearchControl(false);
+
+        appendToList(searchResult);
+    }
+
+    $("#messageText").hide();
+
+    getCurrentLocation();
+
+    disableSearchControl(true);
+
+    $("#searchbox").keyup(function(event){
+        if(event.keyCode === 13){
+            onSearchButtonClick();
+        }
+    });
+
+    $("#searchButton").click(onSearchButtonClick);
+});
