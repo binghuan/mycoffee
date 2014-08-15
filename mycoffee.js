@@ -447,4 +447,6 @@ $(function() {
     });
 
     $("#searchButton").click(onSearchButtonClick);
+
+    $("#selectRangeCondition").on('change', onSearchButtonClick);
 });
