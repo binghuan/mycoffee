@@ -11,6 +11,22 @@ var mSearchEnd = null;
 
 console.log("### version: " + VERSION);
 
+// template wrapper
+function Template(html) {
+    this.html = html;
+
+    this.parse(html);
+}
+
+Template.prototype = {
+    parse: function(html) {
+        Mustache.parse(this.html);
+    },
+    render: function(obj) {
+        return Mustache.render(this.html, obj);
+    }
+};
+
 function LocationData(dataList) {
     this.dataList = dataList;
 }
@@ -25,7 +41,6 @@ LocationData.prototype.parse = function() {
     // });
 };
 
-var searchResult = [];
 var locationData = new LocationData(dataList);
 
 // get the distance between two places.
@@ -121,9 +136,9 @@ var isNeededToLoadForNextPlace = false;
 
 function showProgressBar(enabled) {
 	if(enabled === true ) {
-		$.mobile.showPageLoadingMsg();
+        $.mobile.loading('show');
 	} else  {
-		$.mobile.hidePageLoadingMsg();
+        $.mobile.loading('hide');
 	}
 }
 
@@ -203,8 +218,7 @@ function updateSearchResult(data) {
     // clear list view first
     $("#listView").empty();
 
-	searchResult = data;
-	appendToList(searchResult);
+	appendToList(data);
 }
 
 function updateAddressBar(address) {
@@ -292,67 +306,19 @@ function appendToList(dataArray) {
 	if(DBG)console.log("ready to create item for listView: " + searchResult.length);
     if(DBG)console.log(searchResult);
 
-	var itemTempalte = "";
-    /*
-	i = 0;
-	for( i =0; i < searchResult.length; i++) {
 
-		itemTempalte =
-			"<li class='ui-li ui-li-static ui-btn-up-c'" +
-			"<div class='ui-btn-inner ui-li'><div class='ui-btn-text'>" +
-			"<p class='ui-li-aside ui-li-desc'><strong>"  + "距離: " + searchResult[i].distance + "公尺</strong></p>"+
-			"<h2 class='ui-li-heading'>" + searchResult[i].name + "</h2>"+
-			"<a class='ui-li-desc' href='http://maps.google.com.tw/?q=" + searchResult[i].address  + "' target='_blank'>" + searchResult[i].address + "</a>" +
-			"<p class='ui-li-desc' style='white-space: normal;'>推廌餐點: " + searchResult[i].menu +  "</p>";
-
-		if(searchResult[i].openTime !== "無") {
-			itemTempalte += "<p class='ui-li-desc'>營業時間: <strong>" + searchResult[i].openTime +  "</strong></p>";
-		}
-		if(searchResult[i].remark !== "無") {
-			itemTempalte += "<p class='ui-li-desc' style='white-space: normal;'>ps: " + searchResult[i].remark +  "</p>";
-		}
-
-		if(searchResult[i].phone !== "無") {
-			itemTempalte +=
-            "<p class='ui-li-desc'>電話:" +
-			"<a class='goog_qs-tidbit goog_qs-tidbit-0' href='tel:" + searchResult[i].phone + "'>" + searchResult[i].phone + "</a>" +
-            "</p>" +
-			"</li>";
-		}
-
-		$("#listView").append(itemTempalte);
-
-	}
-    */
-
+    var itemTemplate = new Template($('#store-item').html());
     searchResult.forEach(function(item) {
-		itemTempalte =
-			"<li class='ui-li ui-li-static ui-btn-up-c'" +
-			"<div class='ui-btn-inner ui-li'><div class='ui-btn-text'>" +
-			"<p class='ui-li-aside ui-li-desc'><strong>"  + "距離: " + item.distance + "公尺</strong></p>"+
-			"<h2 class='ui-li-heading'>" + item.name + "</h2>"+
-			"<a class='ui-li-desc' href='http://maps.google.com.tw/?q=" + item.address  + "' target='_blank'>" + item.address + "</a>";
+        var distanceString = (item.distance > 1000)? ((item.distance / 1000.0).toFixed(1) + '公里') : (item.distance + '公尺');
+        var itemView = itemTemplate.render({
+            name: item.name,
+            address: item.address,
+            phone: item.phone,
+            openTime: item.openTime,
+            distance: distanceString
+        });
 
-        if(item.menu != null) {
-			itemTempalte += "<p class='ui-li-desc' style='white-space: normal;'>推廌餐點: " + item.menu +  "</p>";
-        }
-
-		if(item.openTime != null && item.openTime !== "無") {
-			itemTempalte += "<p class='ui-li-desc'>營業時間: <strong>" + item.openTime +  "</strong></p>";
-		}
-		if(item.remark != null && item.remark !== "無") {
-			itemTempalte += "<p class='ui-li-desc' style='white-space: normal;'>ps: " + item.remark +  "</p>";
-		}
-
-		if(item.phone != null && item.phone !== "無") {
-			itemTempalte +=
-                "<p class='ui-li-desc'>電話:" +
-                "<a class='goog_qs-tidbit goog_qs-tidbit-0' href='tel:" + item.phone + "'>" + item.phone + "</a>" +
-                "</p>" +
-                "</li>";
-		}
-
-		$("#listView").append(itemTempalte);
+		$('#listView').append(itemView);
     });
 
 	if(DBG)console.log("*** create item for listView -> start");
@@ -390,8 +356,6 @@ $(function() {
         var queryText = $("#searchbox").val();
         if(DBG)console.log("searchDataByKeyWord with keyword(" + queryText);
 
-        searchResult = [];
-
         // if(queryText.length < 1) {
 
             // updateSearchResult(mStoreNearByMe);
@@ -406,7 +370,7 @@ $(function() {
         disableSearchControl(true);
 
         //empty serach result
-        searchResult = [];
+        var searchResult = [];
 
         var result ;
 
