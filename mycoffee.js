@@ -83,19 +83,16 @@ function getCurrentLocation() {
 
         if(DBG)console.log("get current possision is " + latlon);
 
-        var geolocation = getLastGeolocation();
-        var distance = getDistance(geolocation.latitude, 
-                                   geolocation.longitude, 
-                                   position.coords.latitude, 
-                                   position.coords.longitude);
+        var currentGeolocation = {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+        };
+
         // if(distance > (DEFAULT_RANGE / 3)) {
             // isNeededToLoadForNextPlace = true;
         // }
 
-        setLastGeolocation({
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude
-        });
+        setLastGeolocation(currentGeolocation);
         // longitude - 經度 - 縱線
         // latitude - 緯度 - 水平線
 
@@ -103,6 +100,11 @@ function getCurrentLocation() {
 
         // try to get the store info. which is near by me
         listStoreData(locationData.getData());
+
+        // update current address
+        GMap.utils.getCurrentAddress(currentGeolocation).done(function(address) {
+            $('#addressInfo').html(address);
+        });
     }
 
     function errorGetGeoInfo(error) {
@@ -126,6 +128,13 @@ function getCurrentLocation() {
 
   	if (navigator.geolocation) {
     	navigator.geolocation.getCurrentPosition(successGetGeoInfo,errorGetGeoInfo);
+
+        // update geolocation every 1 second
+        // navigator.geolocation.watchPosition(handlePosition, handleError, {
+            // venabledHighAccuracy: true,
+            // // update time
+            // maximumAge: 1000
+        // });
 	} else {
 		console.warn("Geolocation is not supported by this browser.");
 	}
@@ -449,4 +458,9 @@ $(function() {
     $("#searchButton").click(onSearchButtonClick);
 
     $("#selectRangeCondition").on('change', onSearchButtonClick);
+
+    $('#updateLocation').on('click', function() {
+        getCurrentLocation();
+    });
 });
+

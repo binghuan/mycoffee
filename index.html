@@ -58,14 +58,24 @@
             </div>
         </div>
 
-		<div id="messageBar">
-			<p id="messageText" style="margin-left:10px;margin-right:auto;"	>
-			<p id="addressInfo" style="margin-left:10px;margin-right:auto;"	>
-			<p id="searchResultText" style="margin-left:10px;margin-right:auto;">
-		</div>
-
-		<br>
 		<div data-role="content" id="content">
+            <div class="ui-grid-b">
+                <div class="ui-block-a">
+                    <h2>目前位置:</h2>
+                </div>
+                <div class="ui-block-b">
+                    <h2 id="addressInfo"></h2>
+                </div>
+                <div class="ui-block-c">
+                    <button id="updateLocation" data-role="button" data-icon="refresh">更新位置</button>
+                </div>
+            </div>
+
+            <div id="messageBar">
+                <h2 id="messageText" style="margin-left:10px;margin-right:auto;display: inline"></h2>
+                <h2 id="searchResultText" style="margin-left:10px;margin-right:auto;display:inline"></h2>
+            </div>
+            <p></p>
 			<ul id="listView" data-role='listview' data-count-theme='b'></ul>
 		</div>
 

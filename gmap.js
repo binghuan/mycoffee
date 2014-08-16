@@ -128,8 +128,37 @@
         geocode2LatLng: function(geocode) {
             // geocode: {latitude: Number, longitude: Number}
             return new google.maps.LatLng(geocode.latitude, geocode.longitude);
+        },
+        getCurrentAddress: function(geocode) {
+            var defer = $.Deferred();
+            var latLng = new google.maps.LatLng(geocode.latitude, geocode.longitude);
+            geocoder.geocode({latLng: latLng}, function(results, status) {
+                if(status === google.maps.GeocoderStatus.OK) {
+                    if(results[0]) {
+                        console.log(results);
+                        // $("#address").html(format_addr);
+                        // var addrComponents= results[0].address_components;
+                        var formattedAddr = '';
+
+                        // addrComponents.reverse().forEach(function(comp) {
+                            // formattedAddr += comp.long_name;
+                            // if(comp.types.indexOf('street_number') !== -1) {
+                                // formattedAddr += "號";
+                            // }
+                        // });
+                        formattedAddr = results[0].formatted_address;
+                    }
+
+                    defer.resolve(formattedAddr);
+                }
+                else {
+                    defer.reject();
+                }
+            });
+
+            return defer;
         }
     };
-    
+
     global.GMap = GMap;
 })(window);
