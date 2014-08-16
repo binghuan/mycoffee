@@ -237,19 +237,25 @@ var dataList = [
         "name": "挪威森林-公館店",
         "address": "北市羅斯福路三段284巷9號",
         "phone": "02-23653089",
-        "openTime": ""
+        "openTime": "",
+        "latitude": 25.016145,
+        "longitude": 121.531758
     },
     {
         "name": "傑克魔豆",
         "address": "北市羅斯福路三段316巷16號2F",
         "phone": "02-23694893",
-        "openTime": ""
+        "openTime": "",
+        "latitude": 25.015506,
+        "longitude": 121.532336
     },
     {
         "name": "老樹咖啡",
         "address": "台北市新生南路一段60號",
         "phone": "02 2351 6452",
-        "openTime": "10:00–00:00"
+        "openTime": "10:00–00:00",
+        "latitude": 25.0408174,
+        "longitude": 121.5325601
     },
     {
         "name": "夏洛特咖啡",
@@ -263,7 +269,9 @@ var dataList = [
         "name": "Aura微光咖啡",
         "address": "台北市大安區羅斯福路三段269巷9號",
         "phone": "02 8369 3577",
-        "openTime": "12:00–23:00"
+        "openTime": "12:00–23:00",
+        "latitude": 25.0194629,
+        "longitude": 121.530555
     },
     {
         "name": "道南館",
@@ -285,7 +293,9 @@ var dataList = [
         "name": "Akuma caca 可可設計人文咖啡",
         "address": "台北市大安區四維路14巷6號B1",
         "phone": "02-27019227",
-        "openTime": "週一 ~週四、週日：12:00-22:00 週五~週六：12:00-23:00, 每月第一個禮拜二為公休日"
+        "openTime": "週一 ~週四、週日：12:00-22:00 週五~週六：12:00-23:00, 每月第一個禮拜二為公休日",
+        "latitude": 25.036687,
+        "longitude": 121.547544
     },
     {
         "name": "AKUMA CACA II 敦南店",
@@ -299,13 +309,17 @@ var dataList = [
         "name": "沛洛瑟自家焙煎咖啡店",
         "address": "台北市中正區中華路二段75巷40號",
         "phone": "02-23122955",
-        "openTime": "10:00–21:00"
+        "openTime": "10:00–21:00",
+        "latitude": 25.0334399,
+        "longitude": 121.507665
     },
     {
         "name": "RUFOUS COFFEE",
         "address": "復興南路二段333號",
         "phone": "02 2736 6880",
-        "openTime": ""
+        "openTime": "",
+        "latitude": 25.02363,
+        "longitude": 121.543668
     },
     {
         "name": "聞山自家焙煎咖啡館",
@@ -319,7 +333,9 @@ var dataList = [
         "name": "GEORGE HOUSE台北永康門市",
         "address": "台北市永康街75巷3號",
         "phone": "02-23920801",
-        "openTime": "13:00~23:00"
+        "openTime": "13:00~23:00",
+        "latitude": 25.0288684,
+        "longitude": 121.5296764
     },
     {
         "name": "原豆空間自家烘焙咖啡館",
@@ -330,34 +346,300 @@ var dataList = [
         "longitude": 120.224982
     },
     {
-        "name": "",
-        "address": "",
-        "phone": "",
-        "openTime": ""
+        "name": "Sun Square Cafe",
+        "address": "新北市蘆洲區鷺江街65號",
+        "phone": "02-2289-8208",
+        "openTime": "12:00~20:00 (週日公休)",
+        "latitude": 25.082726,
+        "longitude": 121.477245
     },
     {
-        "name": "",
-        "address": "",
-        "phone": "",
-        "openTime": ""
+        "name": "吉佳咖啡",
+        "address": "台北市士林區菁山路18號",
+        "phone": "02-2861-8050",
+        "openTime": "10:00~22:30",
+        "latitude": 25.138012,
+        "longitude": 121.547048
     },
     {
-        "name": "",
-        "address": "",
-        "phone": "",
-        "openTime": ""
+        "name": "鍋爐咖啡-luguo cafe",
+        "address": "台北市北投區大度路三段296巷39號",
+        "phone": "02-28915990",
+        "openTime": "14:30~23:00, 週一公休,每月最後一個週二也會休",
+        "latitude": 25.124283,
+        "longitude": 121.466735
     },
     {
-        "name": "",
-        "address": "",
-        "phone": "",
-        "openTime": ""
+        "name": "陽光水岸花園",
+        "address": "台北市士林區菁山路131巷19號",
+        "phone": "02 2861 9088",
+        "openTime": "",
+        "latitude": 25.1447301,
+        "longitude": 121.567949
     },
     {
-        "name": "",
-        "address": "",
-        "phone": "",
-        "openTime": ""
+        "name": "理約自家烘焙精品咖啡館",
+        "address": "台北市中山北路七段191巷21號",
+        "phone": "02-2872-9167",
+        "openTime": "9:00~21:00（週二~五; 13:00~21:30（週六、日）週一公休",
+        "latitude": 25.1255229,
+        "longitude": 121.531118
+    },
+    {
+        "name": "摩威咖啡館",
+        "address": "台北市士林區磺溪街21巷2號",
+        "phone": "02 2838 3826",
+        "openTime": "",
+        "latitude": 25.106215,
+        "longitude": 121.522892
+    },
+    {
+        "name": "Sheme HOUSE 拾米屋",
+        "address": "台北市北投區大同街153號1號倉庫",
+        "phone": "(02)2892-2800",
+        "openTime": "13:00~20:00",
+        "latitude": 25.1357885,
+        "longitude": 121.4989701
+    },
+    {
+        "name": "GaoFei COFFEE shop 新北投公園店",
+        "address": "台北市北投區泉源路12號3F",
+        "phone": "(02)2893-7543",
+        "openTime": "周三~日- 12:00 ~ 18:00",
+        "latitude": 25.137063,
+        "longitude": 121.504345
+    },
+    {
+        "name": "黑豆坊咖啡",
+        "address": "台北市士林區中山北路五段527號",
+        "phone": "02-2883-1125",
+        "openTime": "中午12:00~晚上23:00(全年無休，只休過年三天)",
+        "latitude": 25.094074,
+        "longitude": 121.52784
+    },
+    {
+        "name": "波希米亞人咖啡",
+        "address": "台北市大同區長安西路76號B1",
+        "phone": "02 2550 0421",
+        "openTime": "週二 - 週日: 12:00 - 22:00",
+        "latitude": 25.050253,
+        "longitude": 121.519344
+    },
+    {
+        "name": "立裴米緹咖啡館",
+        "address": "台北市中山北路二段16巷10號",
+        "phone": "02 2531 0189",
+        "openTime": "週一至周日12:00~2200",
+        "latitude": 25.053022,
+        "longitude": 121.521677
+    },
+    {
+        "name": "Fika Fika Cafe",
+        "address": "台北市中山區伊通街33號",
+        "phone": "02 - 2507 0633",
+        "openTime": " 一～五 08:00 – 21:00  六、日10:00~21:00",
+        "latitude": 25.0504461,
+        "longitude": 121.5352172
+    },
+    {
+        "name": "Coffee Sweet",
+        "address": "台北市中山區中山北路一段33巷20弄3號",
+        "phone": "(02)2521-0631",
+        "openTime": "週一 – 週五：9:30 – 18:30, 週六： 15:30 – 18:30",
+        "latitude": 25.0481779,
+        "longitude": 121.522176
+    },
+    {
+        "name": "羅斯特咖啡",
+        "address": "台北市合江街100巷23號1樓",
+        "phone": "02 2509 1526",
+        "openTime": "09:00–17:00",
+        "latitude": 25.058462,
+        "longitude": 121.538157
+    },
+    {
+        "name": "Le park cafe 公園咖啡館",
+        "address": "台北市中山區遼寧街146號",
+        "phone": "02 2719 8880",
+        "openTime": "週一: 13:00 - 23:00, 週三 - 週四: 13:00 - 23:00, 週五 - 週六: 13:00 - 0:00, 週日: 13:00 - 23:00",
+        "latitude": 25.0537289,
+        "longitude": 121.541937
+    },
+    {
+        "name": "老爸咖啡有限公司 LE BAR COFFEE",
+        "address": "新北市三重區光復路一段83巷8號6樓",
+        "phone": "02 2278 1563",
+        "openTime": "",
+        "latitude": 25.050492,
+        "longitude": 121.47338
+    },
+    {
+        "name": "Solo Bean",
+        "address": "台北市中正區襄陽路35號",
+        "phone": "02 2382 6890",
+        "openTime": "週一 - 週五: 7:30 - 18:00, 週六: 9:00 - 18:00",
+        "latitude": 25.043565,
+        "longitude": 121.513625
+    },
+    {
+        "name": "上上咖啡",
+        "address": "台北市中正區延平南路95號1樓",
+        "phone": "02 2314 0064",
+        "openTime": "",
+        "latitude": 25.042739,
+        "longitude": 121.510825
+    },
+    {
+        "name": "老樹咖啡-台北一店",
+        "address": "台北市新生南路一段60號",
+        "phone": "02-2351-6452",
+        "openTime": "",
+        "latitude": 25.0408174,
+        "longitude": 121.5325601
+    },
+    {
+        "name": "蜂大咖啡",
+        "address": "臺北市萬華區成都路42號",
+        "phone": "02-2371-9577",
+        "openTime": "",
+        "latitude": 25.0425607,
+        "longitude": 121.5063808
+    },
+    {
+        "name": "咖啡實驗室Coffee lab",
+        "address": "台北市忠孝東路二段64巷6號",
+        "phone": "02 2341 9880",
+        "openTime": "週一 - 週四: 12:00 - 20:00,週五 - 週六: 12:00 - 21:30,週日: 12:00 - 20:00",
+        "latitude": 25.042992,
+        "longitude": 121.528603
+    },
+    {
+        "name": "哈亞極品咖啡 (台北店)",
+        "address": "台北市松山區敦化北路307號1樓",
+        "phone": "02-2715-1646",
+        "openTime": "週一至週日：09:00~21:00, 每月第一、第三個週一公休",
+        "latitude": 25.0585609,
+        "longitude": 121.549746
+    },
+    {
+        "name": "GaBee.咖啡店",
+        "address": "台北市松山區民生東路三段113巷21號",
+        "phone": "02 2713 8772",
+        "openTime": "10:00–23:00",
+        "latitude": 25.0593739,
+        "longitude": 121.546318
+    },
+    {
+        "name": "湛盧咖啡-大安館",
+        "address": "台北市大安區新生南路一段161巷2-1號1F",
+        "phone": "02-2708-9828",
+        "openTime": "",
+        "latitude": 25.034513,
+        "longitude": 121.533417
+    },
+    {
+        "name": "湛盧咖啡-市府館",
+        "address": "台北市信義區忠孝東路四段553巷6弄4號1F",
+        "phone": "02-2763-9909 ",
+        "openTime": "",
+        "latitude": 25.042186,
+        "longitude": 121.562976
+    },
+    {
+        "name": "藝豐咖啡",
+        "address": "台北市松山區民生東路五段69巷9號",
+        "phone": "02-3765-5636",
+        "openTime": "0900~2100 星期二公休",
+        "latitude": 25.05923,
+        "longitude": 121.558101
+    },
+    {
+        "name": "Coffee Remus 旅沐豆行 錦州店",
+        "address": "台北市中山區錦州街416號",
+        "phone": "02-2503-1005",
+        "openTime": "12:00~18:00",
+        "latitude": 25.060036,
+        "longitude": 121.541823
+    },
+    {
+        "name": "Coffee Remus 旅沐豆行 興安店",
+        "address": "台北市興安街26-1號",
+        "phone": "(02) 2504-3344",
+        "openTime": "12:00~21:00",
+        "latitude": 25.0560449,
+        "longitude": 121.538233
+    },
+    {
+        "name": "老鄰居精品咖啡",
+        "address": "台北市內湖路二段103巷74號",
+        "phone": "02 2799 4538",
+        "openTime": "",
+        "latitude": 25.083089,
+        "longitude": 121.580934
+    },
+    {
+        "name": "Cafe Ballet 芭蕾咖啡館 ‧台北",
+        "address": "台北市松山區三民路107巷33號",
+        "phone": "(02)27631981",
+        "openTime": "",
+        "latitude": 25.057582,
+        "longitude": 121.561807
+    },
+    {
+        "name": "Artista Perfetto",
+        "address": "台北市信義區忠孝東路四段553巷6弄",
+        "phone": "02 2763 7002",
+        "openTime": "",
+        "latitude": 25.0422179,
+        "longitude": 121.56319
+    },
+    {
+        "name": "克立瑪 LA CREMA",
+        "address": "台北市光復南路280巷45號",
+        "phone": "02 27313264",
+        "openTime": "",
+        "latitude": 25.039701,
+        "longitude": 121.555496
+    },
+    {
+        "name": "加爾第咖啡",
+        "address": "台北市信義區吳興街269巷1弄21號",
+        "phone": "02 2345 1136",
+        "openTime": "",
+        "latitude": 25.027609,
+        "longitude": 121.563975
+    },
+    {
+        "name": "班氏自家烘焙咖啡",
+        "address": "台北市信義區忠孝東路5段372巷27弄73號之1",
+        "phone": " 02-8789-6797",
+        "openTime": "",
+        "latitude": 25.040024,
+        "longitude": 121.576336
+    },
+    {
+        "name": "相思李舍",
+        "address": "台北市大安區光復南路240巷7號",
+        "phone": "02 2773 5870",
+        "openTime": "",
+        "latitude": 25.0406621,
+        "longitude": 121.5570662
+    },
+    {
+        "name": "癮咖啡",
+        "address": "台北市信義區崇德街10號",
+        "phone": "0910585552",
+        "openTime": "",
+        "latitude": 25.024226,
+        "longitude": 121.553271
+    },
+    {
+        "name": "配個咖啡吧！PEG Coffee",
+        "address": "台灣台北市信義區嘉興街309號",
+        "phone": "02-8732-8603",
+        "openTime": "周一~周六 14：00~20：00 ，周日14：00~18：00",
+        "latitude": 25.023241,
+        "longitude": 121.554661
     },
     {
         "name": "",
