@@ -230,19 +230,6 @@ function updateSearchResult(data) {
 	appendToList(data);
 }
 
-function updateAddressBar(address) {
-
-	$("#messageText").hide();
-
-	if(address.length < 1) {
-		$("#messageText").fadeOut('fast');
-	} else {
-        $('#addressInfo').html("最近的位置:" + address);
-		$("#messageText").fadeIn('slow');
-	}
-
-}
-
 function disableSearchControl(isLock) {
 	var $searchButton = $('#searchButton');
 	if($searchButton.length != 0) {
@@ -447,6 +434,8 @@ $(function() {
 
     getCurrentLocation();
 
+    $('#addressInfo').html('位置不明');
+
     disableSearchControl(true);
 
     $("#searchbox").keyup(function(event){
@@ -460,7 +449,9 @@ $(function() {
     $("#selectRangeCondition").on('change', onSearchButtonClick);
 
     $('#updateLocation').on('click', function() {
+        showProgressBar(true);
         getCurrentLocation();
+        showProgressBar(false);
     });
 });
 
