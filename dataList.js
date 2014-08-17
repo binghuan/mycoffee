@@ -756,6 +756,23 @@ var dataList = [
         "longitude": 121.50291
     },
     {
+        "name": "艾瑞絲",
+        "address": "新竹市光復路二段354號",
+        "phone": "03-5734834",
+        "openTime": "星期二~星期日 11:00~20:00(星期一公休)",
+        "facebook": "https://www.facebook.com/EriseCoffee",
+        "latitude": 24.7964171,
+        "longitude": 120.997654
+    },
+    {
+        "name": "鍋子咖啡",
+        "address": "新竹市民富街194號",
+        "phone": "035237773",
+        "openTime": "",
+        "latitude": 24.8063447,
+        "longitude": 120.9586446
+    },
+    {
         "name": "",
         "address": "",
         "phone": "",
