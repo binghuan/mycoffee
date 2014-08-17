@@ -37,9 +37,10 @@
 <body>
     <!-- main page -->
 	<div data-role="page" id='index'>
-		<div data-role="header" data-theme='b'>
-			<a id="pinButton" data-ajax="false" data-role="button" data-theme='c' href='javascript:(function(){var newUrl = location.href.replace("food.html", "pinSetting.html") + "?url=" + location.href + "&icon=icon/food.png&fontColor=white&label=Food Finder"; sessionStorage.PIN_TILE_STAY = "1";console.log("navigate to " + newUrl); location.href = newUrl;})()' class="ui-btn-right" data-icon="pin" data-iconpos="left">Pin</a>
+		<div data-theme='b' data-role="header">
 			<h1>My Coffee</h1>
+            <a id="pinButton" data-ajax="false" data-theme='a' class="ui-btn-right" data-icon="action"
+            href='javascript:(function(){var newUrl = "http://binghuan.herokuapp.com/pinToRedirection.html?url=" + location.href + "&icon=icon/mycoffee.png&fontColor=black&label=My Coffee"; console.log("navigate to " + newUrl); location.href = newUrl;})()'>Pin</a>
 		</div>
 
         <input type="search" name="postcode" id="searchbox" value="" placeholder="搜尋範例: 台北 咖啡"/>
