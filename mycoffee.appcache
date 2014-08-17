@@ -1,25 +1,31 @@
 CACHE MANIFEST
-# Version: 2014/02/06 00:13 update 3
+# Version: 2014/08/17 17:28 update 11
 
 CACHE:
-icon/food.ico
-icon/food.png
-icon/food_120x120.png
-icon/food_128x128.png
-icon/food_152x152.png
-icon/food_196x196.png
-icon/food_64x64.png
-icon/food_76x76.png
+icon/mycoffee.ico
+icon/mycoffee.png
+icon/mycoffee-120.png
+icon/mycoffee-128.png
+icon/mycoffee-152.png
+icon/mycoffee-196.png
+icon/mycoffee-64.png
+icon/mycoffee-76.png
 images/icons-18-black.png
 images/icons-18-white.png
 images/icons-36-black.png
 images/icons-36-white.png
 images/ajax-loader.gif
 images/pin.png
-jquery-1.11.1.min.js
-jquery.mobile-1.3.1.min.css
-foodActionTable.js
-foodDataList.js
-jquery.mobile-1.3.1.min.js
-food.html
-food.js
+lib/jquery-1.11.1.min.js
+lib/mustache.js
+lib/jquery.mobile-1.4.3.min.js
+lib/jquery.mobile-1.4.3.js
+lib/jquery.mobile-1.4.3.min.map
+css/jquery.mobile-1.4.3.min.css
+gmap.js
+datalist.js
+mycoffee.js
+index.html
+
+NETWORK:
+*

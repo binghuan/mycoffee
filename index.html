@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<!--<html manifest="mycoffee.appcache">-->
-<html>
+<html manifest="mycoffee.appcache">
+<!--<html>-->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
@@ -26,11 +26,11 @@
           box-shadow: none;
           -webkit-box-shadow: none;
         }
-        
-        .page-map, #map-canvas { 
-            width: 100%; 
-            height: 100%; 
-            padding: 0; 
+
+        .page-map, #map-canvas {
+            width: 100%;
+            height: 100%;
+            padding: 0;
         }
     </style>
 </head>
@@ -102,7 +102,7 @@
                 {{distance}}
             </span>
             <p>
-                <a href="http://maps.google.com.tw/?q={{address}}" target="_blank">
+                <a href="//maps.google.com.tw/?q={{address}}" target="_blank">
                     {{address}}
                 </a>
             </p>
@@ -129,7 +129,7 @@
     <script src="lib/jquery.mobile-1.4.3.min.js"></script>
     <script src="lib/mustache.js" type="text/javascript" charset="utf-8"></script>
 
-	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=&sensor=true"></script>
+	<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=&sensor=true"></script>
     <script src="gmap.js" type="text/javascript" charset="utf-8"></script>
     <script src="dataList.js"></script>
     <script src="mycoffee.js"></script>
