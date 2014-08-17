@@ -324,6 +324,7 @@ function appendToList(dataArray) {
 	setUIisReady(true);
 
 	if(DBG)console.log("*** create item for listView -> done");
+    mSearchEnd = new Date();
 	updateSearchResultBar("約有 " + searchResult.length +
 			" 項結果 (搜尋時間: " + (mSearchEnd - mSearchStart)/1000 + " 秒)");
 }
@@ -332,6 +333,7 @@ function appendToList(dataArray) {
 $(function() {
 	if(DBG)console.log("++ init");
     showProgressBar(true);
+    mSearchStart = new Date();
 
 	if(navigator.userAgent.toLowerCase().indexOf("trident") === -1) {
 		var $pinButton = $("#pinButton");
@@ -425,9 +427,8 @@ $(function() {
         if(DBG)console.log("searchDataByKeyWord --> done");
         if(DBG)console.log(searchResult);
         updateMessageBar("^_^b 搜尋完成.");
-        showProgressBar(false);
-        mSearchEnd = new Date();
 
+        showProgressBar(false);
         disableSearchControl(false);
 
         appendToList(searchResult);
