@@ -36,11 +36,12 @@
 </head>
 <body>
     <!-- main page -->
-	<div data-role="page" id='index'>
-		<div data-role="header" data-theme='b'>
-			<a id="pinButton" data-ajax="false" data-role="button" data-theme='c' href='javascript:(function(){var newUrl = location.href.replace("food.html", "pinSetting.html") + "?url=" + location.href + "&icon=icon/food.png&fontColor=white&label=Food Finder"; sessionStorage.PIN_TILE_STAY = "1";console.log("navigate to " + newUrl); location.href = newUrl;})()' class="ui-btn-right" data-icon="pin" data-iconpos="left">Pin</a>
-			<h1>My Coffee</h1>
-		</div>
+    <div data-role="page" id='index'>
+        <div data-theme='b' data-role="header">
+            <h1>My Coffee</h1>
+            <a id="pinButton" data-ajax="false" data-theme='a' class="ui-btn-right" data-icon="action"
+            href='javascript:(function(){var newUrl = "http://binghuan.herokuapp.com/pinToRedirection.html?url=" + location.href + "&icon=icon/mycoffee.png&fontColor=black&label=My Coffee"; console.log("navigate to " + newUrl); location.href = newUrl;})()'>Pin</a>
+        </div>
 
         <input type="search" name="postcode" id="searchbox" value="" placeholder="搜尋範例: 台北 咖啡"/>
         <div class="ui-grid-a">
@@ -60,7 +61,7 @@
             </div>
         </div>
 
-		<div data-role="content" id="content">
+        <div data-role="content" id="content">
             <button id="updateLocation" data-role="button" data-icon="location" data-iconpos="notext" data-inline=true></button>
             <h3 id="addressInfo" style="display: inline"></h3>
 
@@ -69,20 +70,20 @@
                 <h3 id="searchResultText" style="display:inline"></h3>
             </div>
             <p></p>
-			<ul id="listView" data-role='listview' data-count-theme='b'></ul>
-		</div>
+            <ul id="listView" data-role='listview' data-count-theme='b'></ul>
+        </div>
 
-		<div data-role="footer" data-position='fixed' data-theme='b'>
-			<div>
-				<p align="center">
-					Powered by BH_Lin &amp; Powen_Tan
-				</p>
-			</div>
-		</div>
-	</div>
+        <div data-role="footer" data-position='fixed' data-theme='b'>
+            <div>
+                <p align="center">
+                    Powered by BH_Lin &amp; Powen_Tan
+                </p>
+            </div>
+        </div>
+    </div>
     <!-- gmap page -->
     <div data-role="page" id="gmap" class='page-map'>
-		<div data-role="content" id="content" style="height: 100%; width: 100%; padding: 0px;">
+        <div data-role="content" id="content" style="height: 100%; width: 100%; padding: 0px;">
             <div id="map-canvas" style="height: 100%; width: 100%"></div>
         </div>
     </div>
@@ -129,7 +130,7 @@
     <script src="lib/jquery.mobile-1.4.3.min.js"></script>
     <script src="lib/mustache.js" type="text/javascript" charset="utf-8"></script>
 
-	<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=&sensor=true"></script>
+    <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=&sensor=true"></script>
     <script src="gmap.js" type="text/javascript" charset="utf-8"></script>
     <script src="dataList.js"></script>
     <script src="mycoffee.js"></script>
