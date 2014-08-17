@@ -193,7 +193,7 @@ function listStoreData(dataList) {
     var currentGeolocation = getLastGeolocation();
 
     dataList.forEach(function(item, index) {
-        item.distance = getDistance(currentGeolocation.latitude, currentGeolocation.longitude, 
+        item.distance = getDistance(currentGeolocation.latitude, currentGeolocation.longitude,
                                     item.latitude, item.longitude);
     });
 
@@ -218,6 +218,7 @@ function listStoreData(dataList) {
         // updateSearchResult(mStoreNearByMe);
     // }
     updateSearchResult(storeNearBy);
+    showProgressBar(false);
 }
 
 function updateSearchResult(data) {
@@ -327,8 +328,10 @@ function appendToList(dataArray) {
 			" 項結果 (搜尋時間: " + (mSearchEnd - mSearchStart)/1000 + " 秒)");
 }
 
+
 $(function() {
 	if(DBG)console.log("++ init");
+    showProgressBar(true);
 
 	if(navigator.userAgent.toLowerCase().indexOf("trident") === -1) {
 		var $pinButton = $("#pinButton");
@@ -391,7 +394,7 @@ $(function() {
 
         var search = new RegExp(queryString, "gi");
         var dataList = locationData.getData();
-        if(DBG)console.log("reay query ___" + queryString + 
+        if(DBG)console.log("reay query ___" + queryString +
                            "___ in DB Array length:" + dataList.length);
 
         i = 0;
