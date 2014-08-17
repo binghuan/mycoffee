@@ -89,7 +89,7 @@ var dataList = [
     },
     {
         "name": "品客咖啡屋",
-        "address": "雲和街48之1號",
+        "address": "台北市雲和街48-1號",
         "phone": "02 2369 1264",
         "openTime": "",
         "latitude": 25.0234579,
@@ -105,11 +105,11 @@ var dataList = [
     },
     {
         "name": "布拉格",
-        "address": "北市泰順街40巷30號",
+        "address": "台北市溫州街20號",
         "phone": "02 2369-7722",
-        "openTime": "14:00~24:00 (每週二公休)",
-        "latitude": 25.0242249,
-        "longitude": 121.529913
+        "openTime": "14:00~24:00",
+        "latitude": 25.0240951,
+        "longitude": 121.533354
     },
     {
         "name": "COZY",
@@ -642,88 +642,118 @@ var dataList = [
         "longitude": 121.554661
     },
     {
-        "name": "",
-        "address": "",
-        "phone": "",
-        "openTime": ""
+        "name": "極簡咖啡館",
+        "address": "台北市泰順街2巷42號",
+        "phone": "02-2362-9734",
+        "openTime": "早上 11:30 ~ 凌晨 2:00",
+        "latitude": 25.025603,
+        "longitude": 121.529569
     },
     {
-        "name": "",
-        "address": "",
-        "phone": "",
-        "openTime": ""
+        "name": "PICNIC CAFE 野餐咖啡",
+        "address": "台北市大安區溫州街75號",
+        "phone": "02 2368 7798",
+        "openTime": "12:00 - 00:00",
+        "latitude": 25.0203599,
+        "longitude": 121.533063
     },
     {
-        "name": "",
-        "address": "",
-        "phone": "",
-        "openTime": ""
+        "name": "豆工房 咖啡",
+        "address": "台北市忠孝東路五段1之8號",
+        "phone": "02 2749 3669",
+        "openTime": "",
+        "latitude": 25.041385,
+        "longitude": 121.565258
     },
     {
-        "name": "",
-        "address": "",
-        "phone": "",
-        "openTime": ""
+        "name": "木木商號Moon Moon Coffee",
+        "address": "新北市板橋區三民路二段62號",
+        "phone": "0229596969",
+        "openTime": "0800-2000",
+        "facebook": "http://facebook.com/mu2coffee",
+        "latitude": 25.017425,
+        "longitude": 121.479137
     },
     {
-        "name": "",
-        "address": "",
-        "phone": "",
-        "openTime": ""
+        "name": "E61咖啡場所",
+        "address": "新北市永和區安樂路200號",
+        "phone": "02-2926-3870",
+        "openTime": "15:00-22:00(周一休息)",
+        "latitude": 25.001692,
+        "longitude": 121.515145
     },
     {
-        "name": "",
-        "address": "",
-        "phone": "",
-        "openTime": ""
+        "name": "季節香咖啡",
+        "address": "新北市永和區仁愛路71號",
+        "phone": "02 8660 4684",
+        "openTime": "週一~週六 10:30~23:00，週日14:00~23:00",
+        "latitude": 25.0131489,
+        "longitude": 121.513276
     },
     {
-        "name": "",
-        "address": "",
-        "phone": "",
-        "openTime": ""
+        "name": "咖啡意識烘焙館",
+        "address": "新北市永和區永利路109號",
+        "phone": "02 2922 9358",
+        "openTime": "13:00–22:00",
+        "latitude": 25.002702,
+        "longitude": 121.523468
     },
     {
-        "name": "",
-        "address": "",
-        "phone": "",
-        "openTime": ""
+        "name": "菲瑪咖啡",
+        "address": "新北市永和區仁愛路300號",
+        "phone": "02 8660 8863",
+        "openTime": "13:00-22:00, closed Wednesdays",
+        "latitude": 25.0081773,
+        "longitude": 121.5036179
     },
     {
-        "name": "",
-        "address": "",
-        "phone": "",
-        "openTime": ""
+        "name": "Mellow Coffee",
+        "address": "新北市板橋區莒光路158號",
+        "phone": "0222573961",
+        "openTime": "1300-2300 (周二公休)",
+        "latitude": 25.023911,
+        "longitude": 121.473702
     },
     {
-        "name": "",
-        "address": "",
-        "phone": "",
-        "openTime": ""
+        "name": "Beck 519",
+        "address": "台北市中山區一江街10之1號",
+        "phone": "02 25111519",
+        "openTime": "",
+        "latitude": 25.051263,
+        "longitude": 121.531384
     },
     {
-        "name": "",
-        "address": "",
-        "phone": "",
-        "openTime": ""
+        "name": "Carmen coffee 卡門咖啡",
+        "address": "台北縣板橋市文化路一段435巷31弄6號",
+        "phone": "02 22583953",
+        "openTime": "週一: 8:30 - 21:30, 週三 - 週日: 8:30 - 21:30",
+        "latitude": 25.023199,
+        "longitude": 121.466748
     },
     {
-        "name": "",
-        "address": "",
-        "phone": "",
-        "openTime": ""
+        "name": "ATTS COFFEE",
+        "address": "新北市板橋區文化路二段182巷7弄3號",
+        "phone": "02 8252 1701",
+        "openTime": "",
+        "latitude": 25.027149,
+        "longitude": 121.471952
     },
     {
-        "name": "",
-        "address": "",
-        "phone": "",
-        "openTime": ""
+        "name": "Babka歐風鄉村咖啡",
+        "address": "新北市瑞芳區基山街177號",
+        "phone": "02-24063458",
+        "openTime": "AM9:00 - PM17:00(每月第四個星期一公休)",
+        "latitude": 25.1081409,
+        "longitude": 121.843497
     },
     {
-        "name": "",
-        "address": "",
-        "phone": "",
-        "openTime": ""
+        "name": "豆BAR",
+        "address": "新北市中和區南華路27號",
+        "phone": "02 2240 9721",
+        "openTime": "",
+        "facebook": "https://www.facebook.com/pages/%E8%B1%86BAR/640716429339692?sk=timeline",
+        "latitude": 24.996286,
+        "longitude": 121.50291
     },
     {
         "name": "",
