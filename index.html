@@ -32,6 +32,17 @@
             height: 100%;
             padding: 0;
         }
+
+        .wordwrap {
+            /* wrap long text and urls */
+            white-space: pre; /* CSS 2.0 */
+            white-space: pre-wrap; /* CSS 2.1 */
+            white-space: pre-line; /* CSS 3.0 */
+            white-space: -pre-wrap; /* Opera 4-6 */
+            white-space: -o-pre-wrap; /* Opera 7 */
+            white-space: -moz-pre-wrap; /* Mozilla */
+            word-wrap: break-word; /* IE 5+ */
+        }
     </style>
 </head>
 <body>
@@ -110,7 +121,7 @@
             <!-- <p class="ui-li-desc" style="white-space: normal;">推廌餐點:{{menu}}</p> -->
 
             {{#openTime}}
-                <p class="ui-li-desc">營業時間:
+                <p class="ui-li-desc wordwrap">營業時間:
                     {{openTime}}
                 </p>
             {{/openTime}}
