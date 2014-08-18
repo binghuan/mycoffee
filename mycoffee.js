@@ -148,8 +148,10 @@ function getCurrentLocation() {
 
 function showProgressBar(enabled) {
 	if(enabled === true ) {
+        mSearchStart = new Date();
         $.mobile.loading('show');
 	} else  {
+        mSearchEnd =  new Date();
         $.mobile.loading('hide');
 	}
 }
@@ -218,8 +220,8 @@ function listStoreData(dataList) {
         // (isNeededToLoadForNextPlace === true)) {
         // updateSearchResult(mStoreNearByMe);
     // }
-    updateSearchResult(storeNearBy);
     showProgressBar(false);
+    updateSearchResult(storeNearBy);
 }
 
 function updateSearchResult(data) {
@@ -251,6 +253,7 @@ function updateMessageBar(msg) {
 }
 
 function updateSearchResultBar(msg) {
+
 	$("#searchResultText").fadeOut('fast');
 	$("#searchResultText").html(msg);
 	$("#searchResultText").fadeIn('slow');
@@ -322,7 +325,7 @@ function appendToList(dataArray) {
 	setUIisReady(true);
 
 	if(DBG)console.log("*** create item for listView -> done");
-    mSearchEnd = new Date();
+
 	updateSearchResultBar("約有 " + searchResult.length +
 			" 項結果 (搜尋時間: " + (mSearchEnd - mSearchStart)/1000 + " 秒)");
 }
@@ -330,8 +333,7 @@ function appendToList(dataArray) {
 
 $(function() {
 	if(DBG)console.log("++ init");
-    showProgressBar(true);
-    mSearchStart = new Date();
+    showProgressBar(true);// Profile#1
 
 	if(navigator.userAgent.toLowerCase().indexOf("trident") === -1) {
 		var $pinButton = $("#pinButton");
@@ -361,7 +363,7 @@ $(function() {
             // return;
         // }
 
-        showProgressBar(true);
+        showProgressBar(true);// Profile#2
         $("#listView").empty();
         updateMessageBar("@_@ 搜尋中 ...");
         mSearchStart = new Date();
