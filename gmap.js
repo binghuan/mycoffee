@@ -21,6 +21,10 @@
         this.markerIcon = "";
     }
 
+    GMap.prototype.refresh = function() {
+        google.maps.event.trigger(this.map, 'resize');
+    };
+
     GMap.prototype.setMarkerIcon = function(image) {
         this.markerIcon = image;
     };

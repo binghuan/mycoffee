@@ -457,5 +457,37 @@ $(function() {
         getCurrentLocation();
         showProgressBar(false);
     });
+    // gmap
+    function initialize(mapID, mapCSS) {
+        if(mapCSS == null) {
+            $('#' + mapID).css({height: '100%'});
+        } else {
+            $('#' + mapID).css(mapCSS);
+        }
+        // new a map
+        window.gmap = new GMap(mapID);
+
+        // detect current location
+        window.gmap.setCurrentLocation();
+    }
+
+    $('#gmap').on('pageinit', function() {
+        initialize('map-canvas', {
+            width: '100%',
+            height: '100%',
+            position: 'absolute'
+        });
+        initialize('map-canvas');
+
+        // set markers
+        dataList.forEach(function(location) {
+            window.gmap.addMarkers([location], {
+                icon: 'icon/mycoffee-32.png'
+            });
+        });
+    });
+    $('#gmap').on('pageshow', function() {
+        window.gmap.refresh();
+    });
 });
 
