@@ -96,15 +96,15 @@ function getCurrentLocation() {
         // longitude - 經度 - 縱線
         // latitude - 緯度 - 水平線
 
-        isGeoinfoAvailable = true;
-
         // try to get the store info. which is near by me
         listStoreData(locationData.getData());
 
         // update current address
-        GMap.utils.getCurrentAddress(currentGeolocation).done(function(address) {
-            $('#addressInfo').html(address);
-        });
+        if(typeof GMap !== 'undefined') {
+            GMap.utils.getCurrentAddress(currentGeolocation).done(function(address) {
+                $('#addressInfo').html(address);
+            });
+        }
     }
 
     function errorGetGeoInfo(error) {
@@ -124,6 +124,12 @@ function getCurrentLocation() {
             console.warn("An unknown error occurred.");
             break;
         }
+
+        $('#addressInfo').html('無法取得地理位置(需要開啟GPS or 網路)');
+        // get last location
+        var currentGeolocation = getLastGeolocation();
+        // try to get the store info. which is near by me
+        listStoreData(locationData.getData());
     }
 
   	if (navigator.geolocation) {
@@ -139,9 +145,6 @@ function getCurrentLocation() {
 		console.warn("Geolocation is not supported by this browser.");
 	}
 }
-
-var isGeoinfoAvailable = false;
-var isNeededToLoadForNextPlace = false;
 
 function showProgressBar(enabled) {
 	if(enabled === true ) {
@@ -208,10 +211,8 @@ function listStoreData(dataList) {
 
     var storeNearBy = [];
 	// sub code id for testing.
-	if(isGeoinfoAvailable === true) {
-        var geolocation = getLastGeolocation();
-		storeNearBy = storeLastStoreInRange(geolocation.latitude, geolocation.longitude);
-	}
+    var geolocation = getLastGeolocation();
+    storeNearBy = storeLastStoreInRange(geolocation.latitude, geolocation.longitude);
 
     // if((searchResult.length === 0) ||
         // (isNeededToLoadForNextPlace === true)) {
@@ -283,21 +284,18 @@ function appendToList(dataArray) {
 
 	// if the geolocation is available
 	// calculate the distance.
-	if(isGeoinfoAvailable === true) {
-		console.log("geolocation is available !");
-        var geolocation = getLastGeolocation();
+    var geolocation = getLastGeolocation();
 
-        searchResult.forEach(function(item) {
-            item.distance = getDistance(geolocation.latitude, geolocation.longitude,
-                                        item.latitude, item.longitude);
+    searchResult.forEach(function(item) {
+        item.distance = getDistance(geolocation.latitude, geolocation.longitude,
+                                    item.latitude, item.longitude);
 
-        });
+    });
 
-		testDataArray = searchResult;
-		searchResult.sort(function (a,b) {
-            return a.distance - b.distance;
-        });
-	}
+    testDataArray = searchResult;
+    searchResult.sort(function (a,b) {
+        return a.distance - b.distance;
+    });
 
 	if(DBG)console.log("ready to append item count:" + dataArray.length);
 	if(DBG)console.log("ready to create item for listView: " + searchResult.length);
@@ -438,7 +436,12 @@ $(function() {
 
     getCurrentLocation();
 
-    $('#addressInfo').html('位置不明');
+    if(typeof GMap === 'undefined') {
+        $('#addressInfo').html('無法取得地址(需要網路)');
+    }
+    else {
+        $('#addressInfo').html('位置不明');
+    }
 
     disableSearchControl(true);
 
