@@ -23,7 +23,7 @@ lib/jquery.mobile-1.4.3.js
 lib/jquery.mobile-1.4.3.min.map
 css/jquery.mobile-1.4.3.min.css
 gmap.js
-datalist.js
+dataList.js
 mycoffee.js
 index.html
 
