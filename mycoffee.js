@@ -202,7 +202,7 @@ function listStoreData(dataList) {
                                     item.latitude, item.longitude);
     });
 
-	if(DBG)console.log(dataList);
+	//if(DBG)console.log(dataList);
 
 	if(DBG)console.log("Data is ready ^_^ b :" + dataList.length);
 
@@ -302,7 +302,7 @@ function appendToList(dataArray) {
 
 	if(DBG)console.log("ready to append item count:" + dataArray.length);
 	if(DBG)console.log("ready to create item for listView: " + searchResult.length);
-    if(DBG)console.log(searchResult);
+    //if(DBG)console.log(searchResult);
 
 
     var itemTemplate = new Template($('#store-item').html());
