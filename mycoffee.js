@@ -333,6 +333,11 @@ function appendToList(dataArray) {
 
 $(function() {
 	if(DBG)console.log("++ init");
+
+    $("#auther_label").click(function() {
+        window.open("http://studiobinghuan.blogspot.com?view=flipcard", "_blank");
+    });
+
     showProgressBar(true);// Profile#1
 
 	if(navigator.userAgent.toLowerCase().indexOf("trident") === -1) {
