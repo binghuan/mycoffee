@@ -16,6 +16,7 @@ images/icons-36-black.png
 images/icons-36-white.png
 images/ajax-loader.gif
 images/pin.png
+image/totop.png
 lib/jquery-1.11.1.min.js
 lib/mustache.js
 lib/jquery.mobile-1.4.3.min.js
