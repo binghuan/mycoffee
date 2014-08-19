@@ -88,10 +88,6 @@ function getCurrentLocation() {
             longitude: position.coords.longitude
         };
 
-        // if(distance > (DEFAULT_RANGE / 3)) {
-            // isNeededToLoadForNextPlace = true;
-        // }
-
         setLastGeolocation(currentGeolocation);
         // longitude - 經度 - 縱線
         // latitude - 緯度 - 水平線
@@ -99,11 +95,25 @@ function getCurrentLocation() {
         // try to get the store info. which is near by me
         listStoreData(locationData.getData());
 
+        var now = new Date();
+        var hour = now.getHours() + "";
+        var min = now.getMinutes() + "";
+        var sec = now.getSeconds() + "";
+    
+        min = (min.length === 1)? "0" + min : min;
+        sec = (sec.length === 1)? "0" + sec : sec;
+
+        var lastUpdate = hour + ":" + min + ":" + sec;
         // update current address
-        if(typeof GMap !== 'undefined') {
+        if(navigator.onLine === true && typeof GMap !== 'undefined') {
             GMap.utils.getCurrentAddress(currentGeolocation).done(function(address) {
                 $('#addressInfo').html(address);
+            }).fail(function() {
+                $('#addressInfo').html('更新地理位置:' + lastUpdate);
             });
+        }
+        else {
+            $('#addressInfo').html('更新地理位置:' + lastUpdate);
         }
     }
 
@@ -216,10 +226,6 @@ function listStoreData(dataList) {
     var geolocation = getLastGeolocation();
     storeNearBy = storeLastStoreInRange(geolocation.latitude, geolocation.longitude);
 
-    // if((searchResult.length === 0) ||
-        // (isNeededToLoadForNextPlace === true)) {
-        // updateSearchResult(mStoreNearByMe);
-    // }
     showProgressBar(false);
     updateSearchResult(storeNearBy);
 }
@@ -258,26 +264,6 @@ function updateSearchResultBar(msg) {
 	$("#searchResultText").html(msg);
 	$("#searchResultText").fadeIn('slow');
 }
-
-//http://maps.googleapis.com/maps/api/geocode/json?language=zh-TW&sensor=true&address=
-/*
-function getCurrentAddress(latitude, longitude) {
-	var apiUrl = "http://maps.googleapis.com/maps/api/geocode/json?";
-	apiUrl += "language=zh-TW";
-	apiUrl += "&sensor=true";
-	apiUrl += "&latlng=" + latitude + "," + longitude;
-	$.get(apiUrl, function(data) {
-		if(DBG)console.log("get address info from google:");
-		console.log(data);
-
-		// need to modify sub code into a function.
-		if(data.status.indexOf('OVER_QUERY_LIMIT') == -1) {
-			console.log(data['results'][0].formatted_address);
-			updateAddressBar(data['results'][0].formatted_address);
-		}
-	});
-}
-*/
 
 var testDataArray = [];
 function appendToList(dataArray) {
@@ -362,12 +348,6 @@ $(function() {
         var queryText = $("#searchbox").val();
         if(DBG)console.log("searchDataByKeyWord with keyword(" + queryText);
 
-        // if(queryText.length < 1) {
-
-            // updateSearchResult(mStoreNearByMe);
-            // return;
-        // }
-
         showProgressBar(true);// Profile#2
         $("#listView").empty();
         updateMessageBar("@_@ 搜尋中 ...");
@@ -443,12 +423,7 @@ $(function() {
 
     getCurrentLocation();
 
-    if(typeof GMap === 'undefined') {
-        $('#addressInfo').html('無法取得地址(需要網路)');
-    }
-    else {
-        $('#addressInfo').html('位置不明');
-    }
+    $('#addressInfo').html('位置不明');
 
     disableSearchControl(true);
 
