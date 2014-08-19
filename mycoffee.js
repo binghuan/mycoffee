@@ -443,14 +443,6 @@ $(function() {
         showProgressBar(false);
     });
 
-    // BH_Lin@20140819  ----------------------->
-    // purpose:
-    $("#go2top").click(function() {
-        $(document.body).animate({
-            scrollTop: 0
-        }, 600);
-    });
-
     // gmap
     function initialize(mapID, mapCSS) {
         if(mapCSS == null) {
