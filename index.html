@@ -43,6 +43,23 @@
             white-space: -moz-pre-wrap; /* Mozilla */
             word-wrap: break-word; /* IE 5+ */
         }
+
+        .goTop2 {
+            background: url(images/totop.png) no-repeat 0 0;
+            background-size: contain;
+        }
+
+        .goTop {
+            width: 50px;
+            height: 44px;
+            display: block;
+            position: fixed;
+            bottom: 55px;
+            right: 20px;
+            text-indent: -5000px;
+            z-index: 999;
+        }
+
     </style>
 </head>
 <body>
@@ -84,6 +101,7 @@
             <ul id="listView" data-role='listview' data-count-theme='b'></ul>
         </div>
 
+        <a class="goTop goTop2" href="javascript:(function(){$(document).scrollTop(0);})()">go top</a>
         <div data-role="footer" data-position='fixed' data-theme='b'>
             <div>
                 <p id="auther_label" align="center">
