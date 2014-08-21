@@ -99,7 +99,7 @@ function getCurrentLocation() {
         var hour = now.getHours() + "";
         var min = now.getMinutes() + "";
         var sec = now.getSeconds() + "";
-    
+
         min = (min.length === 1)? "0" + min : min;
         sec = (sec.length === 1)? "0" + sec : sec;
 
@@ -442,6 +442,7 @@ $(function() {
         getCurrentLocation();
         showProgressBar(false);
     });
+
     // gmap
     function initialize(mapID, mapCSS) {
         if(mapCSS == null) {
@@ -471,8 +472,12 @@ $(function() {
             });
         });
     });
+
+
+
     $('#gmap').on('pageshow', function() {
         window.gmap.refresh();
     });
+
 });
 
