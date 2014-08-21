@@ -96,14 +96,6 @@ var dataList = [
         "longitude": 121.529171
     },
     {
-        "name": "立裴米緹咖啡館",
-        "address": "台北市中山北路二段16巷10號",
-        "phone": "02 2531 0189",
-        "openTime": "12:00–22:00",
-        "latitude": 25.053022,
-        "longitude": 121.521677
-    },
-    {
         "name": "布拉格",
         "address": "台北市溫州街20號",
         "phone": "02 2369-7722",
@@ -771,6 +763,44 @@ var dataList = [
         "openTime": "",
         "latitude": 24.8063447,
         "longitude": 120.9586446
+    },
+    {
+        "name": "咖啡葉",
+        "address": "新北市三重區正義北路77號",
+        "phone": "02 2982 5818",
+        "openTime": "10:00am~10:00pm",
+        "latitude": 25.064912,
+        "longitude": 121.497251
+    },
+    {
+        "name": "",
+        "address": "",
+        "phone": "",
+        "openTime": ""
+    },
+    {
+        "name": "",
+        "address": "",
+        "phone": "",
+        "openTime": ""
+    },
+    {
+        "name": "",
+        "address": "",
+        "phone": "",
+        "openTime": ""
+    },
+    {
+        "name": "",
+        "address": "",
+        "phone": "",
+        "openTime": ""
+    },
+    {
+        "name": "",
+        "address": "",
+        "phone": "",
+        "openTime": ""
     },
     {
         "name": "",
