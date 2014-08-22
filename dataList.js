@@ -781,7 +781,6 @@ var dataList = [
 {"name":"哈亞極品咖啡‧天母店", "address": "台北市天母北路66號", "phone":"(02) 2876-1598", "openTime":"11:00~22:00","latitude":25.122247, "longitude":121.52665 },
 {"name":"黑豆坊咖啡", "address": "台北市士林區中山北路五段527號", "phone":"(02) 2883-1125", "openTime":"12:00~23:00","latitude":25.094074, "longitude":121.52784 },
 {"name":"陽春商號", "address": "台北市光復南路447之24號", "phone":"", "openTime":"(02) 8768-0810","latitude":25.035263, "longitude": 121.558186},
-{"name":"PEG COFFEE", "address": "台北市信義區嘉興街309號", "phone":"(02) 8732-8603", "openTime":"12:30~20:00 (週一至週五)、 14:00~22:00(六) 、14:00~18:30 (日)","latitude":25.023241, "longitude":121.554661 },
 {"name":"生態綠咖啡", "address": "台北市中正區銅山街1號", "phone":"1樓", "openTime":"(02) 2322-2225","latitude":25.040285, "longitude":121.526216 },
 {"name":"原豆空間", "address": "台北市信義區忠孝東路四段553巷6弄2號", "phone":"(02) 2749-5027", "openTime":"11:00~22:00","latitude":25.042253, "longitude":121.562826 },
 {"name":"1868自家烘焙咖啡館", "address": "台北市信義區忠孝東路5段71巷18號", "phone":"(02) 2765-8053", "openTime":"07:00~22:00","latitude":25.0421389, "longitude":121.567223 },
