@@ -618,14 +618,6 @@ var dataList = [
         "longitude": 121.5570662
     },
     {
-        "name": "癮咖啡",
-        "address": "台北市信義區崇德街10號",
-        "phone": "0910585552",
-        "openTime": "",
-        "latitude": 25.024226,
-        "longitude": 121.553271
-    },
-    {
         "name": "配個咖啡吧！PEG Coffee",
         "address": "台灣台北市信義區嘉興街309號",
         "phone": "02-8732-8603",
