@@ -741,8 +741,8 @@ var dataList = [
     {
         "name": "生態綠咖啡",
         "address": "台北市中正區銅山街1號",
-        "phone": "1樓",
-        "openTime": "(02) 2322-2225",
+        "phone": "(02) 2322-2225",
+        "openTime": "12:00~18:00, 公休日期： 每週日、國定假日",
         "latitude": 25.040285,
         "longitude": 121.526216
     },
@@ -765,16 +765,16 @@ var dataList = [
     {
         "name": "米璐咖啡",
         "address": "台北市文山區興隆路三段207巷11號",
-        "phone": "1號",
-        "openTime": "(02) 2230-5561",
+        "phone": "(02) 2230-5561",
+        "openTime": "10:00~21:00, 公休日期：每週四公休",
         "latitude": 24.995127,
         "longitude": 121.561604
     },
     {
         "name": "高馡咖啡事務所",
         "address": "台北市北投區泉源路１２號",
-        "phone": "３樓",
-        "openTime": "(02) 2893-7543",
+        "phone": "(02) 2893-7543",
+        "openTime": "(每週二、三、日), 11:30~21:30 (每週四、五、六), 公休日期：每週一",
         "latitude": 25.137063,
         "longitude": 121.504345
     },
@@ -821,8 +821,8 @@ var dataList = [
     {
         "name": "爐鍋咖啡‧大稻埕小藝埕二階店",
         "address": "台北市大同區迪化街一段32巷1號",
-        "phone": "2樓",
-        "openTime": "(02) 2552-1338",
+        "phone": "(02) 2552-1338",
+        "openTime": "11:00~19:00, 公休日期：每週一公休",
         "latitude": 25.0546325,
         "longitude": 121.509949
     },
@@ -845,8 +845,8 @@ var dataList = [
     {
         "name": "巢‧nido café",
         "address": "台北市信義區忠孝東路四段553巷22弄10號",
-        "phone": "1樓",
-        "openTime": "(02) 2753-4402",
+        "phone": "(02) 2753-4402",
+        "openTime": "14:00~24:00, 公休：每月6、16、26日",
         "latitude": 25.043128,
         "longitude": 121.563521
     },
@@ -934,7 +934,7 @@ var dataList = [
         "name": "醜小鴨咖啡 The Craft",
         "address": "台北市合江街73巷8號",
         "phone": "(02) 2506-0239",
-        "openTime": "12:00~21:00 　　12:00~19:00 (週日) 公休日期：每週二",
+        "openTime": "12:00~21:00(平日), 12:00~19:00(週日) 公休日期：每週二",
         "latitude": 25.058682,
         "longitude": 121.5400404
     },
@@ -949,8 +949,8 @@ var dataList = [
     {
         "name": "1+ CAFÉ",
         "address": "台北市中山區遼寧街201巷1號",
-        "phone": "1樓",
-        "openTime": "(02) 2546-0858",
+        "phone": "(02) 2546-0858",
+        "openTime": "09:00~19:00",
         "latitude": 25.054305,
         "longitude": 121.542292
     },
@@ -973,16 +973,17 @@ var dataList = [
     {
         "name": "Phoenix Coffee & Tea",
         "address": "台北市南京東路三段89巷3弄3號",
-        "phone": "1樓",
-        "openTime": "(02)2517-6718",
+        "phone": "(02)2517-6718",
+        "openTime": "08:00~21:00(一~五)、12:00~21:00(六)
+        公休日期：每週日",
         "latitude": 25.052632,
         "longitude": 121.539172
     },
     {
         "name": "Rahdesign Café",
         "address": "台北市中山區大直街9巷1號",
-        "phone": "1樓",
-        "openTime": "(02) 2532-7778",
+        "phone": "(02) 2532-7778",
+        "openTime": "１１：００～２２：００, 公休日期：每周一公休",
         "latitude": 25.080833,
         "longitude": 121.546644
     },
@@ -997,8 +998,8 @@ var dataList = [
     {
         "name": "木抽屜咖啡館",
         "address": "台北市大安區安和路一段141巷15號",
-        "phone": "1樓",
-        "openTime": "(02) 2700-0588",
+        "phone": "(02) 2700-0588",
+        "openTime": "12:00~23:00",
         "latitude": 25.0339429,
         "longitude": 121.553328
     },
@@ -1109,8 +1110,8 @@ var dataList = [
     {
         "name": "貳月咖啡",
         "address": "台北市大安區青田街13-1號",
-        "phone": "1樓",
-        "openTime": "02-2391-3376",
+        "phone": "02-2391-3376",
+        "openTime": "11：30~22：30（週三公休）",
         "latitude": 25.0268537,
         "longitude": 121.5320929
     },
@@ -1165,8 +1166,8 @@ var dataList = [
     {
         "name": "水電咖啡",
         "address": "台北市中正區廈門街22號",
-        "phone": "1樓",
-        "openTime": "(02)2365-1218",
+        "phone": "(02)2365-1218",
+        "openTime": "",
         "latitude": 25.026176,
         "longitude": 121.517665
     },
@@ -1228,9 +1229,9 @@ var dataList = [
     },
     {
         "name": "Haaya's White",
-        "address": "新北市板橋區縣民大道二段7號",
-        "phone": "2F",
-        "openTime": "(02) 8969-3738",
+        "address": "新北市板橋區縣民大道二段7號2F",
+        "phone": "(02) 8969-3738",
+        "openTime": "11:00~22:00",
         "latitude": 25.0141215,
         "longitude": 121.4648112
     },
@@ -1333,8 +1334,8 @@ var dataList = [
     {
         "name": "私藏不藏私‧咖啡_雜貨_寫真部品",
         "address": "新北市中和區景安路167巷6號",
-        "phone": "1樓",
-        "openTime": "(02) 8943-3173",
+        "phone": "(02) 8943-3173",
+        "openTime": "13:00~21:00, 公休日期：每週三",
         "latitude": 24.994497,
         "longitude": 121.505756
     },
@@ -1421,8 +1422,8 @@ var dataList = [
     {
         "name": "金鑽咖啡屋",
         "address": "新北市中和區連勝街41號",
-        "phone": "電話",
-        "openTime": "02-2240-9013",
+        "phone": "02-2240-9013",
+        "openTime": "10：30~21：30（週日~週四）； 10：30 ~ 22：30（週五、六及例假日前夕）",
         "latitude": 24.997461,
         "longitude": 121.498087
     },
@@ -1477,8 +1478,8 @@ var dataList = [
     {
         "name": "Cafe Traveller 旅活楽咖啡",
         "address": "桃園縣龍潭鄉中正路103號",
-        "phone": "4",
-        "openTime": "03-409-3549",
+        "phone": "03-409-3549",
+        "openTime": "12：00~22：00（週一公休）",
         "latitude": 24.8680359,
         "longitude": 121.215836
     },
@@ -1548,9 +1549,9 @@ var dataList = [
     },
     {
         "name": "解放咖啡館",
-        "address": "桃園縣大溪鎮復興路26號",
-        "phone": "2樓",
-        "openTime": "03-387-1801",
+        "address": "桃園縣大溪鎮復興路26號2樓",
+        "phone": "03-387-1801",
+        "openTime": "10:00~22:00（週五、六、日延至23：00，週一休）",
         "latitude": 24.8803209,
         "longitude": 121.289363
     },
@@ -1653,8 +1654,8 @@ var dataList = [
     {
         "name": "Tommy`s cafe",
         "address": "台南市北區育德二路190巷37號",
-        "phone": "",
-        "openTime": "預約0932 803 479",
+        "phone": "0932 803 479",
+        "openTime": "",
         "latitude": 23.011128,
         "longitude": 120.2049086
     },
@@ -1708,16 +1709,16 @@ var dataList = [
     },
     {
         "name": "斗侍",
-        "address": "台南市中西區大同路一段56巷6號",
-        "phone": "貳樓",
-        "openTime": "預約0988-162-298",
+        "address": "台南市中西區大同路一段56巷6號貳樓",
+        "phone": "0988-162-298",
+        "openTime": "",
         "latitude": 22.9873321,
         "longitude": 120.211033
     },
     {
         "name": "For Coffee",
         "address": "台南市永康區東橋八街38號",
-        "phone": "",
+        "phone": "(06)302 6638",
         "openTime": "預約(06)302 6638 週一-二: 14:00 - 20:00 週四-五: 15:00 - 20:00 週六-日: 14:00 - 21:00",
         "latitude": 23.0210978,
         "longitude": 120.2340054
@@ -1732,8 +1733,8 @@ var dataList = [
     },
     {
         "name": "鳩棧",
-        "address": "台南市善化區大信路67號",
-        "phone": "6樓之2",
+        "address": "台南市善化區大信路67號6樓之2",
+        "phone": "0932 571 683",
         "openTime": "",
         "latitude": 23.129155,
         "longitude": 120.293037
@@ -1764,9 +1765,9 @@ var dataList = [
     },
     {
         "name": "爐鍋",
-        "address": "台南市中西區民生路一段205巷11號",
-        "phone": "2樓",
-        "openTime": "",
+        "address": "台南市中西區民生路一段205巷11號2樓",
+        "phone": "",
+        "openTime": "週一-二:12:00 - 20:00, 週四-日:12:00 - 20:00",
         "latitude": 22.992757,
         "longitude": 120.204157
     },
