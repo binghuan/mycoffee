@@ -83,7 +83,6 @@
                     <option value="50000">&lt; 50公里</option>
                     <option value="100000">&lt; 100公里</option>
                     <option value="200000">&lt; 200公里</option>
-                    <option value="500000">&lt; 500公里</option>
                 </select>
             </div>
             <div class="ui-block-b">
@@ -119,9 +118,10 @@
         </div>
     </div>
 
-    <script type="text/tempalte" id="store-item" charset="utf-8">
+    <script type="text/template" id="store-item" charset="utf-8">
         <li>
-            <h1 class="ui-li-heading" style="font-size: 1.2em;">
+            <!-- <h1 class="ui-li-heading" style="font-size: 1.2em;"> -->
+            <h1 class="ui-li-heading">
                 {{name}}
             </h1>
             <span class="ui-li-count">
@@ -129,25 +129,25 @@
             </span>
             <h2>
                 <a href="//maps.google.com.tw/?q={{address}}" target="_blank">
-                    <button class="location" data-role="button" data-icon="location" data-iconpos="notext" data-mini=true data-inline=true></button>
-                    <span class="wordwrap">{{address}}</span>
+                    <!-- <button class="location" data-role="button" data-icon="location" data-iconpos="notext" data-mini=true data-inline=true></button> -->
+                    地址：<span class="wordwrap">{{address}}</span>
                 </a>
             </h2>
             {{#openTime}}
                 <!-- <p class="ui-li-desc wordwrap">營業時間: -->
-                <h2 class="ui-li-desc">
-                    <button class="openTime" data-role="button" data-icon="clock" data-iconpos="notext" data-mini=true data-inline=true></button>
-                    <span class="wordwrap">{{openTime}}</span>
-                </h2>
+                <p class="ui-li-desc">
+                    <!-- <button class="openTime" data-role="button" data-icon="clock" data-iconpos="notext" data-mini=true data-inline=true></button> -->
+                    營業時間：<span class="wordwrap">{{openTime}}</span>
+                </p>
             {{/openTime}}
             {{#phone}}
                 <!-- <p class="ui-li-desc">電話: -->
-                <h2 class="ui-li-desc">
+                <p class="ui-li-desc">
                     <a class="goog_qs-tidbit goog_qs-tidbit-0" href="tel:{{phone}}">
-                        <button class="phone" data-role="button" data-icon="phone" data-iconpos="notext" data-mini=true data-inline=true></button>
-                        {{phone}}
+                        <!-- <button class="phone" data-role="button" data-icon="phone" data-iconpos="notext" data-mini=true data-inline=true></button> -->
+                        電話：{{phone}}
                     </a>
-                </h2>
+                </p>
             {{/phone}}
             <!-- <p class="ui-li-desc" style="white-space: normal;">ps:  {{remark}}</p> -->
         </li>
