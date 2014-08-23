@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- <html manifest="mycoffee.appcache"> -->
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
@@ -6,13 +7,13 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-    <link rel="SHORTCUT ICON" href="icon/mycoffee2.ico" >
-    <link rel="shortcut icon" sizes="128x128" href="icon/mycoffee2-128.png">
-    <link rel="shortcut icon" sizes="196x196" href="icon/mycoffee2-196.png">
-    <link rel="apple-touch-icon" href="icon/mycoffee2-64.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="icon/mycoffee2-76.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="icon/mycoffee2-120.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="icon/mycoffee2-152.png">
+    <link rel="SHORTCUT ICON" href="icon/mycoffee.ico" >
+    <link rel="shortcut icon" sizes="128x128" href="icon/mycoffee-128.png">
+    <link rel="shortcut icon" sizes="196x196" href="icon/mycoffee-196.png">
+    <link rel="apple-touch-icon" href="icon/mycoffee-64.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="icon/mycoffee-76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="icon/mycoffee-120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icon/mycoffee-152.png">
 
     <link rel="stylesheet" href="css/jquery.mobile-1.4.3.min.css"/>
     <title>My Coffee</title>
@@ -126,25 +127,23 @@
             <span class="ui-li-count">
                 {{distance}}
             </span>
-            <h2>
+            <p>
                 <a href="//maps.google.com.tw/?q={{address}}" target="_blank">
-                    <!-- <button class="location" data-role="button" data-icon="location" data-iconpos="notext" data-mini=true data-inline=true></button> -->
-                    地址：<span class="wordwrap">{{address}}</span>
+                    <button class="location" data-role="button" data-icon="location" data-iconpos="notext" data-mini=true data-inline=true style="margin:0 0.625em"></button>
+                    <span class="wordwrap">{{address}}</span>
                 </a>
-            </h2>
+            </p>
             {{#openTime}}
-                <!-- <p class="ui-li-desc wordwrap">營業時間: -->
                 <p class="ui-li-desc">
-                    <!-- <button class="openTime" data-role="button" data-icon="clock" data-iconpos="notext" data-mini=true data-inline=true></button> -->
-                    營業時間：<span class="wordwrap">{{openTime}}</span>
+                    <button class="openTime" data-role="button" data-icon="clock" data-iconpos="notext" data-mini=true data-inline=true style="margin:0 0.625em"></button>
+                    <span class="wordwrap">{{openTime}}</span>
                 </p>
             {{/openTime}}
             {{#phone}}
-                <!-- <p class="ui-li-desc">電話: -->
                 <p class="ui-li-desc">
                     <a class="goog_qs-tidbit goog_qs-tidbit-0" href="tel:{{phone}}">
-                        <!-- <button class="phone" data-role="button" data-icon="phone" data-iconpos="notext" data-mini=true data-inline=true></button> -->
-                        電話：{{phone}}
+                        <button class="phone" data-role="button" data-icon="phone" data-iconpos="notext" data-mini=true data-inline=true style="margin:0 0.625em"></button>
+                        {{phone}}
                     </a>
                 </p>
             {{/phone}}
