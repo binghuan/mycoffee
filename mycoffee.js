@@ -310,7 +310,7 @@ function appendToList(dataArray) {
 	$("#listView").listview("refresh");
     // update icon buttons
     $("button.location").buttonMarkup();
-    $("button.phone").buttonMarkup();
+    $("a.phone").buttonMarkup();
     $("button.openTime").buttonMarkup();
 
 	setUIisReady(true);
