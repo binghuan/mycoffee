@@ -308,6 +308,11 @@ function appendToList(dataArray) {
 	if(DBG)console.log("*** create item for listView -> start");
 
 	$("#listView").listview("refresh");
+    // update icon buttons
+    $("button.location").buttonMarkup();
+    $("button.phone").buttonMarkup();
+    $("button.openTime").buttonMarkup();
+
 	setUIisReady(true);
 
 	if(DBG)console.log("*** create item for listView -> done");

@@ -33,7 +33,7 @@
             padding: 0;
         }
 
-        .ui-listview>li p.wordwrap {
+        .ui-listview>li span.wordwrap {
             /* wrap long text and urls */
             white-space: pre; /* CSS 2.0 */
             white-space: pre-wrap; /* CSS 2.1 */
@@ -75,13 +75,15 @@
         <div class="ui-grid-a">
             <div class="ui-block-a">
                 <select id="selectRangeCondition"  class='ui-block-a'>
-                    <option value="500">&lt; 0.5公里</option>
                     <option value="1000">&lt; 1公里</option>
                     <option value="2000">&lt; 2公里</option>
                     <option value="5000">&lt; 5公里</option>
-                    <option value="10000" selected>&lt; 10公里</option>
-                    <option value="20000" selected>&lt; 20公里</option>
-                    <option value="50000" selected>&lt; 50公里</option>
+                    <option value="10000">&lt; 10公里</option>
+                    <option value="20000">&lt; 20公里</option>
+                    <option value="50000">&lt; 50公里</option>
+                    <option value="100000">&lt; 100公里</option>
+                    <option value="200000">&lt; 200公里</option>
+                    <option value="500000">&lt; 500公里</option>
                 </select>
             </div>
             <div class="ui-block-b">
@@ -90,7 +92,7 @@
         </div>
 
         <div data-role="content" id="content">
-            <button id="updateLocation" data-role="button" data-icon="location" data-iconpos="notext" data-inline=true></button>
+            <button id="updateLocation" data-role="button" data-icon="home" data-iconpos="notext" data-inline=true></button>
             <h3 id="addressInfo" style="display: inline"></h3>
 
             <div id="messageBar">
@@ -118,40 +120,36 @@
     </div>
 
     <script type="text/tempalte" id="store-item" charset="utf-8">
-        <!-- <li data-role="list-divider"> -->
-            <!-- <h2>{{name}}</h2> -->
-            <!-- <span class="ui-li-count"> -->
-                <!-- {{distance}} -->
-            <!-- </span> -->
-        <!-- </li> -->
         <li>
-            <h1 class="ui-li-heading">
+            <h1 class="ui-li-heading" style="font-size: 1.2em;">
                 {{name}}
             </h1>
             <span class="ui-li-count">
                 {{distance}}
             </span>
-            <p>
+            <h2>
                 <a href="//maps.google.com.tw/?q={{address}}" target="_blank">
-                    {{address}}
+                    <button class="location" data-role="button" data-icon="location" data-iconpos="notext" data-mini=true data-inline=true></button>
+                    <span class="wordwrap">{{address}}</span>
                 </a>
-            </p>
-            <!-- <p class="ui-li-desc" style="white-space: normal;">推廌餐點:{{menu}}</p> -->
-
+            </h2>
             {{#openTime}}
-                <p class="ui-li-desc wordwrap">營業時間:
-                    {{openTime}}
-                </p>
+                <!-- <p class="ui-li-desc wordwrap">營業時間: -->
+                <h2 class="ui-li-desc">
+                    <button class="openTime" data-role="button" data-icon="clock" data-iconpos="notext" data-mini=true data-inline=true></button>
+                    <span class="wordwrap">{{openTime}}</span>
+                </h2>
             {{/openTime}}
-            <!-- <p class="ui-li-desc" style="white-space: normal;">ps:  {{remark}}</p> -->
-
             {{#phone}}
-                <p class="ui-li-desc">電話:
+                <!-- <p class="ui-li-desc">電話: -->
+                <h2 class="ui-li-desc">
                     <a class="goog_qs-tidbit goog_qs-tidbit-0" href="tel:{{phone}}">
+                        <button class="phone" data-role="button" data-icon="phone" data-iconpos="notext" data-mini=true data-inline=true></button>
                         {{phone}}
                     </a>
-                </p>
+                </h2>
             {{/phone}}
+            <!-- <p class="ui-li-desc" style="white-space: normal;">ps:  {{remark}}</p> -->
         </li>
     </script>
 
