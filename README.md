@@ -3,7 +3,7 @@ mycoffee
 
 find your coffee
 
-here is the link to open the web app. 
+here is the link to open the web app.
 http://binghuan.github.io/mycoffee
 
 TODO
@@ -18,7 +18,7 @@ TODO
     - [ ] 台北市, 新北市(ptt找不到的)
 - [ ] Add to favorite(local)
 - [ ] Make tags for every stores for searching and categorization
-    - 單品, Wifi, 消費價格(拿鐵, 單品), 耳掛(價格), 特殊成就(得獎, 上雜誌, 電視, ...),  
+    - 單品, Wifi, 消費價格(拿鐵, 單品), 耳掛(價格), 特殊成就(得獎, 上雜誌, 電視, ...),
     特別單品(藝妓, 藍山, 90+, ...)
 
 ### Backend server(heroku?)
@@ -28,4 +28,7 @@ TODO
 
 ### Phonegap app
 - [ ] Package android/iOS apps
+
+### Preview Page
+- [V] add page "index2.html" for app preview.
 
