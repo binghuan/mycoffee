@@ -92,7 +92,7 @@
 
         <div data-role="content" id="content">
             <button id="updateLocation" data-role="button" data-icon="home" data-iconpos="notext" data-inline=true></button>
-            <h3 id="addressInfo" style="display: inline"></h3>
+            <p id="addressInfo" style="display: inline"></p>
 
             <div id="messageBar">
                 <p id="messageText" style="display:inline"></p>
@@ -123,9 +123,7 @@
             <!-- <h1 class="ui-li-heading" style="font-size: 1.2em;"> -->
             <h1 class="ui-li-heading">
                 {{#phone}}
-                    <a class="goog_qs-tidbit goog_qs-tidbit-0" href="tel:{{phone}}">
-                        <a href="tel:{{phone}}" class="phone" data-role="button" data-icon="phone" data-iconpos="notext" data-mini=true data-inline=true style="margin:0"></button>
-                    </a>
+                    <a href="tel:{{phone}}" class="phone" data-role="button" data-icon="phone" data-iconpos="notext" data-mini=true data-inline=true style="margin:0 0.625em 0 0"></a>
                 {{/phone}}
                 {{name}}
             </h1>
@@ -134,24 +132,16 @@
             </span>
             <p>
                 <a href="//maps.google.com.tw/?q={{address}}" target="_blank">
-                    <button class="location" data-role="button" data-icon="location" data-iconpos="notext" data-mini=true data-inline=true style="margin:0"></button>
+                    <button class="location" data-role="button" data-icon="location" data-iconpos="notext" data-mini=true data-inline=true style="margin:0 0.625em 0 0"></button>
                     <span class="wordwrap">{{address}}</span>
                 </a>
             </p>
             {{#openTime}}
                 <p class="ui-li-desc">
-                    <button class="openTime" data-role="button" data-icon="clock" data-iconpos="notext" data-mini=true data-inline=true style="margin:0"></button>
+                    <button class="openTime" data-role="button" data-icon="clock" data-iconpos="notext" data-mini=true data-inline=true style="margin:0 0.625em 0 0"></button>
                     <span class="wordwrap">{{openTime}}</span>
                 </p>
             {{/openTime}}
-            <!-- {{#phone}} -->
-                <!-- <p class="ui-li-desc"> -->
-                    <!-- <a class="goog_qs-tidbit goog_qs-tidbit-0" href="tel:{{phone}}"> -->
-                        <!-- <button class="phone" data-role="button" data-icon="phone" data-iconpos="notext" data-mini=true data-inline=true style="margin:0 0.625em"></button> -->
-                        <!-- {{phone}} -->
-                    <!-- </a> -->
-                <!-- </p> -->
-            <!-- {{/phone}} -->
             <!-- <p class="ui-li-desc" style="white-space: normal;">ps:  {{remark}}</p> -->
         </li>
     </script>
