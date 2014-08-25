@@ -293,7 +293,7 @@ function appendToList(dataArray) {
 
     var itemTemplate = new Template($('#store-item').html());
     searchResult.forEach(function(item) {
-        var distanceString = (item.distance > 1000)? ((item.distance / 1000.0).toFixed(1) + '公里') : (item.distance + '公尺');
+        var distanceString = (item.distance >= 1000)? ((item.distance / 1000.0).toFixed(1) + '公里') : (item.distance + '公尺');
         var itemView = itemTemplate.render({
             name: item.name,
             address: item.address,
@@ -437,6 +437,10 @@ $(function() {
             onSearchButtonClick();
         }
     });
+
+    // $("#searchbox").on('input', function(e) {
+        // onSearchButtonClick();
+    // });
 
     $("#searchButton").click(onSearchButtonClick);
 
