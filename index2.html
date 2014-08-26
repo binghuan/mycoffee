@@ -44,6 +44,10 @@
             word-wrap: break-word; /* IE 5+ */
         }
 
+        p#searchResultText {
+            padding-bottom: 0.625em;
+        }
+
         .goTop2 {
             background: url(images/totop.png) no-repeat 0 0;
             background-size: contain;
@@ -71,35 +75,30 @@
             href='javascript:(function(){var newUrl = "http://binghuan.herokuapp.com/pinToRedirection.html?url=" + location.href + "&icon=icon/mycoffee.png&fontColor=black&label=My Coffee"; console.log("navigate to " + newUrl); location.href = newUrl;})()'>Pin</a>
         </div>
 
-        <input type="search" name="postcode" id="searchbox" value="" placeholder="搜尋範例: 台北 咖啡"/>
-        <div class="ui-grid-a">
-            <div class="ui-block-a">
-                <select id="selectRangeCondition"  class='ui-block-a'>
-                    <option value="1000">&lt; 1公里</option>
-                    <option value="2000">&lt; 2公里</option>
-                    <option value="5000">&lt; 5公里</option>
-                    <option value="10000">&lt; 10公里</option>
-                    <option value="20000" selected>&lt; 20公里</option>
-                    <option value="50000">&lt; 50公里</option>
-                    <option value="100000">&lt; 100公里</option>
-                    <option value="200000">&lt; 200公里</option>
-                </select>
-            </div>
-            <div class="ui-block-b">
-                <input id="searchButton" type="button"  data-icon="search" value="開始搜尋" class='ui-block-b'>
-            </div>
-        </div>
-
-        <div data-role="content" id="content">
+        <!-- <div data-role="content"> -->
+        <div class="ui-content">
             <button id="updateLocation" data-role="button" data-icon="home" data-iconpos="notext" data-inline=true></button>
-            <p id="addressInfo" style="display: inline"></p>
+            <p id="addressInfo" style="display:inline"></p>
+
+            <!-- <input type="search" name="postcode" id="searchbox" value="" placeholder="搜尋範例: 台北 咖啡"/> -->
+            <!-- <div class="ui-grid-a"> -->
+                <!-- <div class="ui-block-a"> -->
+                    <select id="selectRangeCondition"  class='ui-block-a'>
+                        <option value="1000">&lt; 1公里</option>
+                        <option value="5000">&lt; 5公里</option>
+                        <option value="25000" selected>&lt; 25公里</option>
+                        <option value="125000">&lt; 125公里</option>
+                    </select>
+                <!-- </div> -->
+                <!-- <div class="ui-block-b"> -->
+                    <!-- <input id="searchButton" type="button"  data-icon="search" value="開始搜尋" class='ui-block-b'> -->
+                <!-- </div> -->
+            <!-- </div> -->
 
             <div id="messageBar">
-                <p id="messageText" style="display:inline"></p>
-                <p id="searchResultText" style="display:inline"></p>
+                <p id="searchResultText"></p>
             </div>
-            <p></p>
-            <ul id="listView" data-role='listview' data-count-theme='b'></ul>
+            <ul id="listView" data-role='listview' data-count-theme='b' data-filter="true"></ul>
         </div>
 
         <a class="goTop goTop2" id="go2top" href="javascript:(function(){$('body, html').animate({scrollTop: 0}, 600);})()">go top</a>
@@ -111,6 +110,18 @@
             </div>
         </div>
     </div>
+
+    <div data-role="page" id="detail">
+        <div data-theme='b' data-role="header">
+            <a data-role="button" data-theme="a" data-icon="back" data-inline="true" data-rel="back">返回</a>
+            <!-- <a href="index2.html" data-role="button" data-theme="a" data-icon="back" data-inline="true">返回</a> -->
+            <h1>My Coffee</h1>
+        </div>
+        <div data-role="content">
+         
+        </div>
+    </div>
+
     <!-- gmap page -->
     <div data-role="page" id="gmap" class='page-map'>
         <div data-role="content" id="content" style="height: 100%; width: 100%; padding: 0px;">
@@ -120,30 +131,41 @@
 
     <script type="text/template" id="store-item" charset="utf-8">
         <li>
-            <!-- <h1 class="ui-li-heading" style="font-size: 1.2em;"> -->
-            <h1 class="ui-li-heading">
-                {{#phone}}
-                    <a href="tel:{{phone}}" class="phone" data-role="button" data-icon="phone" data-iconpos="notext" data-mini=true data-inline=true style="margin:0 0.625em 0 0"></a>
-                {{/phone}}
-                {{name}}
-            </h1>
-            <span class="ui-li-count">
-                {{distance}}
-            </span>
-            <p>
+            <a href="index2.html#detail" class="item">
+                <h1 class="ui-li-heading">
+                    {{name}}
+                </h1>
+                <span class="ui-li-count">
+                    {{distance}}
+                </span>
+            </a>
+        </li>
+    </script>
+
+    <script type="text/template" id="store-detail" charset="utf-8">
+            <h2 style="text-align: center">{{name}}</h2>
+            <div>
                 <a href="//maps.google.com.tw/?q={{address}}" target="_blank">
-                    <button class="location" data-role="button" data-icon="location" data-iconpos="notext" data-mini=true data-inline=true style="margin:0 0.625em 0 0"></button>
+                    <button class="location" data-role="button" data-icon="location" data-iconpos="notext" data-mini=true data-inline=true></button>
                     <span class="wordwrap">{{address}}</span>
                 </a>
-            </p>
+            </div>
+
+            {{#phone}}
+                <div>
+                    <!-- <a href="tel:{{phone}}" class="phone" data-role="button" data-icon="phone" data-iconpos="notext" data-mini=true data-inline=true>{{phone}}</a> -->
+                    <a href="tel:{{phone}}" target="_blank">
+                        <button class="phone" data-role="button" data-icon="phone" data-iconpos="notext" data-mini=true data-inline=true></button>
+                        {{phone}}
+                    </a>
+                </div>
+            {{/phone}}
             {{#openTime}}
-                <p class="ui-li-desc">
-                    <button class="openTime" data-role="button" data-icon="clock" data-iconpos="notext" data-mini=true data-inline=true style="margin:0 0.625em 0 0"></button>
+                <div>
+                    <button class="openTime" data-role="button" data-icon="clock" data-iconpos="notext" data-mini=true data-inline=true></button>
                     <span class="wordwrap">{{openTime}}</span>
-                </p>
+                </div>
             {{/openTime}}
-            <!-- <p class="ui-li-desc" style="white-space: normal;">ps:  {{remark}}</p> -->
-        </li>
     </script>
 
     <script src="lib/jquery-1.11.1.min.js"></script>

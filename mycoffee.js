@@ -294,15 +294,25 @@ function appendToList(dataArray) {
     var itemTemplate = new Template($('#store-item').html());
     searchResult.forEach(function(item) {
         var distanceString = (item.distance >= 1000)? ((item.distance / 1000.0).toFixed(1) + '公里') : (item.distance + '公尺');
-        var itemView = itemTemplate.render({
+        var storeItem = {
             name: item.name,
             address: item.address,
             phone: item.phone,
             openTime: item.openTime,
             distance: distanceString
-        });
+        };
+        var itemView = itemTemplate.render(storeItem);
 
 		$('#listView').append(itemView);
+        $('#listView li a.item').last().data('store-item', storeItem);
+    });
+
+    // rebind page navigation for list view item
+    $('#listView a.item').click(function(event) {
+        var $target = $(event.target);
+        var storeItem = $target.data('store-item')? $target.data('store-item') : $target.parent().data('store-item');
+        localStorage.storeItem = JSON.stringify(storeItem);
+        $("body").pagecontainer('change', '#detail', {reverse: true, transition: 'none'});
     });
 
 	if(DBG)console.log("*** create item for listView -> start");
@@ -350,9 +360,6 @@ $(function() {
     }, false);
 
     function onSearchButtonClick() {
-        var queryText = $("#searchbox").val();
-        if(DBG)console.log("searchDataByKeyWord with keyword(" + queryText);
-
         showProgressBar(true);// Profile#2
         $("#listView").empty();
         updateMessageBar("@_@ 搜尋中 ...");
@@ -362,51 +369,60 @@ $(function() {
 
         //empty serach result
         var searchResult = [];
+        var result;
+        var dataList = locationData.getData();
 
-        var result ;
-
+        var queryText = $("#searchbox").val();
+        if(DBG)console.log("searchDataByKeyWord with keyword(" + queryText);
         var queryString = "";
-        if (queryText.indexOf(",") != -1) {
-            queryText = queryText.replace(/,/g," ");
-        }
 
-        if(queryText.indexOf(" ") != -1) {
-            var queryArray = queryText.split(" ");
-            var i=0;
-            for( i=0; i< queryArray.length; i++) {
-                if(queryString.length > 0) {
-                    queryString += ".*" + queryArray[i];
-                } else {
-                    queryString = queryArray[i];
+        if(queryText != null) {
+            if (queryText.indexOf(",") != -1) {
+                queryText = queryText.replace(/,/g," ");
+            }
+
+            if(queryText.indexOf(" ") != -1) {
+                var queryArray = queryText.split(" ");
+                var i=0;
+                for( i=0; i< queryArray.length; i++) {
+                    if(queryString.length > 0) {
+                        queryString += ".*" + queryArray[i];
+                    } else {
+                        queryString = queryArray[i];
+                    }
+                }
+            } else {
+                queryString = queryText;
+            }
+
+            var search = new RegExp(queryString, "gi");
+
+            if(DBG)console.log("reay query ___" + queryString +
+                               "___ in DB Array length:" + dataList.length);
+
+            i = 0;
+            for ( i=0; i < dataList.length; i++) {
+                var dataString = "";
+                var hit = false;
+                var k = 0;
+                for( k =0; k< Object.keys(dataList[i]).length ; k++) {
+                    dataString += dataList[i][Object.keys(dataList[i])[k]];
+                }
+
+                if(dataString.match(search)) {
+                    hit = true;
+                    console.log(" search --> hit");
+                }
+
+                //console.log(result);
+                if(hit === true) {
+                    searchResult.push(dataList[i]);
                 }
             }
-        } else {
-            queryString = queryText;
         }
-
-        var search = new RegExp(queryString, "gi");
-        var dataList = locationData.getData();
-        if(DBG)console.log("reay query ___" + queryString +
-                           "___ in DB Array length:" + dataList.length);
-
-        i = 0;
-        for ( i=0; i < dataList.length; i++) {
-            var dataString = "";
-            var hit = false;
-            var k = 0;
-            for( k =0; k< Object.keys(dataList[i]).length ; k++) {
-                dataString += dataList[i][Object.keys(dataList[i])[k]];
-            }
-
-            if(dataString.match(search)) {
-                hit = true;
-                console.log(" search --> hit");
-            }
-
-            //console.log(result);
-            if(hit === true) {
-                searchResult.push(dataList[i]);
-            }
+        // for index2.html
+        else {
+            searchResult = dataList.slice(0);
         }
         // 1. filtering distance
         var limitRange = $('#selectRangeCondition').val();
@@ -450,6 +466,20 @@ $(function() {
         showProgressBar(true);
         getCurrentLocation();
         showProgressBar(false);
+    });
+
+    var storeDetailTemplate = new Template($('#store-detail').html());
+    $(document).on('pagebeforeshow', '#detail', function(e, data) {
+        var storeItem = JSON.parse(localStorage.storeItem);
+        var storeDetailView = storeDetailTemplate.render(storeItem);
+        var $content = $('#detail').find('[data-role="content"]');
+        $content.empty();
+        $content.append(storeDetailView);
+
+        // update icon buttons
+        $content.find("button.location").buttonMarkup();
+        $content.find("button.phone").buttonMarkup();
+        $content.find("button.openTime").buttonMarkup();
     });
 
     // gmap
