@@ -315,7 +315,7 @@ function appendToList(dataArray) {
         var $target = $(event.target);
         var storeItem = $target.data('store-item')? $target.data('store-item') : $target.parent().data('store-item');
         localStorage.storeItem = JSON.stringify(storeItem);
-        $("body").pagecontainer('change', '#detail', {reverse: true, transition: 'none'});
+        $("body").pagecontainer('change', '#detail', {transition: 'none'});
     });
 
 	if(DBG)console.log("*** create item for listView -> start");
