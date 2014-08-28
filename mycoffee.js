@@ -153,6 +153,7 @@ function getCurrentLocation() {
         // });
 	} else {
 		console.warn("Geolocation is not supported by this browser.");
+        showProgressBar(false);
 	}
 }
 
@@ -160,9 +161,11 @@ function showProgressBar(enabled) {
 	if(enabled === true ) {
         mSearchStart = new Date();
         $.mobile.loading('show');
+        console.log("start: " + mSearchStart);
 	} else  {
         mSearchEnd =  new Date();
         $.mobile.loading('hide');
+        console.log("end: " + mSearchEnd);
 	}
 }
 
@@ -363,7 +366,6 @@ $(function() {
         showProgressBar(true);// Profile#2
         $("#listView").empty();
         updateMessageBar("@_@ 搜尋中 ...");
-        mSearchStart = new Date();
 
         disableSearchControl(true);
 
@@ -465,7 +467,6 @@ $(function() {
     $('#updateLocation').on('click', function() {
         showProgressBar(true);
         getCurrentLocation();
-        showProgressBar(false);
     });
 
     var storeDetailTemplate = new Template($('#store-detail').html());
