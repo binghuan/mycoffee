@@ -79,29 +79,29 @@ function getCurrentLocation() {
 
         var latlon = position.coords.latitude + "," + position.coords.longitude;
 
-        var img_url = "http://maps.googleapis.com/maps/api/staticmap?center=" + latlon + "&zoom=14&size=240x320&sensor=false";
+    var img_url = "http://maps.googleapis.com/maps/api/staticmap?center=" + latlon + "&zoom=14&size=240x320&sensor=false";
 
-        if(DBG)console.log("get current possision is " + latlon);
+    if(DBG)console.log("get current possision is " + latlon);
 
-        var currentGeolocation = {
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude
-        };
+    var currentGeolocation = {
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude
+    };
 
-        setLastGeolocation(currentGeolocation);
-        // longitude - 經度 - 縱線
-        // latitude - 緯度 - 水平線
+    setLastGeolocation(currentGeolocation);
+    // longitude - 經度 - 縱線
+    // latitude - 緯度 - 水平線
 
-        // try to get the store info. which is near by me
-        listStoreData(locationData.getData());
+    // try to get the store info. which is near by me
+    listStoreData(locationData.getData());
 
-        var now = new Date();
-        var hour = now.getHours() + "";
-        var min = now.getMinutes() + "";
-        var sec = now.getSeconds() + "";
+    var now = new Date();
+    var hour = now.getHours() + "";
+    var min = now.getMinutes() + "";
+    var sec = now.getSeconds() + "";
 
-        min = (min.length === 1)? "0" + min : min;
-        sec = (sec.length === 1)? "0" + sec : sec;
+    min = (min.length === 1)? "0" + min : min;
+    sec = (sec.length === 1)? "0" + sec : sec;
 
         var lastUpdate = hour + ":" + min + ":" + sec;
         // update current address
@@ -313,8 +313,8 @@ function appendToList(dataArray) {
     // rebind page navigation for list view item
     $('#listView a.item').click(function(event) {
         var $target = $(event.target);
-        var storeItem = $target.data('store-item')? $target.data('store-item') : $target.parent().data('store-item');
-        localStorage.storeItem = JSON.stringify(storeItem);
+        var storeItem = $(this).data('store-item');
+        sessionStorage.storeItem = JSON.stringify(storeItem);
         $("body").pagecontainer('change', '#detail', {reverse: true, transition: 'none'});
     });
 
@@ -471,7 +471,7 @@ $(function() {
 
     var storeDetailTemplate = new Template($('#store-detail').html());
     $(document).on('pagebeforeshow', '#detail', function(e, data) {
-        var storeItem = JSON.parse(localStorage.storeItem);
+        var storeItem = JSON.parse(sessionStorage.storeItem);
         var storeDetailView = storeDetailTemplate.render(storeItem);
         var $content = $('#detail').find('[data-role="content"]');
         $content.empty();
