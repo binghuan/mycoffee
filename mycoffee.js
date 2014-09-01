@@ -489,11 +489,14 @@ $(function() {
         // BH_Lin@2014/09/01    ----------------------------------------------->
         // purpose: make iframe to fit 100% of container's remaining height
         $('#mapview').load(function(){
+
             document.getElementById('mapview').style.height = (window.innerHeight - $("#mapview").position().top - 20) +"px";
+            console.log("MAPVIEW: ", window.innerHeight, $("#mapview").position().top, document.getElementById('mapview').style.height);
+
         });
-        console.log("MAPVIEW: ", window.innerHeight, $("#mapview").position().top );
+
         window.onresize = function(event) {
-            document.getElementById('mapview').style.height = (window.innerHeight - $("#mapview").position().top -20)+"px";
+            document.getElementById('mapview').style.height = (window.innerHeight - $("#mapview").position().top - 20)+"px";
         };
         // BH_Lin@2014/09/01    -----------------------------------------------<
     });
