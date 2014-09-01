@@ -317,6 +317,10 @@ function appendToList(dataArray) {
         var storeItem = $(this).data('store-item');
         sessionStorage.storeItem = JSON.stringify(storeItem);
         $("body").pagecontainer('change', '#detail', {reverse: true, transition: 'none'});
+
+        $(this).css("background-color", "#f6f6f6")
+        .css("color", "#333")
+        .css("text-shadow", "0 0 0");
     });
 
 	if(DBG)console.log("*** create item for listView -> start");
