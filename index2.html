@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="SHORTCUT ICON" href="icon/mycoffee.ico" >
+    <link rel="shortcut icon" sizes="128x128" href="icon/mycoffee-128.png">
+    <link rel="shortcut icon" sizes="196x196" href="icon/mycoffee-196.png">
+    <link rel="apple-touch-icon" href="icon/mycoffee-64.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="icon/mycoffee-76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="icon/mycoffee-120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icon/mycoffee-152.png">
+
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.3.min.css"/>
+    <title>My Coffee</title>
+    <style>
+        .ui-icon-pin {
+          background: url("images/pin.png") 50% 50% no-repeat;
+          background-size: 18px 18px;
+          width: 18px;
+          height: 18px;
+          box-shadow: none;
+          -webkit-box-shadow: none;
+        }
+
+        .page-map, #map-canvas {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+        }
+
+        .ui-listview>li span.wordwrap {
+            /* wrap long text and urls */
+            white-space: pre; /* CSS 2.0 */
+            white-space: pre-wrap; /* CSS 2.1 */
+            white-space: pre-line; /* CSS 3.0 */
+            white-space: -pre-wrap; /* Opera 4-6 */
+            white-space: -o-pre-wrap; /* Opera 7 */
+            white-space: -moz-pre-wrap; /* Mozilla */
+            word-wrap: break-word; /* IE 5+ */
+        }
+
+        .goTop2 {
+            background: url(images/totop.png) no-repeat 0 0;
+            background-size: contain;
+        }
+
+        .goTop {
+            width: 50px;
+            height: 44px;
+            display: block;
+            position: fixed;
+            bottom: 55px;
+            right: 20px;
+            text-indent: -5000px;
+            z-index: 999;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&appId=589480567729708&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <!-- main page -->
+    <div data-role="page" id='index'>
+        <div data-theme='b' data-role="header">
+
+            <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fbinghuan.github.io%2Fmycoffee&amp;width&amp;layout=button&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=35&amp;appId=589480567729708" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:35px;" allowTransparency="true" class="ui-btn-left"></iframe>
+
+            <h1>My Coffee</h1>
+            <a id="pinButton" data-ajax="false" data-theme='a' class="ui-btn-right" data-icon="action"
+            href='javascript:(function(){var newUrl = "http://binghuan.herokuapp.com/pinToRedirection.html?url=" + location.href + "&icon=icon/mycoffee.png&fontColor=black&label=My Coffee"; console.log("navigate to " + newUrl); location.href = newUrl;})()'>Pin</a>
+        </div>
+
+        <!-- <div data-role="content"> -->
+        <div class="ui-content">
+            <button id="updateLocation" data-role="button" data-icon="home" data-iconpos="notext" data-inline=true></button>
+            <p id="addressInfo" style="display:inline"></p>
+
+            <select id="selectRangeCondition"  class='ui-block-a'>
+                <option value="1000">&lt; 1公里</option>
+                <option value="5000">&lt; 5公里</option>
+                <option value="25000" selected>&lt; 25公里</option>
+                <option value="125000">&lt; 125公里</option>
+            </select>
+
+            <div id="messageBar">
+                <p id="searchResultText"></p>
+            </div>
+            <ul id="listView" data-role='listview' data-count-theme='b' data-filter="true" data-filter-placeholder="關鍵字: Cafe"></ul>
+        </div>
+
+        <a class="goTop goTop2" id="go2top" href="javascript:(function(){$('body, html').animate({scrollTop: 0}, 600);})()">go top</a>
+        <div data-role="footer" data-position='fixed' data-theme='b'>
+            <div>
+                <p id="auther_label" align="center">
+                    Powered by BH_Lin &amp; Powen_Tan
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div data-role="page" id="detail">
+        <div data-theme='b' data-role="header">
+            <a data-role="button" data-theme="a" data-icon="back" data-inline="true" data-rel="back">返回</a>
+            <!-- <a href="index2.html" data-role="button" data-theme="a" data-icon="back" data-inline="true">返回</a> -->
+            <h1>My Coffee</h1>
+        </div>
+        <div data-role="content">
+        </div>
+    </div>
+
+    <!-- gmap page -->
+    <div data-role="page" id="gmap" class='page-map'>
+        <div data-role="content" id="content" style="height: 100%; width: 100%; padding: 0px;">
+            <div id="map-canvas" style="height: 100%; width: 100%"></div>
+        </div>
+    </div>
+
+    <script type="text/template" id="store-item" charset="utf-8">
+        <li data-theme="a">
+            <a data-role="button" href="#detail" class='item'>
+                <h1 class="ui-li-heading" style="width: 90%">
+                    <span class="wordwrap">{{name}}</span>
+                </h1>
+                <span class="ui-li-count">
+                    {{distance}}
+                </span>
+            </a>
+        </li>
+    </script>
+
+    <script type="text/template" id="store-detail" charset="utf-8">
+        <h2 style="-webkit-margin-after: 0.2em; -webkit-margin-before: 0.2em">{{name}}</h2>
+        <div>
+            <a href="//maps.google.com.tw/?q={{address}}" target="_blank">
+                <button class="location" data-role="button" data-icon="location" data-iconpos="notext" data-mini=true data-inline=true></button>
+                <span class="wordwrap">{{address}}</span>
+            </a>
+        </div>
+
+        {{#phone}}
+            <div>
+                <!-- <a href="tel:{{phone}}" class="phone" data-role="button" data-icon="phone" data-iconpos="notext" data-mini=true data-inline=true>{{phone}}</a> -->
+                <a href="tel:{{phone}}" target="_blank">
+                    <button class="phone" data-role="button" data-icon="phone" data-iconpos="notext" data-mini=true data-inline=true></button>
+                    {{phone}}
+                </a>
+            </div>
+        {{/phone}}
+        {{#openTime}}
+            <div>
+                <button class="openTime" data-role="button" data-icon="clock" data-iconpos="notext" data-mini=true data-inline=true></button>
+                <span class="wordwrap">{{openTime}}</span>
+            </div>
+        {{/openTime}}
+        <iframe id="mapview" src="//maps.google.com.tw/maps/?q={{address}}&z=16&output=embed" frameborder="0" width="100%"></iframe>
+    </script>
+
+    <script src="lib/jquery-1.11.1.min.js"></script>
+    <script src="lib/jquery.mobile-1.4.3.min.js"></script>
+    <script src="lib/mustache.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=&sensor=true"></script>
+    <script src="gmap.js" type="text/javascript" charset="utf-8"></script>
+    <script src="dataList.js"></script>
+    <script src="mycoffee.js"></script>
+</body>
+</html>
