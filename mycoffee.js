@@ -311,8 +311,9 @@ function appendToList(dataArray) {
     });
 
     // rebind page navigation for list view item
-    $('#listView a.item').click(function(event) {
+    $('#listView li a').click(function(event) {
         var $target = $(event.target);
+        console.info("### click: " ,$(event.target));
         var storeItem = $(this).data('store-item');
         sessionStorage.storeItem = JSON.stringify(storeItem);
         $("body").pagecontainer('change', '#detail', {reverse: true, transition: 'none'});
@@ -471,7 +472,9 @@ $(function() {
 
     var storeDetailTemplate = new Template($('#store-detail').html());
     $(document).on('pagebeforeshow', '#detail', function(e, data) {
-        var storeItem = JSON.parse(sessionStorage.storeItem);
+        var storeItem;
+        storeItem = JSON.parse(sessionStorage.storeItem);
+
         var storeDetailView = storeDetailTemplate.render(storeItem);
         var $content = $('#detail').find('[data-role="content"]');
         $content.empty();
@@ -481,6 +484,18 @@ $(function() {
         $content.find("button.location").buttonMarkup();
         $content.find("button.phone").buttonMarkup();
         $content.find("button.openTime").buttonMarkup();
+
+
+        // BH_Lin@2014/09/01    ----------------------------------------------->
+        // purpose: make iframe to fit 100% of container's remaining height
+        $('#mapview').load(function(){
+            document.getElementById('mapview').style.height = (window.innerHeight - $("#mapview").position().top - 20) +"px";
+        });
+        console.log("MAPVIEW: ", window.innerHeight, $("#mapview").position().top );
+        window.onresize = function(event) {
+            document.getElementById('mapview').style.height = (window.innerHeight - $("#mapview").position().top -20)+"px";
+        };
+        // BH_Lin@2014/09/01    -----------------------------------------------<
     });
 
     // gmap
