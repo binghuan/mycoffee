@@ -835,12 +835,12 @@ var dataList = [
         "longitude": 121.5228401
     },
     {
-        "name": "caffe' 4Mano",
-        "address": "台北市中正區羅斯福路三段284巷9號",
-        "phone": "(02) 2365-3089",
-        "openTime": "11:30～23:00",
-        "latitude": 25.016145,
-        "longitude": 121.531758
+        "name": "4Mano Caffe",
+        "address": "台北市中正區忠孝東路二段134巷3號",
+        "phone": "02 2391 1356",
+        "openTime": "11:00～22:00",
+        "latitude": 25.0415421,
+        "longitude": 121.5317425
     },
     {
         "name": "巢‧nido café",
@@ -2057,6 +2057,14 @@ var dataList = [
         "address": "台中市豐原區西安街95-5號",
         "latitude": 24.2489892,
         "longitude": 120.7120842
+    },
+    {
+        "name": "Soft.軟糖自烘咖啡",
+        "phone": "02-2831-2340",
+        "openTime": "五~日 09:00-17:00 週一~四休",
+        "address": "台北市士林區忠誠路二段76巷16號之2",
+        "latitude": 25.1119306,
+        "longitude": 121.5300291
     }
 ];
 
