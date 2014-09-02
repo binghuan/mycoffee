@@ -344,7 +344,7 @@ $(function() {
 	if(DBG)console.log("++ init");
 
     $("#auther_label").click(function() {
-        window.open("http://studiobinghuan.blogspot.com?view=flipcard", "_blank");
+        window.open("http://studiobinghuan.blogspot.tw/2014/08/my-coffee-for-taiwan.html", "_blank");
     });
 
     showProgressBar(true);// Profile#1
