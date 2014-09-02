@@ -335,8 +335,8 @@ function appendToList(dataArray) {
 
 	if(DBG)console.log("*** create item for listView -> done");
 
-	updateSearchResultBar("約有 " + searchResult.length +
-			" 項結果 (搜尋時間: " + (mSearchEnd - mSearchStart)/1000 + " 秒)");
+	updateSearchResultBar("附近有 <b>" + searchResult.length +
+			" </b>家店 (搜尋時間: " + (mSearchEnd - mSearchStart)/1000 + " 秒)");
 }
 
 
@@ -520,10 +520,10 @@ $(function() {
     // hide facebook like button
     $(document).on('pagebeforeshow', '#index', function(e, data) {
         if(navigator.onLine === true) {
-            $('#facebookButton').show();
+            $('#socialButtons').show();
         }
         else {
-            $('#facebookButton').hide();
+            $('#socialButtons').hide();
         }
     });
 

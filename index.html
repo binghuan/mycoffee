@@ -70,7 +70,7 @@
             <a id="pinButton" data-ajax="false" data-theme='a' class="ui-btn-right" data-icon="action"
             href='javascript:(function(){var newUrl = "http://binghuan.herokuapp.com/pinToRedirection.html?url=" + location.href + "&icon=icon/mycoffee.png&fontColor=black&label=My Coffee"; console.log("navigate to " + newUrl); location.href = newUrl;})()'>Pin</a>
 
-            <div class="ui-grid-a">
+            <div class="ui-grid-a" id="socialButtons">
                 <div class="ui-block-a">
                     <!-- facebook -->
                     <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fbinghuan.github.io%2Fmycoffee%2F&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=333632073398417" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;width:120px" allowTransparency="true"></iframe>
@@ -90,7 +90,7 @@
                             <!-- google+ -->
                             <div class="g-plus" data-action="share" data-width="95" data-annotation="bubble" data-href="//binghuan.github.io/mycoffee/"></div>
 
-                            <script src="https://apis.google.com/js/platform.js" async defer>
+                            <script src="//apis.google.com/js/platform.js" async defer>
                                 {lang: 'zh-TW'}
                             </script>
                         </div>
