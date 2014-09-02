@@ -477,6 +477,10 @@ $(function() {
     var storeDetailTemplate = new Template($('#store-detail').html());
     $(document).on('pagebeforeshow', '#detail', function(e, data) {
         var storeItem;
+        if(sessionStorage.storeItem == null) {
+            $("body").pagecontainer('change', '#index', {transition: 'none'});
+            return;
+        }
         storeItem = JSON.parse(sessionStorage.storeItem);
 
         var storeDetailView = storeDetailTemplate.render(storeItem);
@@ -503,6 +507,24 @@ $(function() {
             document.getElementById('mapview').style.height = (window.innerHeight - $("#mapview").position().top - 20)+"px";
         };
         // BH_Lin@2014/09/01    -----------------------------------------------<
+
+        // hide mapview if no network
+        if(navigator.onLine === true) {
+            $('#mapview').show();
+        }
+        else {
+            $('#mapview').hide();
+        }
+    });
+
+    // hide facebook like button
+    $(document).on('pagebeforeshow', '#index', function(e, data) {
+        if(navigator.onLine === true) {
+            $('#facebookButton').show();
+        }
+        else {
+            $('#facebookButton').hide();
+        }
     });
 
     // gmap
@@ -534,7 +556,6 @@ $(function() {
             });
         });
     });
-
 
 
     $('#gmap').on('pageshow', function() {
