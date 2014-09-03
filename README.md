@@ -6,6 +6,11 @@ find your coffee
 here is the link to open the web app.
 http://binghuan.github.io/mycoffee
 
+2014/09/03
+	add new branch "releasse" to let developer to deploy source code to other server
+	(ex: heorku.com) and modify the source code for new server.
+
+
 TODO
 ----
 ### Features
