@@ -11,6 +11,39 @@ var mSearchEnd = null;
 
 console.log("### version: " + VERSION);
 
+function getTodayOpeningHour(openingTime) {
+    if(openingTime == null) {
+        return null;
+    }
+    var days = {0: 'Sun', 1: 'Mon', 2: 'Tue', 3: 'Wed', 4: 'Thu', 5: 'Fri', 6: 'Sat'};
+
+    var now = new Date();
+    var day = days[now.getDay()];
+
+    return openingTime[day];
+}
+
+function isOpeningNow(openingHour) {
+    if(openingHour == null) {
+        return false;
+    }
+
+    var now = new Date();
+
+    // translate time from "0800" to 800, "2000" to 2000
+    var nowTime = parseInt(now.getHours()) * 100 + parseInt(now.getMinutes());
+
+    var tmp = openingHour.split('~');
+    var openingTime = parseInt(tmp[0]);
+    var closedTime = parseInt(tmp[1]);
+
+    if(nowTime >= openingTime && nowTime <= closedTime) {
+        return true;
+    }
+
+    return false;
+}
+
 // template wrapper
 function Template(html) {
     this.html = html;
@@ -27,21 +60,39 @@ Template.prototype = {
     }
 };
 
-function LocationData(dataList) {
-    this.dataList = dataList;
+function StoreInfo(dataList) {
+    this.stores = dataList;
+    this.onlyOpeningStores = false;
 }
 
-LocationData.prototype.getData = function() {
-    return this.dataList;
+StoreInfo.prototype.setOnlyOpeningStores = function(bool) {
+    this.onlyOpeningStores = bool;
 };
 
-LocationData.prototype.parse = function() {
+StoreInfo.prototype.getStores = function() {
+    var stores = this.stores;
+    
+    if(this.onlyOpeningStores) {
+        stores = stores.filter(function(store) {
+            var openingTime = store.openingTime;
+            var openingHour = getTodayOpeningHour(openingTime);
+            return isOpeningNow(openingHour);
+        });
+    }
+
+    return stores;
+};
+
+StoreInfo.prototype.getOpeningStores = function() {
+};
+
+StoreInfo.prototype.parse = function() {
     // this.dataList.forEach(function(_, index, array) {
         // array.distance = getDistance(currentLat, currentLon, dataArray[i].latitude,  dataArray[i].longitude);
     // });
 };
 
-var locationData = new LocationData(dataList);
+var storeInfo = new StoreInfo(dataList);
 
 // get the distance between two places.
 function getDistance(lat1, lon1, lat2, lon2) {
@@ -93,7 +144,7 @@ function getCurrentLocation() {
     // latitude - 緯度 - 水平線
 
     // try to get the store info. which is near by me
-    listStoreData(locationData.getData());
+    listStoreData(storeInfo.getStores());
 
     var now = new Date();
     var hour = now.getHours() + "";
@@ -139,7 +190,7 @@ function getCurrentLocation() {
         // get last location
         var currentGeolocation = getLastGeolocation();
         // try to get the store info. which is near by me
-        listStoreData(locationData.getData());
+        listStoreData(storeInfo.getStores());
     }
 
   	if (navigator.geolocation) {
@@ -177,7 +228,7 @@ function storeLastStoreInRange(latitude, longitude) {
     var storeNearBy = [];
 	var distance = 0;
 	var i = 0;
-    var dataList = locationData.getData();
+    var dataList = storeInfo.getStores();
 	for (i =0; i< dataList.length; i++) {
 		distance = getDistance(latitude, longitude,
                                dataList[i].latitude, dataList[i].longitude);
@@ -209,10 +260,16 @@ function listStoreData(dataList) {
 	if(DBG){console.log("listStoreData from server:" + dataList.length);}
 
     var currentGeolocation = getLastGeolocation();
+    var limitRange = $('#selectRangeCondition').val();
+    var storeNearBy = [];
 
-    dataList.forEach(function(item, index) {
-        item.distance = getDistance(currentGeolocation.latitude, currentGeolocation.longitude,
-                                    item.latitude, item.longitude);
+    dataList.forEach(function(store, index) {
+        store.distance = getDistance(currentGeolocation.latitude, currentGeolocation.longitude,
+                                    store.latitude, store.longitude);
+
+		if(store.distance <= limitRange) {
+            storeNearBy.push(store);
+		}
     });
 
 	//if(DBG)console.log(dataList);
@@ -224,10 +281,22 @@ function listStoreData(dataList) {
 	updateMessageBar("資料載入完成 ^_^ b");
 	disableSearchControl(false);
 
-    var storeNearBy = [];
+    // var storeNearBy = [];
 	// sub code id for testing.
-    var geolocation = getLastGeolocation();
-    storeNearBy = storeLastStoreInRange(geolocation.latitude, geolocation.longitude);
+    // var geolocation = getLastGeolocation();
+    // storeNearBy = storeLastStoreInRange(dataList, geolocation.latitude, geolocation.longitude);
+    /*
+    dataList.forEach(function(store) {
+        if(geolocation.latitude == null || geolocation.longitude == null) {
+        }
+		var distance = getDistance(geolocation.latitude, geolocation.longitude,
+                               store.latitude, store.longitude);
+		if(distance <= limitRange) {
+			store.distance = distance;
+            storeNearBy.push(store);
+		}
+    });
+    */
 
     showProgressBar(false);
     updateSearchResult(storeNearBy);
@@ -304,6 +373,23 @@ function appendToList(dataArray) {
             openTime: item.openTime,
             distance: distanceString
         };
+        // use openingTime instead of openTime if it exists
+        if(item.openingTime) {
+            storeItem.openTime = null;
+            storeItem.openingHour = getTodayOpeningHour(item.openingTime);
+            if(storeItem.openingHour == null) {
+                storeItem.openingHour = '休息';
+            }
+            else {
+                var isOpen = isOpeningNow(storeItem.openingHour);
+                if(!isOpen) {
+                    storeItem.openingHour += ('(關店)');
+                }
+                else {
+                    storeItem;
+                }
+            }
+        }
         var itemView = itemTemplate.render(storeItem);
 
 		$('#listView').append(itemView);
@@ -330,6 +416,7 @@ function appendToList(dataArray) {
     $("button.location").buttonMarkup();
     $("a.phone").buttonMarkup();
     $("button.openTime").buttonMarkup();
+    $("button.openingTime").buttonMarkup();
 
 	setUIisReady(true);
 
@@ -377,7 +464,7 @@ $(function() {
         //empty serach result
         var searchResult = [];
         var result;
-        var dataList = locationData.getData();
+        var dataList = storeInfo.getStores();
 
         var queryText = $("#searchbox").val();
         if(DBG)console.log("searchDataByKeyWord with keyword(" + queryText);
@@ -461,10 +548,6 @@ $(function() {
         }
     });
 
-    // $("#searchbox").on('input', function(e) {
-        // onSearchButtonClick();
-    // });
-
     $("#searchButton").click(onSearchButtonClick);
 
     $("#selectRangeCondition").on('change', onSearchButtonClick);
@@ -492,6 +575,7 @@ $(function() {
         $content.find("button.location").buttonMarkup();
         $content.find("button.phone").buttonMarkup();
         $content.find("button.openTime").buttonMarkup();
+        $content.find("button.openingTime").buttonMarkup();
 
 
         // BH_Lin@2014/09/01    ----------------------------------------------->
@@ -515,6 +599,19 @@ $(function() {
         else {
             $('#mapview').hide();
         }
+    });
+
+    $('#selectOpen').on('click', function() {
+        showProgressBar(true);
+
+        // set or unset selectOpen checkbox
+        storeInfo.setOnlyOpeningStores($(this).prop('checked'));
+
+        var stores = storeInfo.getStores();
+        // remove closed stores from store list
+        listStoreData(stores);
+
+        showProgressBar(false);
     });
 
     // hide facebook like button

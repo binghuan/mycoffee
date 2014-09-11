@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- <html manifest="mycoffee.appcache"> -->
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
@@ -60,26 +61,52 @@
         }
 
     </style>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-11206621-5', 'auto');
+      ga('send', 'pageview');
+    </script>
 </head>
 <body>
-
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&appId=589480567729708&version=v2.0";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-
     <!-- main page -->
     <div data-role="page" id='index'>
         <div data-theme='b' data-role="header">
-            <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fbinghuan.github.io%2Fmycoffee&amp;width&amp;layout=button_count&amp;action=recommend&amp;show_faces=false&amp;share=false&amp;height=21&amp;appId=589480567729708" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true" class='ui-btn-left' id="facebookButton"></iframe>
-
             <h1>My Coffee</h1>
             <a id="pinButton" data-ajax="false" data-theme='a' class="ui-btn-right" data-icon="action"
             href='javascript:(function(){var newUrl = "http://binghuan.herokuapp.com/pinToRedirection.html?url=" + location.href + "&icon=icon/mycoffee.png&fontColor=black&label=My Coffee"; console.log("navigate to " + newUrl); location.href = newUrl;})()'>Pin</a>
+
+            <div class="ui-grid-a" id="socialButtons">
+                <div class="ui-block-a">
+                    <!-- facebook -->
+                    <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fbinghuan.github.io%2Fmycoffee%2F&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=333632073398417" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;width:120px" allowTransparency="true"></iframe>
+                </div>
+                <div class="ui-block-b">
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <!-- Line -->
+                            <span>
+                                <script type="text/javascript" src="//media.line.me/js/line-button.js?v=20140411" ></script>
+                                <script type="text/javascript">
+                                    new media_line_me.LineButton({"pc":false,"lang":"en","type":"a"});
+                                </script>
+                            </span>
+                        </div>
+                        <div class="ui-block-b">
+                            <!-- google+ -->
+                            <div class="g-plus" data-action="share" data-width="95" data-annotation="bubble" data-href="//binghuan.github.io/mycoffee/"></div>
+
+                            <script src="//apis.google.com/js/platform.js" async defer>
+                                {lang: 'zh-TW'}
+                            </script>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
 
         <!-- <div data-role="content"> -->
@@ -97,6 +124,11 @@
             <div id="messageBar">
                 <p id="searchResultText"></p>
             </div>
+            <form>
+                <label>
+                    <input id="selectOpen" type="checkbox">現在開店中
+                </label>
+            </form>
             <ul id="listView" data-role='listview' data-count-theme='b' data-filter="true" data-filter-placeholder="關鍵字: Cafe"></ul>
         </div>
 
@@ -113,7 +145,6 @@
     <div data-role="page" id="detail">
         <div data-theme='b' data-role="header">
             <a data-role="button" data-theme="a" data-icon="back" data-inline="true" data-rel="back">返回</a>
-            <!-- <a href="index2.html" data-role="button" data-theme="a" data-icon="back" data-inline="true">返回</a> -->
             <h1>My Coffee</h1>
         </div>
         <div data-role="content">
@@ -158,6 +189,12 @@
                 </a>
             </div>
         {{/phone}}
+        {{#openingHour}}
+            <div>
+                <button class="openingTime" data-role="button" data-icon="clock" data-iconpos="notext" data-mini=true data-inline=true></button>
+                今天：<span class="wordwrap">{{openingHour}}</span>
+            </div>
+        {{/openingHour}}
         {{#openTime}}
             <div>
                 <button class="openTime" data-role="button" data-icon="clock" data-iconpos="notext" data-mini=true data-inline=true></button>
@@ -175,5 +212,6 @@
     <script src="gmap.js" type="text/javascript" charset="utf-8"></script>
     <script src="dataList.js"></script>
     <script src="mycoffee.js"></script>
+
 </body>
 </html>
