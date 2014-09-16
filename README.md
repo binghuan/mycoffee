@@ -22,10 +22,13 @@ TODO
     - [ ] 東台灣-宜蘭花蓮台東
     - [ ] 台北市, 新北市(ptt找不到的)
     - [X] List from 癮咖啡老闆友人
+- [ ] Update opening time for filtering
+- [ ] Filter by opening time
 - [ ] Add to favorite(local)
-- [ ] Make tags for every stores for searching and categorization
-    - 單品, Wifi, 消費價格(拿鐵, 單品), 耳掛(價格), 特殊成就(得獎, 上雜誌, 電視, ...),
-    特別單品(藝妓, 藍山, 90+, ...)
+- [ ] Make tags for stores for searching and categorization
+    - [ ] Tag by 飲料種類: 單品, 拿鐵, 耳掛, 特別單品(藝妓, 藍山, 90+, ...), ...
+    - [ ] Tag by 設備,特殊成就,氣氛: Wifi, 得獎, 上雜誌, 電視, ...
+    - [ ] Filter by 消費價格: 單品, 拿鐵, 耳掛, 特別單品, ...
 
 ### Backend server(heroku?)
 - [ ] Login mechanism: local login, facebook login, ...
