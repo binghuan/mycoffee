@@ -13,7 +13,8 @@ var dataList = [
             "Thu": "1300~2300",
             "Fri": "1300~2300",
             "Sat": "1200~2300"
-        }
+        },
+        "googleName": "小米酒咖啡館"
     },
     {
         "name": "cafe libero小自由",
@@ -30,7 +31,8 @@ var dataList = [
             "Thu": "1200~0000",
             "Fri": "1200~0000",
             "Sat": "0900~0000"
-        }
+        },
+        "googleName": "cafe libero小自由"
     },
     {
         "name": "鴉埠咖啡YABOO",
@@ -46,7 +48,8 @@ var dataList = [
             "Thu": "1200~0000",
             "Fri": "1200~0000",
             "Sat": "1000~0000"
-        }
+        },
+        "googleName": "鴉埠咖啡YABOO"
     },
     {
         "name": "forgood cafe",
@@ -62,7 +65,8 @@ var dataList = [
             "Thu": "1200~2200",
             "Fri": "1200~2200",
             "Sat": "1200~2200"
-        }
+        },
+        "googleName": "forgood cafe"
     },
     {
         "name": "閑隅T. Loafer",
@@ -70,7 +74,8 @@ var dataList = [
         "phone": "",
         "openTime": "1200-2400",
         "latitude": 25.029445,
-        "longitude": 121.527556
+        "longitude": 121.527556,
+        "googleName": "閑隅T. Loafer"
     },
     {
         "name": "卡瓦利義大利咖啡館",
@@ -78,7 +83,8 @@ var dataList = [
         "phone": "(02)2394-7516",
         "openTime": "日~四1130-2300。五六1130-2400",
         "latitude": 25.0332769,
-        "longitude": 121.529489
+        "longitude": 121.529489,
+        "googleName": "卡瓦利義大利咖啡館"
     },
     {
         "name": "學校咖啡館EcoleCafe",
@@ -95,7 +101,8 @@ var dataList = [
             "Thu": "0900~2200",
             "Fri": "0900~2300",
             "Sat": "0900~2300"
-        }
+        },
+        "googleName": "學校咖啡館EcoleCafe"
     },
     {
         "name": "靜香",
@@ -103,7 +110,8 @@ var dataList = [
         "phone": "(02)2396-6381",
         "openTime": "1430~2130(四休)",
         "latitude": 25.029603,
-        "longitude": 121.528407
+        "longitude": 121.528407,
+        "googleName": "靜香"
     },
     {
         "name": "茴香(原：Mei's Tea Bar)",
@@ -111,7 +119,8 @@ var dataList = [
         "phone": "02 2394-2525",
         "openTime": "下午三點到晚上一點",
         "latitude": 25.030704,
-        "longitude": 121.530066
+        "longitude": 121.530066,
+        "googleName": "茴香(原：Mei's Tea Bar)"
     },
     {
         "name": "品客咖啡屋",
@@ -119,7 +128,8 @@ var dataList = [
         "phone": "02 2369 1264",
         "openTime": "",
         "latitude": 25.0234579,
-        "longitude": 121.529171
+        "longitude": 121.529171,
+        "googleName": "品客咖啡屋"
     },
     {
         "name": "布拉格咖啡館",
@@ -134,7 +144,8 @@ var dataList = [
             "Thu": "1400~0000",
             "Fri": "1400~0000",
             "Sat": "1400~0000"
-        }
+        },
+        "googleName": "布拉格咖啡館"
     },
     {
         "name": "口袋咖啡CafÄRT",
@@ -151,7 +162,8 @@ var dataList = [
             "Thu": "1200~2200",
             "Fri": "1200~2200",
             "Sat": "1200~2200"
-        }
+        },
+        "googleName": "口袋咖啡CafÄRT"
     },
     {
         "name": "熊在咖啡館",
@@ -160,7 +172,8 @@ var dataList = [
         "openTime": "09:00-21:00",
         "updateTime": "2014-08-14",
         "latitude": 25.0242353,
-        "longitude": 121.4278479
+        "longitude": 121.4278479,
+        "googleName": "熊在咖啡館"
     },
     {
         "name": "CO2",
@@ -168,7 +181,8 @@ var dataList = [
         "phone": "02-23621358",
         "openTime": "",
         "latitude": 25.018813,
-        "longitude": 121.532223
+        "longitude": 121.532223,
+        "googleName": "CO2"
     },
     {
         "name": "葉子",
@@ -184,7 +198,8 @@ var dataList = [
             "Thu": "1200~0000",
             "Fri": "1200~0000",
             "Sat": "1200~0000"
-        }
+        },
+        "googleName": "葉子"
     },
     {
         "name": "統將專業咖啡",
@@ -192,7 +207,8 @@ var dataList = [
         "phone": "02-23661594",
         "openTime": "",
         "latitude": 25.0197392,
-        "longitude": 121.5326626
+        "longitude": 121.5326626,
+        "googleName": "統將專業咖啡"
     },
     {
         "name": "希臘左巴",
@@ -209,7 +225,8 @@ var dataList = [
             "Thu": "1100~2200",
             "Fri": "1100~2230",
             "Sat": "1100~2230"
-        }
+        },
+        "googleName": "希臘左巴"
     },
     {
         "name": "朱利安諾咖啡",
@@ -217,7 +234,8 @@ var dataList = [
         "phone": "02-23660816",
         "openTime": "",
         "latitude": 25.0195105,
-        "longitude": 121.5326347
+        "longitude": 121.5326347,
+        "googleName": "朱利安諾咖啡"
     },
     {
         "name": "聊聊咖啡館",
@@ -225,7 +243,8 @@ var dataList = [
         "phone": "02-23694717",
         "openTime": "",
         "latitude": 25.019136,
-        "longitude": 121.53294
+        "longitude": 121.53294,
+        "googleName": "聊聊咖啡館"
     },
     {
         "name": "TU-coffee",
@@ -233,7 +252,8 @@ var dataList = [
         "phone": "02-23694905",
         "openTime": "",
         "latitude": 25.018902,
-        "longitude": 121.532915
+        "longitude": 121.532915,
+        "googleName": "TU CAFE"
     },
     {
         "name": "羅曼義式咖啡",
@@ -241,7 +261,8 @@ var dataList = [
         "phone": "02-23623787",
         "openTime": "",
         "latitude": 25.019132,
-        "longitude": 121.533196
+        "longitude": 121.533196,
+        "googleName": "羅曼義式咖啡"
     },
     {
         "name": "雪可屋",
@@ -249,7 +270,8 @@ var dataList = [
         "phone": "02-23673036",
         "openTime": "",
         "latitude": 25.018856,
-        "longitude": 121.5328616
+        "longitude": 121.5328616,
+        "googleName": "雪可屋"
     },
     {
         "name": "挪威森林-溫州店",
@@ -257,7 +279,8 @@ var dataList = [
         "phone": "02-23633714",
         "openTime": "",
         "latitude": 25.0190909,
-        "longitude": 121.532742
+        "longitude": 121.532742,
+        "googleName": "挪威森林-溫州店"
     },
     {
         "name": "挪威森林-公館店",
@@ -265,7 +288,8 @@ var dataList = [
         "phone": "02-23653089",
         "openTime": "",
         "latitude": 25.016145,
-        "longitude": 121.531758
+        "longitude": 121.531758,
+        "googleName": "挪威森林-公館店"
     },
     {
         "name": "傑克魔豆",
@@ -273,7 +297,8 @@ var dataList = [
         "phone": "02-23694893",
         "openTime": "",
         "latitude": 25.015506,
-        "longitude": 121.532336
+        "longitude": 121.532336,
+        "googleName": "傑克魔豆"
     },
     {
         "name": "Aura微光咖啡",
@@ -290,7 +315,8 @@ var dataList = [
             "Thu": "1200~2300",
             "Fri": "1200~2300",
             "Sat": "1200~2300"
-        }
+        },
+        "googleName": "Aura微光咖啡"
     },
     {
         "name": "道南館│自家烘焙咖啡",
@@ -298,7 +324,8 @@ var dataList = [
         "phone": "0918-626-131",
         "openTime": "週一 – 週六/ 11:00 – 21:00, 週日/11:00 – 18:00",
         "latitude": 24.988677,
-        "longitude": 121.57352
+        "longitude": 121.57352,
+        "googleName": "道南館│自家烘焙咖啡"
     },
     {
         "name": "The Lobby of Simple Kaffa",
@@ -315,7 +342,8 @@ var dataList = [
             "Thu": "1230~2130",
             "Fri": "1230~2200",
             "Sat": "1230~2200"
-        }
+        },
+        "googleName": "The Lobby of Simple Kaffa"
     },
     {
         "name": "Akuma caca 可可設計人文咖啡",
@@ -332,7 +360,8 @@ var dataList = [
             "Thu": "0900~2130",
             "Fri": "0900~2130",
             "Sat": "0900~2130"
-        }
+        },
+        "googleName": "Akuma caca 可可設計人文咖啡"
     },
     {
         "name": "AKUMA CACA 2店敦南店",
@@ -347,7 +376,8 @@ var dataList = [
             "Wed": "0830~1730",
             "Thu": "0830~1730",
             "Fri": "0830~1730"
-        }
+        },
+        "googleName": "AKUMA CACA 2店敦南店"
     },
     {
         "name": "沛洛瑟自家焙煎咖啡店",
@@ -364,7 +394,8 @@ var dataList = [
             "Thu": "1000~2100",
             "Fri": "1000~2100",
             "Sat": "1000~2100"
-        }
+        },
+        "googleName": "沛洛瑟自家焙煎咖啡店"
     },
     {
         "name": "聞山自家焙煎珈琲館Wein MT.Roast Coffee",
@@ -372,15 +403,26 @@ var dataList = [
         "phone": "02 2933 4567",
         "openTime": "週一 - 週日: 13:00 - 22:00",
         "latitude": 24.993038,
-        "longitude": 121.542156
+        "longitude": 121.542156,
+        "googleName": "聞山自家焙煎珈琲館Wein MT.Roast Coffee"
     },
     {
-        "name": "GEORGE HOUSE台北永康門市",
+        "name": "GEORGE HOUSE",
         "address": "台北市永康街75巷3號",
         "phone": "02-23920801",
         "openTime": "13:00~23:00",
         "latitude": 25.0288684,
-        "longitude": 121.5296764
+        "longitude": 121.5296764,
+        "openingTime": {
+            "Sun": "1300~2300",
+            "Mon": "1300~2300",
+            "Tue": "1300~2300",
+            "Wed": "1300~2300",
+            "Thu": "1300~2300",
+            "Fri": "1300~2300",
+            "Sat": "1300~2300"
+        },
+        "googleName": "GEORGE HOUSE"
     },
     {
         "name": "原豆空間自家烘焙咖啡館",
@@ -388,7 +430,8 @@ var dataList = [
         "phone": "02 2749 5027",
         "openTime": "週一 - 週五: 11:00 - 22:00, 週六: 11:00 - 0:00, 週日: 11:00 - 21:00",
         "latitude": 22.9798091,
-        "longitude": 120.224982
+        "longitude": 120.224982,
+        "googleName": "原豆空間自家烘焙咖啡館"
     },
     {
         "name": "吉佳咖啡",
@@ -396,7 +439,8 @@ var dataList = [
         "phone": "02-2861-8050",
         "openTime": "10:00~22:30",
         "latitude": 25.138012,
-        "longitude": 121.547048
+        "longitude": 121.547048,
+        "googleName": "吉佳咖啡"
     },
     {
         "name": "luguocafé爐鍋咖啡",
@@ -412,7 +456,8 @@ var dataList = [
             "Thu": "1500~2200",
             "Fri": "1500~2300",
             "Sat": "1500~2300"
-        }
+        },
+        "googleName": "luguocafé爐鍋咖啡"
     },
     {
         "name": "陽光水岸花園",
@@ -420,7 +465,8 @@ var dataList = [
         "phone": "02 2861 9088",
         "openTime": "",
         "latitude": 25.1447301,
-        "longitude": 121.567949
+        "longitude": 121.567949,
+        "googleName": "陽光水岸花園"
     },
     {
         "name": "理約自家烘焙精品咖啡館",
@@ -428,7 +474,8 @@ var dataList = [
         "phone": "02-2872-9167",
         "openTime": "9:00~21:00（週二~五; 13:00~21:30（週六、日）週一公休",
         "latitude": 25.1255229,
-        "longitude": 121.531118
+        "longitude": 121.531118,
+        "googleName": "理約自家烘焙精品咖啡館"
     },
     {
         "name": "摩威咖啡館",
@@ -436,7 +483,8 @@ var dataList = [
         "phone": "02 2838 3826",
         "openTime": "",
         "latitude": 25.106215,
-        "longitude": 121.522892
+        "longitude": 121.522892,
+        "googleName": "摩威咖啡館"
     },
     {
         "name": "拾米屋",
@@ -444,7 +492,17 @@ var dataList = [
         "phone": "(02)2892-2800",
         "openTime": "13:00~20:00",
         "latitude": 25.1357885,
-        "longitude": 121.4989701
+        "longitude": 121.4989701,
+        "openingTime": {
+            "Sun": "1300~2000",
+            "Mon": "1300~2000",
+            "Tue": "1300~2000",
+            "Wed": "1300~2000",
+            "Thu": "1300~2000",
+            "Fri": "1300~2000",
+            "Sat": "1300~2000"
+        },
+        "googleName": "拾米屋"
     },
     {
         "name": "高馡咖啡烘焙GaoFei Coffee",
@@ -459,7 +517,8 @@ var dataList = [
             "Thu": "1200~1800",
             "Fri": "1200~1800",
             "Sat": "1200~1800"
-        }
+        },
+        "googleName": "高馡咖啡烘焙GaoFei Coffee"
     },
     {
         "name": "波希米亞人咖啡館",
@@ -467,7 +526,8 @@ var dataList = [
         "phone": "02 2550 0421",
         "openTime": "週二 - 週日: 12:00 - 22:00",
         "latitude": 25.050253,
-        "longitude": 121.519344
+        "longitude": 121.519344,
+        "googleName": "波希米亞人咖啡館"
     },
     {
         "name": "立裴米緹咖啡館",
@@ -484,7 +544,8 @@ var dataList = [
             "Thu": "1200~2200",
             "Fri": "1200~2200",
             "Sat": "1200~2200"
-        }
+        },
+        "googleName": "立裴米緹咖啡館"
     },
     {
         "name": "Fika Fika Cafe",
@@ -501,7 +562,8 @@ var dataList = [
             "Thu": "0800~2000",
             "Fri": "0800~2000",
             "Sat": "1000~2000"
-        }
+        },
+        "googleName": "Fika Fika Cafe"
     },
     {
         "name": "【CoffeeSweet】自家烘焙咖啡館",
@@ -517,7 +579,8 @@ var dataList = [
             "Thu": "0930~1830",
             "Fri": "0930~1830",
             "Sat": "1530~1830"
-        }
+        },
+        "googleName": "【CoffeeSweet】自家烘焙咖啡館"
     },
     {
         "name": "羅斯特咖啡量販中心",
@@ -533,7 +596,8 @@ var dataList = [
             "Thu": "0900~1900",
             "Fri": "0900~1900",
             "Sat": "0900~1700"
-        }
+        },
+        "googleName": "羅斯特咖啡量販中心"
     },
     {
         "name": "Le Park Cafe公園咖啡館",
@@ -549,7 +613,8 @@ var dataList = [
             "Thu": "1300~2300",
             "Fri": "1300~0000",
             "Sat": "1300~0000"
-        }
+        },
+        "googleName": "Le Park Cafe公園咖啡館"
     },
     {
         "name": "老爸咖啡有限公司",
@@ -557,7 +622,8 @@ var dataList = [
         "phone": "02 2278 1563",
         "openTime": "",
         "latitude": 25.050492,
-        "longitude": 121.47338
+        "longitude": 121.47338,
+        "googleName": "老爸咖啡有限公司"
     },
     {
         "name": "Solo bean",
@@ -565,7 +631,8 @@ var dataList = [
         "phone": "02 2382 6890",
         "openTime": "週一 - 週五: 7:30 - 18:00, 週六: 9:00 - 18:00",
         "latitude": 25.043565,
-        "longitude": 121.513625
+        "longitude": 121.513625,
+        "googleName": "Solo bean"
     },
     {
         "name": "上上咖啡",
@@ -573,7 +640,8 @@ var dataList = [
         "phone": "02 2314 0064",
         "openTime": "",
         "latitude": 25.042739,
-        "longitude": 121.510825
+        "longitude": 121.510825,
+        "googleName": "上上咖啡"
     },
     {
         "name": "老樹咖啡",
@@ -590,7 +658,8 @@ var dataList = [
             "Thu": "1000~0000",
             "Fri": "1000~0000",
             "Sat": "1000~0000"
-        }
+        },
+        "googleName": "老樹咖啡"
     },
     {
         "name": "咖啡實驗室",
@@ -607,7 +676,8 @@ var dataList = [
             "Thu": "1200~2130",
             "Fri": "1200~2130",
             "Sat": "1200~2130"
-        }
+        },
+        "googleName": "咖啡實驗室"
     },
     {
         "name": "哈亞極品咖啡",
@@ -615,7 +685,8 @@ var dataList = [
         "phone": "02-2715-1646",
         "openTime": "週一至週日：09:00~21:00, 每月第一、第三個週一公休",
         "latitude": 25.0585609,
-        "longitude": 121.549746
+        "longitude": 121.549746,
+        "googleName": "哈亞極品咖啡"
     },
     {
         "name": "GaBee.咖啡店",
@@ -632,15 +703,26 @@ var dataList = [
             "Thu": "1200~2300",
             "Fri": "1200~2300",
             "Sat": "1000~2300"
-        }
+        },
+        "googleName": "GaBee.咖啡店"
     },
     {
-        "name": "湛盧咖啡-大安館",
+        "name": "湛盧咖啡",
         "address": "台北市大安區新生南路一段161巷2-1號1F",
         "phone": "02-2708-9828",
         "openTime": "",
         "latitude": 25.034513,
-        "longitude": 121.533417
+        "longitude": 121.533417,
+        "openingTime": {
+            "Sun": "1200~2200",
+            "Mon": "1200~2200",
+            "Tue": "1200~2200",
+            "Wed": "1200~2200",
+            "Thu": "1200~2200",
+            "Fri": "1200~2200",
+            "Sat": "1200~2200"
+        },
+        "googleName": "湛盧咖啡"
     },
     {
         "name": "原豆空間",
@@ -657,7 +739,8 @@ var dataList = [
             "Thu": "1100~2200",
             "Fri": "1100~2200",
             "Sat": "1100~2200"
-        }
+        },
+        "googleName": "原豆空間"
     },
     {
         "name": "藝豐咖啡店",
@@ -665,15 +748,26 @@ var dataList = [
         "phone": "02-3765-5636",
         "openTime": "0900~2100 星期二公休",
         "latitude": 25.05923,
-        "longitude": 121.558101
+        "longitude": 121.558101,
+        "googleName": "藝豐咖啡店"
     },
     {
-        "name": "Coffee Remus 旅沐豆行 錦州店",
+        "name": "旅沐豆行",
         "address": "台北市中山區錦州街416號",
         "phone": "02-2503-1005",
         "openTime": "12:00~18:00",
         "latitude": 25.060036,
-        "longitude": 121.541823
+        "longitude": 121.541823,
+        "openingTime": {
+            "Sun": "0730~2230",
+            "Mon": "0730~2230",
+            "Tue": "0730~2230",
+            "Wed": "0730~2230",
+            "Thu": "0730~2230",
+            "Fri": "0730~2230",
+            "Sat": "0730~2230"
+        },
+        "googleName": "旅沐豆行"
     },
     {
         "name": "旅沐豆行",
@@ -681,7 +775,8 @@ var dataList = [
         "phone": "(02) 2504-3344",
         "openTime": "12:00~21:00",
         "latitude": 25.0560449,
-        "longitude": 121.538233
+        "longitude": 121.538233,
+        "googleName": "旅沐豆行"
     },
     {
         "name": "老鄰居精品咖啡豆",
@@ -698,7 +793,8 @@ var dataList = [
             "Thu": "1200~2100",
             "Fri": "1200~2100",
             "Sat": "1200~2100"
-        }
+        },
+        "googleName": "老鄰居精品咖啡豆"
     },
     {
         "name": "Cafe Ballet 芭蕾咖啡館 ‧台北",
@@ -706,7 +802,8 @@ var dataList = [
         "phone": "(02)27631981",
         "openTime": "",
         "latitude": 25.057582,
-        "longitude": 121.561807
+        "longitude": 121.561807,
+        "googleName": "Cafe Ballet 芭蕾咖啡館 ‧台北"
     },
     {
         "name": "Artista Perfetto",
@@ -714,7 +811,8 @@ var dataList = [
         "phone": "02 2763 7002",
         "openTime": "",
         "latitude": 25.0422179,
-        "longitude": 121.56319
+        "longitude": 121.56319,
+        "googleName": "Artista Perfetto"
     },
     {
         "name": "克立瑪咖啡館",
@@ -731,7 +829,8 @@ var dataList = [
             "Thu": "1200~2300",
             "Fri": "1200~2300",
             "Sat": "1200~2300"
-        }
+        },
+        "googleName": "克立瑪咖啡館"
     },
     {
         "name": "加爾第咖啡(莊敬店)",
@@ -748,7 +847,8 @@ var dataList = [
             "Thu": "1000~2300",
             "Fri": "1000~2300",
             "Sat": "1000~2300"
-        }
+        },
+        "googleName": "加爾第咖啡(莊敬店)"
     },
     {
         "name": "班經典咖啡館",
@@ -764,7 +864,8 @@ var dataList = [
             "Wed": "1200~2200",
             "Fri": "1200~2200",
             "Sat": "1200~2200"
-        }
+        },
+        "googleName": "班經典咖啡館"
     },
     {
         "name": "相思李舍",
@@ -772,7 +873,8 @@ var dataList = [
         "phone": "02 2773 5870",
         "openTime": "",
         "latitude": 25.0406621,
-        "longitude": 121.5570662
+        "longitude": 121.5570662,
+        "googleName": "相思李舍"
     },
     {
         "name": "配個咖啡吧PEGCOFFEE自家烘焙咖啡館",
@@ -780,7 +882,8 @@ var dataList = [
         "phone": "02-8732-8603",
         "openTime": "周一~周六 14：00~20：00 ，周日14：00~18：00",
         "latitude": 25.023241,
-        "longitude": 121.554661
+        "longitude": 121.554661,
+        "googleName": "配個咖啡吧PEGCOFFEE自家烘焙咖啡館"
     },
     {
         "name": "極簡咖啡館",
@@ -797,7 +900,8 @@ var dataList = [
             "Thu": "1200~2300",
             "Fri": "1200~2300",
             "Sat": "1200~2300"
-        }
+        },
+        "googleName": "極簡咖啡館"
     },
     {
         "name": "picnic野餐咖啡",
@@ -813,7 +917,8 @@ var dataList = [
             "Thu": "1200~0000",
             "Fri": "1200~0000",
             "Sat": "1200~0000"
-        }
+        },
+        "googleName": "picnic野餐咖啡"
     },
     {
         "name": "豆工房咖啡",
@@ -821,7 +926,8 @@ var dataList = [
         "phone": "02 2749 3669",
         "openTime": "",
         "latitude": 25.041385,
-        "longitude": 121.565258
+        "longitude": 121.565258,
+        "googleName": "豆工房咖啡"
     },
     {
         "name": "E61咖啡",
@@ -836,7 +942,8 @@ var dataList = [
             "Thu": "1500~2200",
             "Fri": "1500~2200",
             "Sat": "1500~2200"
-        }
+        },
+        "googleName": "E61咖啡"
     },
     {
         "name": "季節香茶葉與咖啡烘焙屋",
@@ -853,7 +960,8 @@ var dataList = [
             "Thu": "1000~2300",
             "Fri": "1000~2300",
             "Sat": "1000~2300"
-        }
+        },
+        "googleName": "季節香茶葉與咖啡烘焙屋"
     },
     {
         "name": "咖啡意識烘焙館",
@@ -869,7 +977,8 @@ var dataList = [
             "Thu": "1300~2200",
             "Fri": "1300~2200",
             "Sat": "1300~2200"
-        }
+        },
+        "googleName": "咖啡意識烘焙館"
     },
     {
         "name": "菲瑪咖啡",
@@ -886,7 +995,8 @@ var dataList = [
             "Thu": "1300~2200",
             "Fri": "1300~2200",
             "Sat": "1000~2200"
-        }
+        },
+        "googleName": "菲瑪咖啡"
     },
     {
         "name": "Mellow Coffee",
@@ -902,7 +1012,8 @@ var dataList = [
             "Thu": "1300~2300",
             "Fri": "1300~2300",
             "Sat": "1300~2300"
-        }
+        },
+        "googleName": "Mellow Coffee"
     },
     {
         "name": "Beck 519",
@@ -910,7 +1021,8 @@ var dataList = [
         "phone": "02 25111519",
         "openTime": "",
         "latitude": 25.051263,
-        "longitude": 121.531384
+        "longitude": 121.531384,
+        "googleName": "Beck 519"
     },
     {
         "name": "Babka歐風鄉村咖啡",
@@ -918,7 +1030,8 @@ var dataList = [
         "phone": "02-24063458",
         "openTime": "AM9:00 - PM17:00(每月第四個星期一公休)",
         "latitude": 25.1081409,
-        "longitude": 121.843497
+        "longitude": 121.843497,
+        "googleName": "Babka歐風鄉村咖啡"
     },
     {
         "name": "好豆咖啡商號",
@@ -936,10 +1049,12 @@ var dataList = [
             "Thu": "1100~2300",
             "Fri": "1100~2300",
             "Sat": "1100~2300"
-        }
+        },
+        "googleName": "好豆咖啡商號"
     },
     {
         "name": "艾瑞絲",
+        "googleName": "ERISE CAFE",
         "address": "新竹市光復路二段354號",
         "phone": "03-5734834",
         "openTime": "星期二~星期日 11:00~20:00(星期一公休)",
@@ -953,7 +1068,8 @@ var dataList = [
         "phone": "035237773",
         "openTime": "",
         "latitude": 24.8063447,
-        "longitude": 120.9586446
+        "longitude": 120.9586446,
+        "googleName": "鍋子咖啡"
     },
     {
         "name": "咖啡葉",
@@ -970,7 +1086,8 @@ var dataList = [
             "Thu": "1000~2200",
             "Fri": "1000~2200",
             "Sat": "1000~2200"
-        }
+        },
+        "googleName": "咖啡葉"
     },
     {
         "name": "鮮豆房‧自家烘焙咖啡館",
@@ -985,7 +1102,8 @@ var dataList = [
             "Wed": "1000~1900",
             "Thu": "1000~1900",
             "Fri": "1000~1900"
-        }
+        },
+        "googleName": "鮮豆房‧自家烘焙咖啡館"
     },
     {
         "name": "瑪格莉特咖啡館",
@@ -993,7 +1111,8 @@ var dataList = [
         "phone": "(02) 2731-1656",
         "openTime": "01:00~07:00 (週一~週四)、13:00~22:00 (週五~週六) 公休日期：每週日",
         "latitude": 25.03961,
-        "longitude": 121.550906
+        "longitude": 121.550906,
+        "googleName": "瑪格莉特咖啡館"
     },
     {
         "name": "RUFOUS COFFEE",
@@ -1009,7 +1128,8 @@ var dataList = [
             "Wed": "1300~2200",
             "Fri": "1300~2200",
             "Sat": "1300~2200"
-        }
+        },
+        "googleName": "RUFOUS COFFEE"
     },
     {
         "name": "布朗尼咖啡",
@@ -1017,7 +1137,8 @@ var dataList = [
         "phone": "(02) 8786-0833",
         "openTime": "08:30~22:00 《週一到週五》、07:30~22:00  《六日》 公休日期：每月第二、四週日公休",
         "latitude": 25.0403029,
-        "longitude": 121.562064
+        "longitude": 121.562064,
+        "googleName": "布朗尼咖啡"
     },
     {
         "name": "Cafe Kuroshio．咖啡黑潮",
@@ -1033,7 +1154,8 @@ var dataList = [
             "Thu": "1300~0000",
             "Fri": "1300~0000",
             "Sat": "1300~0000"
-        }
+        },
+        "googleName": "Cafe Kuroshio．咖啡黑潮"
     },
     {
         "name": "L'amour",
@@ -1050,7 +1172,8 @@ var dataList = [
             "Thu": "1030~2100",
             "Fri": "1030~2100",
             "Sat": "1030~2100"
-        }
+        },
+        "googleName": "L'amour"
     },
     {
         "name": "哈亞極品咖啡HAAYA'S COFFEE",
@@ -1067,7 +1190,8 @@ var dataList = [
             "Thu": "1000~2100",
             "Fri": "1000~2100",
             "Sat": "0800~2200"
-        }
+        },
+        "googleName": "哈亞極品咖啡HAAYA'S COFFEE"
     },
     {
         "name": "黑豆坊咖啡",
@@ -1075,7 +1199,8 @@ var dataList = [
         "phone": "(02) 2883-1125",
         "openTime": "12:00~23:00",
         "latitude": 25.094074,
-        "longitude": 121.52784
+        "longitude": 121.52784,
+        "googleName": "黑豆坊咖啡"
     },
     {
         "name": "陽春商號",
@@ -1091,7 +1216,8 @@ var dataList = [
             "Thu": "1300~2300",
             "Fri": "1300~2300",
             "Sat": "1300~2300"
-        }
+        },
+        "googleName": "陽春商號"
     },
     {
         "name": "生態綠咖啡店",
@@ -1107,7 +1233,8 @@ var dataList = [
             "Thu": "1200~1900",
             "Fri": "1200~1900",
             "Sat": "1200~1900"
-        }
+        },
+        "googleName": "生態綠咖啡店"
     },
     {
       "name": "湛盧咖啡市府摩卡館",
@@ -1124,7 +1251,8 @@ var dataList = [
             "Thu": "1200~2200",
             "Fri": "1200~2200",
             "Sat": "1200~2200"
-        }
+        },
+        "googleName": "湛盧咖啡市府摩卡館"
     },
     {
         "name": "1868咖啡烘培館",
@@ -1141,7 +1269,8 @@ var dataList = [
             "Thu": "0830~2200",
             "Fri": "0830~2200",
             "Sat": "0830~2200"
-        }
+        },
+        "googleName": "1868咖啡烘培館"
     },
     {
         "name": "米璐咖啡",
@@ -1157,7 +1286,8 @@ var dataList = [
             "Wed": "1000~2030",
             "Fri": "1000~2030",
             "Sat": "0945~2030"
-        }
+        },
+        "googleName": "米璐咖啡"
     },
     {
         "name": "高馡咖啡烘焙GaoFei Coffee",
@@ -1172,7 +1302,8 @@ var dataList = [
             "Thu": "1200~1800",
             "Fri": "1200~1800",
             "Sat": "1200~1800"
-        }
+        },
+        "googleName": "高馡咖啡烘焙GaoFei Coffee"
     },
     {
         "name": "吉田屋和風洋食坊",
@@ -1180,7 +1311,8 @@ var dataList = [
         "phone": " (02) 2727-3230",
         "openTime": "07:00~14:30／17:00~20:00 公休日期：每週日",
         "latitude": 25.039965,
-        "longitude": 121.582998
+        "longitude": 121.582998,
+        "googleName": "吉田屋和風洋食坊"
     },
     {
         "name": "也門町精選咖啡",
@@ -1188,7 +1320,8 @@ var dataList = [
         "phone": "(02) 2361-6138",
         "openTime": "11:30~21:30 (週一公休) 公休日期：每週一",
         "latitude": 25.044722,
-        "longitude": 121.503137
+        "longitude": 121.503137,
+        "googleName": "也門町精選咖啡"
     },
     {
         "name": "旅沐豆行COFFEE REMUS",
@@ -1196,7 +1329,8 @@ var dataList = [
         "phone": "(02) 3765-2350",
         "openTime": "08:00~18:00 公休日期：每月第一個週六、週日公休",
         "latitude": 25.0520888,
-        "longitude": 121.558121
+        "longitude": 121.558121,
+        "googleName": "旅沐豆行COFFEE REMUS"
     },
     {
         "name": "Tuttihome‧自家烘焙咖啡",
@@ -1213,15 +1347,17 @@ var dataList = [
             "Thu": "1200~2200",
             "Fri": "1200~2200",
             "Sat": "1200~2200"
-        }
+        },
+        "googleName": "Tuttihome‧自家烘焙咖啡"
     },
     {
-        "name": "日安咖啡‧Cafe Sole",
+        "name": "café sole",
         "address": "台北市信義區光復南路133號",
         "phone": "(02) 2767-6076",
         "openTime": " 08:30~17:00 (週一~週五) 10:00~18:00 (週六~週日)",
         "latitude": 25.0437078,
-        "longitude": 121.5593251
+        "longitude": 121.5593251,
+        "googleName": "café sole"
     },
     {
         "name": "爐鍋咖啡",
@@ -1229,7 +1365,8 @@ var dataList = [
         "phone": "(02) 2552-1338",
         "openTime": "11:00~19:00, 公休日期：每週一公休",
         "latitude": 25.0546325,
-        "longitude": 121.509949
+        "longitude": 121.509949,
+        "googleName": "爐鍋咖啡"
     },
     {
         "name": "UNI CAFE",
@@ -1246,7 +1383,8 @@ var dataList = [
             "Thu": "1100~2200",
             "Fri": "1100~2200",
             "Sat": "1100~2200"
-        }
+        },
+        "googleName": "UNI CAFE"
     },
     {
         "name": "4Mano Caffé",
@@ -1263,7 +1401,8 @@ var dataList = [
             "Thu": "1100~2200",
             "Fri": "1100~2200",
             "Sat": "1100~2200"
-        }
+        },
+        "googleName": "4Mano Caffé"
     },
     {
         "name": "巢nido",
@@ -1280,7 +1419,8 @@ var dataList = [
             "Thu": "1400~0000",
             "Fri": "1400~0000",
             "Sat": "1400~0000"
-        }
+        },
+        "googleName": "巢nido"
     },
     {
         "name": "MONO CAFE",
@@ -1297,15 +1437,8 @@ var dataList = [
             "Thu": "1300~2230",
             "Fri": "1300~2230",
             "Sat": "1300~2230"
-        }
-    },
-    {
-        "name": "３１３老咖啡館‧自家烘焙咖啡",
-        "address": "台北市中山區民生東路二段151號",
-        "phone": "(02) 2507-3313",
-        "openTime": " 07:30~19:00 (週一~週五)、12:00~17:00 (週六) 公休日期：每週日",
-        "latitude": 25.058162,
-        "longitude": 121.535571
+        },
+        "googleName": "MONO CAFE"
     },
     {
         "name": "八豆咖啡",
@@ -1321,7 +1454,8 @@ var dataList = [
             "Thu": "0900~2000",
             "Fri": "0900~2000",
             "Sat": "1000~1800"
-        }
+        },
+        "googleName": "八豆咖啡"
     },
     {
         "name": "5 Senses Café",
@@ -1338,7 +1472,8 @@ var dataList = [
             "Thu": "1130~2330",
             "Fri": "1130~2330",
             "Sat": "1130~2330"
-        }
+        },
+        "googleName": "5 Senses Café"
     },
     {
         "name": "PP.99 Cafe",
@@ -1346,7 +1481,8 @@ var dataList = [
         "phone": "(02) 2325-0499",
         "openTime": "11:00~22:00 公休日期：每週一",
         "latitude": 25.025851,
-        "longitude": 121.541843
+        "longitude": 121.541843,
+        "googleName": "PP.99 Cafe"
     },
     {
         "name": "艾咖啡(台北八德店)",
@@ -1354,7 +1490,8 @@ var dataList = [
         "phone": "(02) 2766-1331",
         "openTime": " 07:30~19:00 (一~五) 　12:00~19:00 (六) 　12:00~18:00 (日)",
         "latitude": 25.048333,
-        "longitude": 121.560763
+        "longitude": 121.560763,
+        "googleName": "艾咖啡(台北八德店)"
     },
     {
         "name": "小南風",
@@ -1370,7 +1507,8 @@ var dataList = [
             "Thu": "1200~2100",
             "Fri": "1200~2100",
             "Sat": "1200~2100"
-        }
+        },
+        "googleName": "小南風"
     },
     {
         "name": "QahWA Cafe咖瓦咖啡專賣",
@@ -1378,7 +1516,8 @@ var dataList = [
         "phone": "(02) 2756-0567",
         "openTime": " 07:30~19:00 (一～五) 10:00~18:00 (六) 公休日期： 每週日",
         "latitude": 25.051659,
-        "longitude": 121.562927
+        "longitude": 121.562927,
+        "googleName": "QahWA Cafe咖瓦咖啡專賣"
     },
     {
         "name": "無名黑鐵咖啡",
@@ -1394,7 +1533,8 @@ var dataList = [
             "Thu": "1100~2030",
             "Fri": "1100~2030",
             "Sat": "1100~2030"
-        }
+        },
+        "googleName": "無名黑鐵咖啡"
     },
     {
         "name": "ugly Duckling barista Training Center 醜小鴨咖啡師訓練中心",
@@ -1409,7 +1549,8 @@ var dataList = [
             "Wed": "0800~1800",
             "Thu": "0800~1800",
             "Fri": "0800~1800"
-        }
+        },
+        "googleName": "ugly Duckling barista Training Center 醜小鴨咖啡師訓練中心"
     },
     {
         "name": "福來許Fleisch",
@@ -1426,7 +1567,8 @@ var dataList = [
             "Thu": "1030~2000",
             "Fri": "1030~0000",
             "Sat": "1030~0000"
-        }
+        },
+        "googleName": "福來許Fleisch"
     },
     {
         "name": "1+ CAFE",
@@ -1443,7 +1585,8 @@ var dataList = [
             "Thu": "1100~1900",
             "Fri": "1100~1900",
             "Sat": "1100~1900"
-        }
+        },
+        "googleName": "1+ CAFE"
     },
     {
         "name": "Single Origin espresso & roast",
@@ -1451,7 +1594,8 @@ var dataList = [
         "phone": "(02) 8771-6808",
         "openTime": "13:00~22:00 公休日期：每週一",
         "latitude": 25.0434531,
-        "longitude": 121.5530517
+        "longitude": 121.5530517,
+        "googleName": "Single Origin espresso & roast"
     },
     {
         "name": "德佈咖啡台北店",
@@ -1459,7 +1603,17 @@ var dataList = [
         "phone": "(02) 2541-7279",
         "openTime": "10:00~22:00",
         "latitude": 25.046419,
-        "longitude": 121.532259
+        "longitude": 121.532259,
+        "openingTime": {
+            "Sun": "1300~2200",
+            "Mon": "1300~2200",
+            "Tue": "1300~2200",
+            "Wed": "1300~2200",
+            "Thu": "1300~2200",
+            "Fri": "1300~2200",
+            "Sat": "1300~2200"
+        },
+        "googleName": "德佈咖啡台北店"
     },
     {
         "name": "Phoenix Coffee & Tea",
@@ -1475,7 +1629,8 @@ var dataList = [
             "Thu": "0800~2100",
             "Fri": "0800~2100",
             "Sat": "1200~2100"
-        }
+        },
+        "googleName": "Phoenix Coffee & Tea"
     },
     {
         "name": "Rahdesign CAFE",
@@ -1483,7 +1638,8 @@ var dataList = [
         "phone": "(02) 2532-7778",
         "openTime": "１１：００～２２：００, 公休日期：每周一公休",
         "latitude": 25.080833,
-        "longitude": 121.546644
+        "longitude": 121.546644,
+        "googleName": "Rahdesign CAFE"
     },
     {
         "name": "泰比咖啡",
@@ -1491,7 +1647,8 @@ var dataList = [
         "phone": "(02) 2733-0397",
         "openTime": "13:00~23:00",
         "latitude": 25.022053,
-        "longitude": 121.550483
+        "longitude": 121.550483,
+        "googleName": "泰比咖啡"
     },
     {
         "name": "木抽屜咖啡館",
@@ -1499,7 +1656,8 @@ var dataList = [
         "phone": "(02) 2700-0588",
         "openTime": "12:00~23:00",
         "latitude": 25.0339429,
-        "longitude": 121.553328
+        "longitude": 121.553328,
+        "googleName": "木抽屜咖啡館"
     },
     {
         "name": "慢動作咖啡",
@@ -1515,7 +1673,8 @@ var dataList = [
             "Thu": "1130~1800",
             "Fri": "1130~2100",
             "Sat": "1130~2100"
-        }
+        },
+        "googleName": "慢動作咖啡"
     },
     {
         "name": "咖啡瑪榭",
@@ -1523,7 +1682,8 @@ var dataList = [
         "phone": "(02) 2377-2538",
         "openTime": "08:00~22:00",
         "latitude": 25.0288103,
-        "longitude": 121.5539375
+        "longitude": 121.5539375,
+        "googleName": "咖啡瑪榭"
     },
     {
         "name": "六丁目cafe",
@@ -1540,7 +1700,8 @@ var dataList = [
             "Thu": "1200~2100",
             "Fri": "1200~2200",
             "Sat": "1200~2200"
-        }
+        },
+        "googleName": "六丁目cafe"
     },
     {
         "name": "Angle Cafe 自家烘焙咖啡館",
@@ -1548,7 +1709,8 @@ var dataList = [
         "phone": "(02) 2706-6672",
         "openTime": "週一: 13:00 – 22:00 週三 – 週日: 13:00 – 22:00 (每周二店休)",
         "latitude": 25.028129,
-        "longitude": 121.540605
+        "longitude": 121.540605,
+        "googleName": "Angle Cafe 自家烘焙咖啡館"
     },
     {
         "name": "313咖啡工坊",
@@ -1556,15 +1718,26 @@ var dataList = [
         "phone": "02-2507-3313",
         "openTime": "",
         "latitude": 25.058162,
-        "longitude": 121.535571
+        "longitude": 121.535571,
+        "googleName": "313咖啡工坊"
     },
     {
-        "name": "TP Cafe 蓹藏咖啡",
+        "name": "TP Cafe 蓹藏精品咖啡",
         "address": "台北市中山區四平街118號",
         "phone": "02-2507-4318",
         "openTime": " 11：00~21：00（週一~五）  13：00~21：00（週六日）",
         "latitude": 25.053495,
-        "longitude": 121.535376
+        "longitude": 121.535376,
+        "openingTime": {
+            "Sun": "1100~2100",
+            "Mon": "1100~2100",
+            "Tue": "1100~2100",
+            "Wed": "1100~2100",
+            "Thu": "1100~2100",
+            "Fri": "1100~2100",
+            "Sat": "1100~2100"
+        },
+        "googleName": "TP Cafe 蓹藏精品咖啡"
     },
     {
         "name": "喘口氣cafe",
@@ -1580,7 +1753,8 @@ var dataList = [
             "Thu": "1130~2130",
             "Fri": "1130~2130",
             "Sat": "1000~2130"
-        }
+        },
+        "googleName": "喘口氣cafe"
     },
     {
         "name": "夏洛特咖啡",
@@ -1597,7 +1771,8 @@ var dataList = [
             "Thu": "0930~2230",
             "Fri": "0930~2230",
             "Sat": "0930~2230"
-        }
+        },
+        "googleName": "夏洛特咖啡"
     },
     {
         "name": "Daniel & Hank coffee",
@@ -1605,15 +1780,17 @@ var dataList = [
         "phone": "02-2657-5003",
         "openTime": "11：00~20：30（全年無休）",
         "latitude": 25.074392,
-        "longitude": 121.578514
+        "longitude": 121.578514,
+        "googleName": "Daniel & Hank coffee"
     },
     {
-        "name": "雪可屋咖啡茶館",
+        "name": "咖啡館精品咖啡豆專賣(雪可屋)",
         "address": "台北市溫洲街86號",
         "phone": "02-2367-3036",
         "openTime": "11：00~01：00",
         "latitude": 25.0189262,
-        "longitude": 121.5327472
+        "longitude": 121.5327472,
+        "googleName": "咖啡館精品咖啡豆專賣(雪可屋)"
     },
     {
         "name": "色咖啡",
@@ -1621,7 +1798,8 @@ var dataList = [
         "phone": "02-2731-0668",
         "openTime": "07：30~18：00（週一至五）； 11：00~18：00（週六、日）",
         "latitude": 25.0442259,
-        "longitude": 121.510552
+        "longitude": 121.510552,
+        "googleName": "色咖啡"
     },
     {
         "name": "貳月咖啡",
@@ -1637,7 +1815,8 @@ var dataList = [
             "Thu": "1130~2200",
             "Fri": "1130~2200",
             "Sat": "1130~2200"
-        }
+        },
+        "googleName": "貳月咖啡"
     },
     {
         "name": "癮咖啡",
@@ -1654,7 +1833,8 @@ var dataList = [
             "Thu": "1030~2000",
             "Fri": "1030~2000",
             "Sat": "1030~2000"
-        }
+        },
+        "googleName": "癮咖啡"
     },
     {
         "name": "蜂大咖啡",
@@ -1671,7 +1851,8 @@ var dataList = [
             "Thu": "0800~2200",
             "Fri": "0800~2200",
             "Sat": "0800~2200"
-        }
+        },
+        "googleName": "蜂大咖啡"
     },
     {
         "name": "秘氏珈琲",
@@ -1687,7 +1868,8 @@ var dataList = [
             "Thu": "1300~2200",
             "Fri": "1300~2200",
             "Sat": "1300~2200"
-        }
+        },
+        "googleName": "秘氏珈琲"
     },
     {
         "name": "達文西咖啡davincicoffee",
@@ -1695,10 +1877,12 @@ var dataList = [
         "phone": "(02) 2343-5776",
         "openTime": "13:00 - 22:00",
         "latitude": 25.026791,
-        "longitude": 121.51847
+        "longitude": 121.51847,
+        "googleName": "達文西咖啡davincicoffee"
     },
     {
         "name": "COFFEE 88 現烘咖啡專賣店",
+        "googleName": "Coffee88",
         "address": "台北市文山區木柵路一段88號",
         "phone": "(02)2236-6518",
         "openTime": "11:00 - 20:00",
@@ -1720,7 +1904,8 @@ var dataList = [
             "Thu": "1100~2130",
             "Fri": "1100~2130",
             "Sat": "1000~2130"
-        }
+        },
+        "googleName": "Dela1010"
     },
     {
         "name": "水電行咖啡廳",
@@ -1736,7 +1921,8 @@ var dataList = [
             "Thu": "1400~2200",
             "Fri": "1400~2330",
             "Sat": "1400~2330"
-        }
+        },
+        "googleName": "水電行咖啡廳"
     },
     {
         "name": "虎記商行",
@@ -1753,7 +1939,8 @@ var dataList = [
             "Thu": "1200~2130",
             "Fri": "1200~2130",
             "Sat": "1200~2130"
-        }
+        },
+        "googleName": "虎記商行"
     },
     {
         "name": "COFFEE : STAND UP",
@@ -1770,7 +1957,8 @@ var dataList = [
             "Thu": "0800~2200",
             "Fri": "0800~2200",
             "Sat": "1000~2200"
-        }
+        },
+        "googleName": "COFFEE : STAND UP"
     },
     {
         "name": "14號",
@@ -1778,7 +1966,8 @@ var dataList = [
         "phone": "台北市仁愛路四段345巷4弄14號",
         "openTime": "02-8771-6095",
         "latitude": 48.853889,
-        "longitude": 2.3325
+        "longitude": 2.3325,
+        "googleName": "14號"
     },
     {
         "name": "Balance coffee平衡點咖啡",
@@ -1795,7 +1984,8 @@ var dataList = [
             "Thu": "1030~2000",
             "Fri": "1030~2200",
             "Sat": "1030~2200"
-        }
+        },
+        "googleName": "Balance coffee平衡點咖啡"
     },
     {
         "name": "魚缸珈琲",
@@ -1812,7 +2002,8 @@ var dataList = [
             "Thu": "0900~2100",
             "Fri": "0900~2100",
             "Sat": "0900~2100"
-        }
+        },
+        "googleName": "魚缸珈琲"
     },
     {
         "name": "媽媽嘴咖啡",
@@ -1820,7 +2011,8 @@ var dataList = [
         "phone": "(02)2618-6501",
         "openTime": "",
         "latitude": 25.1510784,
-        "longitude": 121.4424363
+        "longitude": 121.4424363,
+        "googleName": "媽媽嘴咖啡"
     },
     {
         "name": "Haaya's White",
@@ -1828,7 +2020,8 @@ var dataList = [
         "phone": "(02) 8969-3738",
         "openTime": "11:00~22:00",
         "latitude": 25.0141215,
-        "longitude": 121.4648112
+        "longitude": 121.4648112,
+        "googleName": "Haaya's white 哈亞極品咖啡"
     },
     {
         "name": "木木商號【Moon Moon Coffee】",
@@ -1844,7 +2037,8 @@ var dataList = [
             "Thu": "0800~2000",
             "Fri": "0800~2000",
             "Sat": "0000~2100"
-        }
+        },
+        "googleName": "木木商號【Moon Moon Coffee】"
     },
     {
         "name": "老柴咖啡館",
@@ -1852,7 +2046,15 @@ var dataList = [
         "phone": "(02) 3501-2656",
         "openTime": "08:30~21:00",
         "latitude": 24.9459298,
-        "longitude": 121.3742666
+        "longitude": 121.3742666,
+        "openingTime": {
+            "Mon": "0900~1700",
+            "Tue": "0900~1700",
+            "Wed": "0900~1700",
+            "Thu": "0900~1700",
+            "Fri": "0900~1700"
+        },
+        "googleName": "老柴咖啡館"
     },
     {
         "name": "山田珈琲店 光隆世界",
@@ -1860,7 +2062,8 @@ var dataList = [
         "phone": "(02) 8925-3770",
         "openTime": "09:00~19:00 公休日期：每週二公休",
         "latitude": 25.015754,
-        "longitude": 121.518025
+        "longitude": 121.518025,
+        "googleName": "光隆世界有限公司"
     },
     {
         "name": "ATTS COFFEE",
@@ -1868,7 +2071,8 @@ var dataList = [
         "phone": "(02) 8252-1701",
         "openTime": "１１：００～２１：００（週二～週五）０９：００～２１：００（週六） ０９：００～１９：００（週日） 公休日期：每週一、除夕１１：００～２１：００（週二～週五）０９：００～２１：００（週六） ０９：００～１９：００（週日",
         "latitude": 25.027149,
-        "longitude": 121.471952
+        "longitude": 121.471952,
+        "googleName": "ATTS COFFEE"
     },
     {
         "name": "沙貝葉咖啡",
@@ -1876,7 +2080,16 @@ var dataList = [
         "phone": "(02) 2623-1388  0910066181",
         "openTime": "13:30～22:30 公休日期：每週一公休",
         "latitude": 25.1789177,
-        "longitude": 121.4367694
+        "longitude": 121.4367694,
+        "openingTime": {
+            "Sun": "1330~2230",
+            "Tue": "1330~2230",
+            "Wed": "1330~2230",
+            "Thu": "1330~2230",
+            "Fri": "1330~2230",
+            "Sat": "1330~2230"
+        },
+        "googleName": "沙貝葉咖啡"
     },
     {
         "name": "喬茵咖啡(EnjoyingCoffee)",
@@ -1892,7 +2105,8 @@ var dataList = [
             "Thu": "1130~2200",
             "Fri": "1130~2200",
             "Sat": "1130~2200"
-        }
+        },
+        "googleName": "喬茵咖啡(EnjoyingCoffee)"
     },
     {
         "name": "肆拾肆實業有限公司",
@@ -1908,7 +2122,8 @@ var dataList = [
             "Thu": "1200~2200",
             "Fri": "1200~2200",
             "Sat": "1200~2200"
-        }
+        },
+        "googleName": "肆拾肆實業有限公司"
     },
     {
         "name": "Caf'e est 易斯特咖啡",
@@ -1924,7 +2139,8 @@ var dataList = [
             "Thu": "1130~2130",
             "Fri": "1130~2130",
             "Sat": "1000~2130"
-        }
+        },
+        "googleName": "Caf'e est 易斯特咖啡"
     },
     {
         "name": "石牆仔內‧自家烘焙咖啡",
@@ -1932,7 +2148,8 @@ var dataList = [
         "phone": "(02) 2621-0252",
         "openTime": "11:00~ 公休日期：每週四",
         "latitude": 25.1954128,
-        "longitude": 121.4863285
+        "longitude": 121.4863285,
+        "googleName": "石牆仔內‧自家烘焙咖啡"
     },
     {
         "name": "關於咖啡",
@@ -1940,7 +2157,8 @@ var dataList = [
         "phone": "(02) 2496-1438",
         "openTime": "11:30~23:00",
         "latitude": 25.1068859,
-        "longitude": 121.851642
+        "longitude": 121.851642,
+        "googleName": "關於咖啡"
     },
     {
         "name": "Merci cafe'",
@@ -1948,7 +2166,8 @@ var dataList = [
         "phone": "(02) 8953-3906",
         "openTime": "09:00~21:00",
         "latitude": 25.010578,
-        "longitude": 121.463718
+        "longitude": 121.463718,
+        "googleName": "Merci cafe'"
     },
     {
         "name": "雲典精品咖啡‧尼加拉瓜咖啡展示中心",
@@ -1956,7 +2175,8 @@ var dataList = [
         "phone": "(02) 2902-9933",
         "openTime": "",
         "latitude": 25.0237719,
-        "longitude": 121.4157411
+        "longitude": 121.4157411,
+        "googleName": "雲典精品咖啡‧尼加拉瓜咖啡展示中心"
     },
     {
         "name": "私藏不藏私",
@@ -1972,7 +2192,8 @@ var dataList = [
             "Thu": "1300~2100",
             "Fri": "1300~2100",
             "Sat": "1300~2100"
-        }
+        },
+        "googleName": "私藏不藏私"
     },
     {
         "name": "SunSquareCafe‧自家烘焙咖啡",
@@ -1988,7 +2209,8 @@ var dataList = [
             "Thu": "1300~2000",
             "Fri": "1300~2000",
             "Sat": "1300~2000"
-        }
+        },
+        "googleName": "SunSquareCafe‧自家烘焙咖啡"
     },
     {
         "name": "溱品咖啡‧自家烘焙咖啡",
@@ -1996,7 +2218,8 @@ var dataList = [
         "phone": "",
         "openTime": "14:00~24:00 (週一至週六)、12:00~24:00 (週日)",
         "latitude": 25.04871,
-        "longitude": 121.447036
+        "longitude": 121.447036,
+        "googleName": "溱品咖啡‧自家烘焙咖啡"
     },
     {
         "name": "咖啡豆屋‧自家烘焙咖啡",
@@ -2004,7 +2227,8 @@ var dataList = [
         "phone": "(02) 2262-5758",
         "openTime": "",
         "latitude": 24.9735569,
-        "longitude": 121.441971
+        "longitude": 121.441971,
+        "googleName": "咖啡豆屋‧自家烘焙咖啡"
     },
     {
         "name": "卡門咖啡",
@@ -2012,7 +2236,8 @@ var dataList = [
         "phone": "(02) 2258-3953",
         "openTime": "08:30~21:30 公休日期：每週二公休",
         "latitude": 25.023199,
-        "longitude": 121.466748
+        "longitude": 121.466748,
+        "googleName": "卡門咖啡"
     },
     {
         "name": "好豆咖啡商號‧自家烘焙咖啡",
@@ -2020,7 +2245,8 @@ var dataList = [
         "phone": "(02) 2240-9721",
         "openTime": "12:00~22:30 公休日期：每週日",
         "latitude": 24.995007,
-        "longitude": 121.501122
+        "longitude": 121.501122,
+        "googleName": "好豆咖啡商號‧自家烘焙咖啡"
     },
     {
         "name": "澄萱咖啡館",
@@ -2036,7 +2262,8 @@ var dataList = [
             "Thu": "1300~2100",
             "Fri": "1300~2100",
             "Sat": "1300~2100"
-        }
+        },
+        "googleName": "澄萱咖啡館"
     },
     {
         "name": "烘咖啡",
@@ -2044,7 +2271,8 @@ var dataList = [
         "phone": "02-22434645",
         "openTime": "10：30~22：30（無公休）",
         "latitude": 24.993321,
-        "longitude": 121.503063
+        "longitude": 121.503063,
+        "googleName": "烘咖啡"
     },
     {
         "name": "HUGCAFE喝個咖啡吧",
@@ -2060,7 +2288,8 @@ var dataList = [
             "Thu": "1300~2230",
             "Fri": "1300~2230",
             "Sat": "1100~2300"
-        }
+        },
+        "googleName": "HUGCAFE喝個咖啡吧"
     },
     {
         "name": "白光白熱咖啡館",
@@ -2068,7 +2297,8 @@ var dataList = [
         "phone": "02-2673-2016",
         "openTime": "12：00~0：00（週日至18：00）",
         "latitude": 24.9459298,
-        "longitude": 121.3742666
+        "longitude": 121.3742666,
+        "googleName": "白光白熱咖啡館"
     },
     {
         "name": "小義大利咖啡",
@@ -2084,7 +2314,8 @@ var dataList = [
             "Thu": "1600~0030",
             "Fri": "1600~0030",
             "Sat": "1400~0030"
-        }
+        },
+        "googleName": "小義大利咖啡"
     },
     {
         "name": "金鑽咖啡屋",
@@ -2092,7 +2323,8 @@ var dataList = [
         "phone": "02-2240-9013",
         "openTime": "10：30~21：30（週日~週四）； 10：30 ~ 22：30（週五、六及例假日前夕）",
         "latitude": 24.997461,
-        "longitude": 121.498087
+        "longitude": 121.498087,
+        "googleName": "金鑽咖啡屋"
     },
     {
         "name": "甜心屋自家新鮮烘焙咖啡",
@@ -2100,7 +2332,8 @@ var dataList = [
         "phone": "",
         "openTime": "10：00~21：30 （每週一店休）",
         "latitude": 25.0282819,
-        "longitude": 121.422606
+        "longitude": 121.422606,
+        "googleName": "甜心屋自家新鮮烘焙咖啡"
     },
     {
         "name": "艾萊客咖啡自家烘焙館",
@@ -2108,7 +2341,8 @@ var dataList = [
         "phone": "",
         "openTime": "",
         "latitude": 25.0048659,
-        "longitude": 121.458304
+        "longitude": 121.458304,
+        "googleName": "艾萊客咖啡自家烘焙館"
     },
     {
         "name": "丸角自轉生活咖啡",
@@ -2124,7 +2358,8 @@ var dataList = [
             "Thu": "0000~2200",
             "Fri": "0000~2200",
             "Sat": "1000~2300"
-        }
+        },
+        "googleName": "丸角自轉生活咖啡"
     },
     {
         "name": "JENSEN'S品藏咖啡",
@@ -2132,7 +2367,8 @@ var dataList = [
         "phone": "02-2426-6086",
         "openTime": "11：30~22：00（每週二店休）",
         "latitude": 25.1277789,
-        "longitude": 121.747286
+        "longitude": 121.747286,
+        "googleName": "JENSEN'S品藏咖啡"
     },
     {
         "name": "DebutCafé德佈咖啡館",
@@ -2140,7 +2376,8 @@ var dataList = [
         "phone": "02-2466-6234",
         "openTime": "13:00 ~ 22:00（每週日店休）",
         "latitude": 25.1284161,
-        "longitude": 121.7646079
+        "longitude": 121.7646079,
+        "googleName": "DebutCafé德佈咖啡館"
     },
     {
         "name": "旅活樂咖啡館",
@@ -2156,7 +2393,8 @@ var dataList = [
             "Thu": "1130~2200",
             "Fri": "1130~2200",
             "Sat": "1130~2200"
-        }
+        },
+        "googleName": "旅活樂咖啡館"
     },
     {
         "name": "年輕的老頭‧自家烘焙咖啡",
@@ -2172,7 +2410,8 @@ var dataList = [
             "Thu": "1300~1800",
             "Fri": "1300~1800",
             "Sat": "0900~1800"
-        }
+        },
+        "googleName": "年輕的老頭‧自家烘焙咖啡"
     },
     {
         "name": "直達咖啡",
@@ -2189,7 +2428,8 @@ var dataList = [
             "Thu": "1000~1900",
             "Fri": "1000~1900",
             "Sat": "1100~1900"
-        }
+        },
+        "googleName": "直達咖啡"
     },
     {
         "name": "墨咖啡INK COFFEE",
@@ -2197,7 +2437,8 @@ var dataList = [
         "phone": "03-5220608",
         "openTime": "12：00~01：00",
         "latitude": 24.7992391,
-        "longitude": 120.96437
+        "longitude": 120.96437,
+        "googleName": "墨咖啡INK COFFEE"
     },
     {
         "name": "馬雅烘焙咖啡館",
@@ -2213,7 +2454,8 @@ var dataList = [
             "Thu": "1000~2030",
             "Fri": "1000~2030",
             "Sat": "1000~2030"
-        }
+        },
+        "googleName": "馬雅烘焙咖啡館"
     },
     {
         "name": "達利咖啡馆",
@@ -2229,7 +2471,8 @@ var dataList = [
             "Thu": "1000~2000",
             "Fri": "1000~2000",
             "Sat": "1000~1700"
-        }
+        },
+        "googleName": "達利咖啡馆"
     },
     {
         "name": "燊咖啡",
@@ -2246,7 +2489,8 @@ var dataList = [
             "Thu": "1300~2300",
             "Fri": "1300~2300",
             "Sat": "1300~2300"
-        }
+        },
+        "googleName": "燊咖啡"
     },
     {
         "name": "米諾咖啡‧自家烘焙咖啡",
@@ -2254,7 +2498,8 @@ var dataList = [
         "phone": "03-380-4427",
         "openTime": "12：00~08：00（週日公休）",
         "latitude": 24.9213039,
-        "longitude": 121.2927622
+        "longitude": 121.2927622,
+        "googleName": "米諾咖啡‧自家烘焙咖啡"
     },
     {
         "name": "桃園十點十分自家烘焙咖啡館",
@@ -2271,7 +2516,8 @@ var dataList = [
             "Thu": "1000~2200",
             "Fri": "1000~2200",
             "Sat": "1000~2200"
-        }
+        },
+        "googleName": "桃園十點十分自家烘焙咖啡館"
     },
     {
         "name": "解放咖啡館",
@@ -2279,7 +2525,8 @@ var dataList = [
         "phone": "03-387-1801",
         "openTime": "10:00~22:00（週五、六、日延至23：00，週一休）",
         "latitude": 24.8803209,
-        "longitude": 121.289363
+        "longitude": 121.289363,
+        "googleName": "解放咖啡館"
     },
     {
         "name": "咖啡先生連鎖事業龜山總店",
@@ -2296,7 +2543,8 @@ var dataList = [
             "Thu": "1000~2000",
             "Fri": "1000~2000",
             "Sat": "1000~2000"
-        }
+        },
+        "googleName": "咖啡先生連鎖事業龜山總店"
     },
     {
         "name": "卡爾地咖啡",
@@ -2311,7 +2559,8 @@ var dataList = [
             "Thu": "1100~2000",
             "Fri": "1100~2000",
             "Sat": "1100~2000"
-        }
+        },
+        "googleName": "卡爾地咖啡"
     },
     {
         "name": "聖馬汀咖啡館",
@@ -2319,7 +2568,8 @@ var dataList = [
         "phone": "03-397-9260",
         "openTime": "07:30~21:00",
         "latitude": 25.0520657,
-        "longitude": 121.36483
+        "longitude": 121.36483,
+        "googleName": "聖馬汀咖啡館"
     },
     {
         "name": "Piccolo Coffee",
@@ -2327,7 +2577,8 @@ var dataList = [
         "phone": "03-516-0036",
         "openTime": "08：00~19：00（週一~五）；09：00~17：00（週六）",
         "latitude": 24.7996667,
-        "longitude": 121.0050945
+        "longitude": 121.0050945,
+        "googleName": "Piccolo Coffee"
     },
     {
         "name": "Casa Cafe",
@@ -2343,7 +2594,8 @@ var dataList = [
             "Thu": "1130~2000",
             "Fri": "1130~2000",
             "Sat": "0900~2000"
-        }
+        },
+        "googleName": "Casa Cafe"
     },
     {
         "name": "歐舍咖啡",
@@ -2360,7 +2612,8 @@ var dataList = [
             "Thu": "1030~2200",
             "Fri": "1030~2200",
             "Sat": "1030~2200"
-        }
+        },
+        "googleName": "歐舍咖啡"
     },
     {
         "name": "珈琠咖啡(珈琲院)",
@@ -2375,7 +2628,8 @@ var dataList = [
             "Thu": "0000~1800",
             "Fri": "0000~2200",
             "Sat": "0000~2200"
-        }
+        },
+        "googleName": "珈琠咖啡(珈琲院)"
     },
     {
         "name": "Retro Mojo Coffee",
@@ -2392,7 +2646,8 @@ var dataList = [
             "Thu": "0800~2200",
             "Fri": "0800~2200",
             "Sat": "0900~2200"
-        }
+        },
+        "googleName": "Retro Mojo Coffee"
     },
     {
         "name": "CAFE LULU",
@@ -2408,7 +2663,8 @@ var dataList = [
             "Wed": "1300~2130",
             "Fri": "1300~2130",
             "Sat": "1300~2130"
-        }
+        },
+        "googleName": "CAFE LULU"
     },
     {
         "name": "2 petits coffee (珈琲.人)",
@@ -2424,7 +2680,8 @@ var dataList = [
             "Thu": "1030~2100",
             "Fri": "1030~2100",
             "Sat": "1030~2100"
-        }
+        },
+        "googleName": "2 petits coffee (珈琲.人)"
     },
     {
         "name": "e92依舊愛咖啡",
@@ -2441,7 +2698,8 @@ var dataList = [
             "Thu": "1200~2300",
             "Fri": "1200~2300",
             "Sat": "1200~2300"
-        }
+        },
+        "googleName": "e92依舊愛咖啡"
     },
     {
         "name": "Dan Man Cafe",
@@ -2449,7 +2707,8 @@ var dataList = [
         "phone": "04-23726807",
         "openTime": " 10：00～19：00 週二公休",
         "latitude": 24.143774,
-        "longitude": 120.668099
+        "longitude": 120.668099,
+        "googleName": "Dan Man Cafe"
     },
     {
         "name": "Tommys coffee",
@@ -2457,7 +2716,8 @@ var dataList = [
         "phone": "0932 803 479",
         "openTime": "",
         "latitude": 23.011128,
-        "longitude": 120.2049086
+        "longitude": 120.2049086,
+        "googleName": "Tommys coffee"
     },
     {
         "name": "鹿柴咖啡",
@@ -2473,7 +2733,8 @@ var dataList = [
             "Wed": "1300~2100",
             "Fri": "1300~2100",
             "Sat": "1300~2100"
-        }
+        },
+        "googleName": "鹿柴咖啡"
     },
     {
         "name": "可斯里",
@@ -2481,7 +2742,8 @@ var dataList = [
         "phone": "",
         "openTime": "12:00~21:00 (三、四休)",
         "latitude": 23.0094,
-        "longitude": 120.19963
+        "longitude": 120.19963,
+        "googleName": "可斯里"
     },
     {
         "name": "艾咖啡",
@@ -2498,7 +2760,8 @@ var dataList = [
             "Thu": "0930~2130",
             "Fri": "0930~2130",
             "Sat": "0930~2130"
-        }
+        },
+        "googleName": "艾咖啡"
     },
     {
         "name": "甘單咖啡",
@@ -2515,7 +2778,8 @@ var dataList = [
             "Thu": "1200~2200",
             "Fri": "1200~2200",
             "Sat": "1200~2200"
-        }
+        },
+        "googleName": "甘單咖啡"
     },
     {
         "name": "貓門咖啡Cafe' Moment",
@@ -2531,7 +2795,8 @@ var dataList = [
             "Wed": "0900~1800",
             "Fri": "0900~1800",
             "Sat": "0900~1800"
-        }
+        },
+        "googleName": "貓門咖啡Cafe' Moment"
     },
     {
         "name": "斗侍咖啡",
@@ -2539,7 +2804,8 @@ var dataList = [
         "phone": "0988-162-298",
         "openTime": "",
         "latitude": 22.9873321,
-        "longitude": 120.211033
+        "longitude": 120.211033,
+        "googleName": "斗侍咖啡"
     },
     {
         "name": "For Coffee為了咖啡",
@@ -2547,7 +2813,16 @@ var dataList = [
         "phone": "(06)302 6638",
         "openTime": "預約(06)302 6638 週一-二: 14:00 - 20:00 週四-五: 15:00 - 20:00 週六-日: 14:00 - 21:00",
         "latitude": 23.0210978,
-        "longitude": 120.2340054
+        "longitude": 120.2340054,
+        "openingTime": {
+            "Sun": "1500~2000",
+            "Mon": "1500~2000",
+            "Tue": "1500~2000",
+            "Thu": "1500~2000",
+            "Fri": "1500~2000",
+            "Sat": "1500~2000"
+        },
+        "googleName": "For Coffee為了咖啡"
     },
     {
         "name": "漿果咖啡館BACCA CAFE",
@@ -2563,7 +2838,8 @@ var dataList = [
             "Thu": "1400~1900",
             "Fri": "1400~1900",
             "Sat": "1400~1900"
-        }
+        },
+        "googleName": "漿果咖啡館BACCA CAFE"
     },
     {
         "name": "鳩棧咖啡",
@@ -2571,7 +2847,8 @@ var dataList = [
         "phone": "0932 571 683",
         "openTime": "",
         "latitude": 23.129155,
-        "longitude": 120.293037
+        "longitude": 120.293037,
+        "googleName": "鳩棧咖啡"
     },
     {
         "name": "老街咖啡",
@@ -2579,7 +2856,8 @@ var dataList = [
         "phone": "",
         "openTime": "週二-六: 10:00 - 21:00 週日: 9:00 - 21:00",
         "latitude": 23.0296439,
-        "longitude": 120.308283
+        "longitude": 120.308283,
+        "googleName": "老街咖啡"
     },
     {
         "name": "甘谷咖啡",
@@ -2595,7 +2873,8 @@ var dataList = [
             "Thu": "1200~2000",
             "Fri": "1200~2000",
             "Sat": "1200~2000"
-        }
+        },
+        "googleName": "甘谷咖啡"
     },
     {
         "name": "爐鍋",
@@ -2603,7 +2882,8 @@ var dataList = [
         "phone": "",
         "openTime": "週一-二:12:00 - 20:00, 週四-日:12:00 - 20:00",
         "latitude": 22.992757,
-        "longitude": 120.204157
+        "longitude": 120.204157,
+        "googleName": "爐鍋"
     },
     {
         "name": "秘密咖啡 INNER & MOST CAFÉ",
@@ -2611,7 +2891,8 @@ var dataList = [
         "phone": "07-7405258",
         "openTime": "10:30-17:30 公休：週四",
         "latitude": 22.6239502,
-        "longitude": 120.3503788
+        "longitude": 120.3503788,
+        "googleName": "秘密咖啡 INNER & MOST CAFÉ"
     },
     {
         "name": "禮物咖啡",
@@ -2619,7 +2900,8 @@ var dataList = [
         "phone": "0978-997-749",
         "openTime": "12：00~20：00",
         "latitude": 24.6822181,
-        "longitude": 121.771086
+        "longitude": 121.771086,
+        "googleName": "禮物咖啡"
     },
     {
         "name": "Giocare義式手沖咖啡",
@@ -2627,7 +2909,8 @@ var dataList = [
         "phone": "0980-917-424",
         "openTime": "13：00~19：00（店休日請洽粉絲專頁）",
         "latitude": 23.9762696,
-        "longitude": 121.6129374
+        "longitude": 121.6129374,
+        "googleName": "Giocare義式手沖咖啡"
     },
     {
         "name": "卡姐咖啡工作室",
@@ -2635,7 +2918,8 @@ var dataList = [
         "phone": "03-822-8585",
         "openTime": "10：00~18：00（星期六店休）",
         "latitude": 23.9957238,
-        "longitude": 121.6257983
+        "longitude": 121.6257983,
+        "googleName": "卡姐咖啡工作室"
     },
     {
         "name": "珈琲傳奇",
@@ -2643,7 +2927,8 @@ var dataList = [
         "phone": "03-831-1968",
         "openTime": "10：30~21：00（店休日忘了問）",
         "latitude": 23.9832038,
-        "longitude": 121.604769
+        "longitude": 121.604769,
+        "googleName": "珈琲傳奇"
     },
     {
         "name": "璞石咖啡館",
@@ -2660,7 +2945,8 @@ var dataList = [
             "Thu": "0730~1800",
             "Fri": "0730~1800",
             "Sat": "0730~1800"
-        }
+        },
+        "googleName": "璞石咖啡館"
     },
     {
         "name": "CHERRY經典咖啡",
@@ -2668,7 +2954,8 @@ var dataList = [
         "phone": "03-935-5789",
         "openTime": "11：30~23：00（全年無休）",
         "latitude": 24.744502,
-        "longitude": 121.754849
+        "longitude": 121.754849,
+        "googleName": "CHERRY經典咖啡"
     },
     {
         "name": "fish cafe 魚咖啡",
@@ -2685,7 +2972,8 @@ var dataList = [
             "Thu": "1000~2200",
             "Fri": "1000~2200",
             "Sat": "1200~2200"
-        }
+        },
+        "googleName": "fish cafe 魚咖啡"
     },
     {
         "name": "O MY Caf'e 我的咖啡樹",
@@ -2693,7 +2981,8 @@ var dataList = [
         "phone": "",
         "openTime": "一~五 5:30-21:00 六~日 12:00-21:00",
         "latitude": 24.1816724,
-        "longitude": 120.5860461
+        "longitude": 120.5860461,
+        "googleName": "O MY Caf'e 我的咖啡樹"
     },
     {
         "name": "NOTCH 咖啡工場(世貿店)",
@@ -2701,10 +2990,12 @@ var dataList = [
         "phone": "02-2345-3008",
         "openTime": "一~五 7:30-22:00 六~日 8:00-20:00",
         "latitude": 25.0294629,
-        "longitude": 121.560962
+        "longitude": 121.560962,
+        "googleName": "NOTCH 咖啡工場(世貿店)"
     },
     {
         "name": "NOTCH 咖啡工場(站前店)",
+        "googleName": "NOTCH咖啡工場站前店",
         "address": "台北市信陽街6號",
         "phone": "02-2361-3223",
         "openTime": "一~五 7:30-22:00 六~日 8:00-22:00",
@@ -2717,7 +3008,8 @@ var dataList = [
         "phone": "02-2797-2323",
         "openTime": "一~五 7:30-21:30 六~日 8:00-20:00",
         "latitude": 25.078497,
-        "longitude": 121.593755
+        "longitude": 121.593755,
+        "googleName": "NOTCH 咖啡工場(內湖一店)"
     },
     {
         "name": "DebutCafé德佈咖啡館",
@@ -2725,7 +3017,8 @@ var dataList = [
         "phone": "02-2466-6234",
         "openTime": "一~四 13:00-20:00 五~六 13:00-22:00 週日休",
         "latitude": 25.1284161,
-        "longitude": 121.7646079
+        "longitude": 121.7646079,
+        "googleName": "DebutCafé德佈咖啡館"
     },
     {
         "name": "威爾貝克咖啡-信陽店Wilbeck Caf'e",
@@ -2742,7 +3035,8 @@ var dataList = [
             "Thu": "0730~2000",
             "Fri": "0730~2000",
             "Sat": "0800~2000"
-        }
+        },
+        "googleName": "威爾貝克咖啡-信陽店Wilbeck Caf'e"
     },
     {
         "name": "威爾貝克咖啡-開封店Wilbeck Caf'e",
@@ -2759,7 +3053,8 @@ var dataList = [
             "Thu": "0730~2030",
             "Fri": "0730~2030",
             "Sat": "0800~2000"
-        }
+        },
+        "googleName": "威爾貝克咖啡-開封店Wilbeck Caf'e"
     },
     {
         "name": "WILBECK威爾貝克手烘咖啡吧",
@@ -2776,7 +3071,8 @@ var dataList = [
             "Thu": "0800~2100",
             "Fri": "0800~2100",
             "Sat": "0900~2100"
-        }
+        },
+        "googleName": "WILBECK威爾貝克手烘咖啡吧"
     },
     {
         "name": "威爾貝克咖啡-南京店Wilbeck Caf'e",
@@ -2793,7 +3089,8 @@ var dataList = [
             "Thu": "0730~2000",
             "Fri": "0730~2000",
             "Sat": "0730~2000"
-        }
+        },
+        "googleName": "威爾貝克咖啡-南京店Wilbeck Caf'e"
     },
     {
         "name": "威爾貝克咖啡-八德店Wilbeck Caf'e",
@@ -2810,7 +3107,8 @@ var dataList = [
             "Thu": "0700~2000",
             "Fri": "0700~2000",
             "Sat": "0700~2000"
-        }
+        },
+        "googleName": "威爾貝克咖啡-八德店Wilbeck Caf'e"
     },
     {
         "name": "渥克夏烘焙咖啡",
@@ -2818,7 +3116,8 @@ var dataList = [
         "openTime": "每日 12:00-22:00 不定休",
         "address": "台中市南區民意街38號",
         "latitude": 24.129944,
-        "longitude": 120.683855
+        "longitude": 120.683855,
+        "googleName": "渥克夏烘焙咖啡"
     },
     {
         "name": "黑吧煎焙咖啡專賣店(南京東路店)",
@@ -2826,7 +3125,8 @@ var dataList = [
         "openTime": "一~五 07:30-19:00 六 09:00-19:00 假日休",
         "address": "台北市松山區吉祥里南京東路五段184號",
         "latitude": 25.0512339,
-        "longitude": 121.563178
+        "longitude": 121.563178,
+        "googleName": "黑吧煎焙咖啡專賣店(南京東路店)"
     },
     {
         "name": "黑吧煎焙咖啡專賣店",
@@ -2842,7 +3142,8 @@ var dataList = [
             "Thu": "0730~1800",
             "Fri": "0730~1800",
             "Sat": "0900~1800"
-        }
+        },
+        "googleName": "黑吧煎焙咖啡專賣店"
     },
     {
         "name": "咖啡意識烘焙館",
@@ -2858,7 +3159,8 @@ var dataList = [
             "Thu": "1300~2200",
             "Fri": "1300~2200",
             "Sat": "1300~2200"
-        }
+        },
+        "googleName": "咖啡意識烘焙館"
     },
     {
         "name": "阿助那裡直火烘焙咖啡",
@@ -2873,7 +3175,8 @@ var dataList = [
             "Wed": "1400~2300",
             "Fri": "1400~2300",
             "Sat": "1400~2300"
-        }
+        },
+        "googleName": "阿助那裡直火烘焙咖啡"
     },
     {
         "name": "右舍咖啡",
@@ -2890,7 +3193,8 @@ var dataList = [
             "Thu": "0900~2100",
             "Fri": "0900~2100",
             "Sat": "0900~2100"
-        }
+        },
+        "googleName": "右舍咖啡"
     },
     {
         "name": "33+V.",
@@ -2898,7 +3202,8 @@ var dataList = [
         "openTime": "一,四~日 14:00-21:30 週二,三休",
         "address": "嘉義市東區東義路160-2號",
         "latitude": 23.4949317,
-        "longitude": 120.4693099
+        "longitude": 120.4693099,
+        "googleName": "33+V."
     },
     {
         "name": "咖啡匙 Cupping Spoon",
@@ -2906,7 +3211,8 @@ var dataList = [
         "openTime": "一~三,五 12:00-20:00 六,日,例假日 10:00-20:00 週四休",
         "address": "台南市北區和緯路二段235號",
         "latitude": 23.0123995,
-        "longitude": 120.2049553
+        "longitude": 120.2049553,
+        "googleName": "咖啡匙 Cupping Spoon"
     },
     {
         "name": "甜在心咖啡館",
@@ -2923,7 +3229,8 @@ var dataList = [
             "Thu": "0800~2300",
             "Fri": "0800~2300",
             "Sat": "0900~2300"
-        }
+        },
+        "googleName": "甜在心咖啡館"
     },
     {
         "name": "曲屋咖啡專賣店",
@@ -2939,7 +3246,8 @@ var dataList = [
             "Thu": "0930~1900",
             "Fri": "0930~1900",
             "Sat": "0930~1900"
-        }
+        },
+        "googleName": "曲屋咖啡專賣店"
     },
     {
         "name": "Aroma 自家烘焙咖啡",
@@ -2947,7 +3255,8 @@ var dataList = [
         "openTime": "一~三 10:00-18:00 五~日 10:00-18:00 週四休",
         "address": "高雄市前金區長生街25號",
         "latitude": 22.622244,
-        "longitude": 120.296014
+        "longitude": 120.296014,
+        "googleName": "Aroma 自家烘焙咖啡"
     },
     {
         "name": "Ciao Coffee",
@@ -2955,7 +3264,16 @@ var dataList = [
         "openTime": "二~日 10:00-22:00 週一休",
         "address": "高雄市鳳山區文龍路27號",
         "latitude": 22.6435428,
-        "longitude": 120.3493962
+        "longitude": 120.3493962,
+        "openingTime": {
+            "Sun": "1000~2200",
+            "Tue": "1000~2200",
+            "Wed": "1000~2200",
+            "Thu": "1000~2200",
+            "Fri": "1000~2200",
+            "Sat": "1000~2200"
+        },
+        "googleName": "Ciao Coffee"
     },
     {
         "name": "洛斯特精品咖啡ROAST CAFE",
@@ -2963,7 +3281,8 @@ var dataList = [
         "openTime": "一~六 12:00-21:00 日 10:00-18:00 不定休",
         "address": "高雄市新興區七賢二路90號",
         "latitude": 22.634335,
-        "longitude": 120.2987911
+        "longitude": 120.2987911,
+        "googleName": "洛斯特精品咖啡ROAST CAFE"
     },
     {
         "name": "草圖自家烘焙咖啡館",
@@ -2971,7 +3290,16 @@ var dataList = [
         "openTime": "二~五 09:00-18:00 六,日 11:00-18:00 週一休",
         "address": "高雄市前金區中正四路111號",
         "latitude": 22.629629,
-        "longitude": 120.297711
+        "longitude": 120.297711,
+        "openingTime": {
+            "Sun": "1100~1800",
+            "Tue": "0900~1800",
+            "Wed": "0900~1800",
+            "Thu": "0900~1800",
+            "Fri": "0900~1800",
+            "Sat": "1100~1800"
+        },
+        "googleName": "草圖自家烘焙咖啡館"
     },
     {
         "name": "Cafe自然醒",
@@ -2979,7 +3307,8 @@ var dataList = [
         "openTime": "一,三~日 08:00-18:00 週二休",
         "address": "高雄市苓雅區中山二路463號 (苓雅路上)",
         "latitude": 22.6184922,
-        "longitude": 120.3028093
+        "longitude": 120.3028093,
+        "googleName": "Cafe自然醒"
     },
     {
         "name": "咖啡林咖啡",
@@ -2995,7 +3324,8 @@ var dataList = [
             "Thu": "0000~2100",
             "Fri": "0000~2100",
             "Sat": "0000~2100"
-        }
+        },
+        "googleName": "咖啡林咖啡"
     },
     {
         "name": "咖啡葉",
@@ -3011,7 +3341,8 @@ var dataList = [
             "Thu": "1300~2330",
             "Fri": "1300~2330",
             "Sat": "1300~2330"
-        }
+        },
+        "googleName": "咖啡葉"
     },
     {
         "name": "Soft.軟糖自烘咖啡",
@@ -3019,10 +3350,10 @@ var dataList = [
         "openTime": "五~日 09:00-17:00 週一~四休",
         "address": "台北市士林區忠誠路二段76巷16號之2",
         "latitude": 25.1119306,
-        "longitude": 121.5300291
+        "longitude": 121.5300291,
+        "googleName": "Soft.軟糖自烘咖啡"
     }
 ];
-
 if(typeof module !== 'undefined' && module != null && module.exports != null) {
     module.exports = dataList;
 }
