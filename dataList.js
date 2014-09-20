@@ -1031,7 +1031,16 @@ var dataList = [
         "openTime": "AM9:00 - PM17:00(每月第四個星期一公休)",
         "latitude": 25.1081409,
         "longitude": 121.843497,
-        "googleName": "Babka歐風鄉村咖啡"
+        "googleName": "Babka歐風鄉村咖啡",
+        "openingTime": {
+            "Sun": "0900~1700",
+            "Mon": "0900~1700",
+            "Tue": "0900~1700",
+            "Wed": "0900~1700",
+            "Thu": "0900~1700",
+            "Fri": "0900~1700",
+            "Sat": "0900~1700"
+        }
     },
     {
         "name": "好豆咖啡商號",
@@ -2012,7 +2021,16 @@ var dataList = [
         "openTime": "",
         "latitude": 25.1510784,
         "longitude": 121.4424363,
-        "googleName": "媽媽嘴咖啡"
+        "googleName": "媽媽嘴咖啡",
+        "openingTime": {
+            "Sun": "1000~2000",
+            "Mon": "1300~2000",
+            "Tue": "1300~2000",
+            "Wed": "1300~2000",
+            "Thu": "1300~2000",
+            "Fri": "1300~2000",
+            "Sat": "1000~2000"
+        }
     },
     {
         "name": "Haaya's White",
