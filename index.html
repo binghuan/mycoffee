@@ -126,6 +126,11 @@
             <div id="messageBar">
                 <p id="searchResultText"></p>
             </div>
+            <form>
+                <label>
+                    <input id="selectOpen" type="checkbox">現在開店中
+                </label>
+            </form>
             <ul id="listView" data-role='listview' data-count-theme='b' data-filter="true" data-filter-placeholder="關鍵字: Cafe"></ul>
         </div>
 
@@ -159,11 +164,12 @@
         <li data-theme="a">
             <a data-role="button" href="#detail" class='item'>
                 <h1 class="ui-li-heading" style="width: 90%">
-                    <span class="wordwrap">{{name}}</span>
+                    <span class="wordwrap" data-role="store-name">{{name}}</span>
                 </h1>
                 <span class="ui-li-count">
                     {{distance}}
                 </span>
+                <div data-role="openingHour" style="display: none;">{{openingHour}}</div>
             </a>
         </li>
     </script>
@@ -179,13 +185,18 @@
 
         {{#phone}}
             <div>
-                <!-- <a href="tel:{{phone}}" class="phone" data-role="button" data-icon="phone" data-iconpos="notext" data-mini=true data-inline=true>{{phone}}</a> -->
                 <a href="tel:{{phone}}" target="_blank">
                     <button class="phone" data-role="button" data-icon="phone" data-iconpos="notext" data-mini=true data-inline=true></button>
                     {{phone}}
                 </a>
             </div>
         {{/phone}}
+        {{#openingHour}}
+            <div>
+                <button class="openingTime" data-role="button" data-icon="clock" data-iconpos="notext" data-mini=true data-inline=true></button>
+                今天：<span class="wordwrap">{{openingHourString}}</span>
+            </div>
+        {{/openingHour}}
         {{#openTime}}
             <div>
                 <button class="openTime" data-role="button" data-icon="clock" data-iconpos="notext" data-mini=true data-inline=true></button>

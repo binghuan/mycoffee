@@ -162,11 +162,12 @@
         <li data-theme="a">
             <a data-role="button" href="#detail" class='item'>
                 <h1 class="ui-li-heading" style="width: 90%">
-                    <span class="wordwrap">{{name}}</span>
+                    <span class="wordwrap" data-role="store-name">{{name}}</span>
                 </h1>
                 <span class="ui-li-count">
                     {{distance}}
                 </span>
+                <div data-role="openingHour" style="display: none;">{{openingHour}}</div>
             </a>
         </li>
     </script>
@@ -182,7 +183,6 @@
 
         {{#phone}}
             <div>
-                <!-- <a href="tel:{{phone}}" class="phone" data-role="button" data-icon="phone" data-iconpos="notext" data-mini=true data-inline=true>{{phone}}</a> -->
                 <a href="tel:{{phone}}" target="_blank">
                     <button class="phone" data-role="button" data-icon="phone" data-iconpos="notext" data-mini=true data-inline=true></button>
                     {{phone}}
@@ -192,7 +192,7 @@
         {{#openingHour}}
             <div>
                 <button class="openingTime" data-role="button" data-icon="clock" data-iconpos="notext" data-mini=true data-inline=true></button>
-                今天：<span class="wordwrap">{{openingHour}}</span>
+                今天：<span class="wordwrap">{{openingHourString}}</span>
             </div>
         {{/openingHour}}
         {{#openTime}}

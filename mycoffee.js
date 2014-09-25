@@ -37,6 +37,9 @@ function isOpeningNow(openingHour) {
     var openingTime = parseInt(tmp[0]);
     var closedTime = parseInt(tmp[1]);
 
+    if(closedTime < openingTime) {
+        closedTime += 2400;
+    }
     if(nowTime >= openingTime && nowTime <= closedTime) {
         return true;
     }
@@ -76,7 +79,8 @@ StoreInfo.prototype.getStores = function() {
         stores = stores.filter(function(store) {
             var openingTime = store.openingTime;
             var openingHour = getTodayOpeningHour(openingTime);
-            return isOpeningNow(openingHour);
+            // if no openingTime, always show the store
+            return (openingTime != null)? isOpeningNow(openingHour) : true;
         });
     }
 
@@ -377,16 +381,14 @@ function appendToList(dataArray) {
         if(item.openingTime) {
             storeItem.openTime = null;
             storeItem.openingHour = getTodayOpeningHour(item.openingTime);
+            storeItem.openingHourString = storeItem.openingHour;
             if(storeItem.openingHour == null) {
-                storeItem.openingHour = '休息';
+                storeItem.openingHourString = '休息';
             }
             else {
                 var isOpen = isOpeningNow(storeItem.openingHour);
                 if(!isOpen) {
-                    storeItem.openingHour += ('(關店)');
-                }
-                else {
-                    storeItem;
+                    storeItem.openingHourString += ('(關店)');
                 }
             }
         }
@@ -606,10 +608,13 @@ $(function() {
 
         // set or unset selectOpen checkbox
         storeInfo.setOnlyOpeningStores($(this).prop('checked'));
+        $('[data-type="search"]').keyup();
+        // $('[data-type="search"]').keypress('a');
+        // $('#listView').filterable('refresh');
 
-        var stores = storeInfo.getStores();
+        // var stores = storeInfo.getStores();
         // remove closed stores from store list
-        listStoreData(stores);
+        // listStoreData(stores);
 
         showProgressBar(false);
     });
@@ -622,6 +627,40 @@ $(function() {
         else {
             $('#socialButtons').hide();
         }
+    });
+
+    $('#listView').filterable('option', 'filterCallback', function(index, searchValue) {
+        // get selectOpen value
+        var checkOpening = $('#selectOpen').prop('checked');
+
+        // console.log('searchValue = ' + searchValue);
+        var storeName = $(this).find('[data-role="store-name"]').text();
+        var openingHour = $(this).find('[data-role="openingHour"]').text();
+
+        console.log('storeName = ' + storeName);
+        console.log('openingHour = ' + openingHour);
+        // console.log(storeName);
+        // console.log(storeName.text());
+        var searchReg = new RegExp(searchValue, 'i');
+        var isFiltered = false;
+        var filterClosed = checkOpening? !isOpeningNow(openingHour) : false;
+
+        // console.log('filterOpening = ' + filterOpening);
+
+        if(storeName == null) {
+            isFiltered = true;
+        } else if(searchValue === '') {
+            isFiltered = filterClosed;
+        }
+        else {
+            isFiltered = filterClosed || (storeName.search(searchReg) === -1);
+        }
+        if(!isFiltered) {
+            var a = 1 + 1;
+        }
+        console.log('searchReg = ' + (storeName.search(searchReg) === -1));
+        console.log('isFiltered = ' + isFiltered);
+        return isFiltered;
     });
 
     // gmap
