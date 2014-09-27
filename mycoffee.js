@@ -432,6 +432,13 @@ function appendToList(dataArray) {
 $(function() {
 	if(DBG)console.log("++ init");
 
+    // recover last selectRangeCondition from localStorage
+    var limitRange = localStorage.limitRange;
+    if(limitRange != null) {
+        $("#selectRangeCondition").val(limitRange);
+        $("#selectRangeCondition").selectmenu("refresh");
+    }
+
     $("#auther_label").click(function() {
         window.open("http://studiobinghuan.blogspot.tw/2014/08/my-coffee-for-taiwan.html", "_blank");
     });
@@ -458,6 +465,9 @@ $(function() {
 
     function onSearchButtonClick() {
         showProgressBar(true);// Profile#2
+        // save selectRangeCondition for later use
+        localStorage.limitRange = $("#selectRangeCondition").val();
+
         $("#listView").empty();
         updateMessageBar("@_@ 搜尋中 ...");
 
