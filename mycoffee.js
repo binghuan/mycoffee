@@ -643,19 +643,12 @@ $(function() {
         // get selectOpen value
         var checkOpening = $('#selectOpen').prop('checked');
 
-        // console.log('searchValue = ' + searchValue);
         var storeName = $(this).find('[data-role="store-name"]').text();
         var openingHour = $(this).find('[data-role="openingHour"]').text();
 
-        console.log('storeName = ' + storeName);
-        console.log('openingHour = ' + openingHour);
-        // console.log(storeName);
-        // console.log(storeName.text());
         var searchReg = new RegExp(searchValue, 'i');
         var isFiltered = false;
         var filterClosed = checkOpening? !isOpeningNow(openingHour) : false;
-
-        // console.log('filterOpening = ' + filterOpening);
 
         if(storeName == null) {
             isFiltered = true;
@@ -665,11 +658,7 @@ $(function() {
         else {
             isFiltered = filterClosed || (storeName.search(searchReg) === -1);
         }
-        if(!isFiltered) {
-            var a = 1 + 1;
-        }
-        console.log('searchReg = ' + (storeName.search(searchReg) === -1));
-        console.log('isFiltered = ' + isFiltered);
+
         return isFiltered;
     });
 
