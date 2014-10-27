@@ -3370,6 +3370,23 @@ var dataList = [
         "latitude": 25.1119306,
         "longitude": 121.5300291,
         "googleName": "Soft.軟糖自烘咖啡"
+    },
+    {
+        "name": "穿越九千公里交給你",
+        "phone": "0972299822",
+        "openTime": "五~日 09:00-17:00 週一~四休",
+        "address": "台北市松山區民權東路三段160巷19弄16號",
+        "googleName": "穿越九千公里交給你",
+        "latitude": 25.0599163,
+        "longitude": 121.548027,
+        "openingTime": {
+            "Sun": "1200~0000",
+            "Tue": "1200~0000",
+            "Wed": "1200~0000",
+            "Thu": "1200~0000",
+            "Fri": "1200~0000",
+            "Sat": "1200~0000"
+        }
     }
 ];
 if(typeof module !== 'undefined' && module != null && module.exports != null) {
