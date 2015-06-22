@@ -8,6 +8,10 @@ var VERSION = "1848";
 var DEFAULT_RANGE = 9999 ; // meter for distance
 var mSearchStart = null;
 var mSearchEnd = null;
+// FIXME: this api key is only for domain: binghuan.github.io
+//		  if you want to host this app in your domain, please change this api key
+//        or your embeded google map will not work
+var GOOGLE_API_KEY = 'AIzaSyBUdBNMLQYIi3egygOdtroo7Aqj7MQJTp8';
 
 console.log("### version: " + VERSION);
 
@@ -375,7 +379,8 @@ function appendToList(dataArray) {
             address: item.address,
             phone: item.phone,
             openTime: item.openTime,
-            distance: distanceString
+            distance: distanceString,
+			google_api_key: GOOGLE_API_KEY
         };
         // use openingTime instead of openTime if it exists
         if(item.openingTime) {
