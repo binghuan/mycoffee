@@ -4,17 +4,19 @@ import { browserHistory } from 'react-router'
 // import AppBar from '../components/AppBar'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import MyCoffee from './MyCoffee'
+import data from '../data/json'
 
 
 class App extends Component {
   constructor(props) {
     super(props)
+    console.log(data)
   }
 
   render() {
     return (
       <MuiThemeProvider>
-        <MyCoffee />
+        <MyCoffee data={data} />
       </MuiThemeProvider>
     )
   }

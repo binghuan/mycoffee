@@ -13,7 +13,7 @@ $ make
 
 ## TODO
 * Constructing new UI structure by using `material-ui` components
-* Sort by distance
+* ~~Sort by distance~~
 * Complete functional features
 * Refactor some settings to side menu
 * Use a react componets to replace hand-written social sharing function(`react-share`)
