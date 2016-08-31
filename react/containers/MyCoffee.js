@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 import AppBar from 'material-ui/AppBar'
+import Drawer from 'material-ui/Drawer'
+import MenuItem from 'material-ui/MenuItem'
 import {List, ListItem} from 'material-ui/List'
 // import {GridList, GridTile} from 'material-ui/GridList'
 // import IconButton from 'material-ui/IconButton'
@@ -34,11 +36,11 @@ function storeLastStoreInRange(latitude, longitude) {
   return storeNearBy;
 }
 
-
 class MyCoffee extends Component {
   constructor(props) {
     super(props)
-    this.state = {data: props.data}
+    this.state = {data: props.data, open: false}
+    this.handleToggle.bind(this)
     getCurrentLocation((pos) => {
         let { data } = this.state;
         // if(DBG)console.log("++ successGetGeoInfo");
@@ -100,10 +102,21 @@ class MyCoffee extends Component {
 
   }
 
+    // handleToggle = () => this.setState({open: !this.state.open});
+  handleToggle() {
+      this.setState({open: !this.state.open})
+  }
+
   render() {
     return (
       <div>
-        <AppBar title="My Coffee" />
+        <AppBar
+            title="My Coffee" 
+            onLeftIconButtonTouchTap={this.handleToggle}
+            onRightIconButtonTouchTap={this.handleToggle}
+            showMenuIconButton={true}
+            isInitiallyOpen={true}
+        />
         <List>
           {
             this.state.data.map((item) => (
@@ -114,6 +127,10 @@ class MyCoffee extends Component {
             ))
           }
         </List>
+        <Drawer open={this.state.open}>
+            <MenuItem>Menu Item</MenuItem>
+            <MenuItem>Menu Item 2</MenuItem>
+        </Drawer>
       </div>
     )
   }

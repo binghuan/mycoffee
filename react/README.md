@@ -12,6 +12,7 @@ $ make
 ```
 
 ## TODO
+* Adapt material design
 * Constructing new UI structure by using `material-ui` components
 * ~~Sort by distance~~
 * Complete functional features

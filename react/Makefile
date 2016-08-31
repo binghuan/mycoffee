@@ -1,9 +1,24 @@
-all: build run
+REPORTER = dot
+PROJECT = coffeenearby
 
-build:
-	webpack
-run:
-	npm run start
+create:
+	# git init
+	# git add .
+	# git commit
+	heroku apps:create ${PROJECT}
+	heroku git:remote -a coffeenearby
 
-clean:
-	rm -rf dist/ 
+push:
+	#  dotcloud push --application ${PROJECT}
+	git push heroku master
+
+local:
+	foreman start
+
+open:
+	heroku open
+
+test:
+	  NODE_ENV=test ./node_modules/.bin/mocha \
+		      --reporter $(REPORTER) \
+
