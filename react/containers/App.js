@@ -19,9 +19,10 @@ class App extends Component {
   }
 
   render() {
+    const { children } = this.props;
     return (
       <MuiThemeProvider>
-        <MyCoffee data={data} />
+        <MyCoffee data={data} children={children} />
       </MuiThemeProvider>
     )
   }

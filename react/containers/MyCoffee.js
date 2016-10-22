@@ -4,7 +4,6 @@ import { browserHistory, router } from 'react-router'
 import AppBar from 'material-ui/AppBar'
 import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
-import {List, ListItem} from 'material-ui/List'
 // import {GridList, GridTile} from 'material-ui/GridList'
 // import IconButton from 'material-ui/IconButton'
 // import StarBorder from 'material-ui/svg-icons/toggle/star-border'
@@ -39,7 +38,8 @@ function storeLastStoreInRange(latitude, longitude) {
 class MyCoffee extends Component {
 
     static propTypes = {
-      data: PropTypes.object
+      data: PropTypes.object,
+      children: PropTypes.object,
     };
 
   constructor(props) {
@@ -112,24 +112,6 @@ class MyCoffee extends Component {
       this.setState({open: !this.state.open})
   }
 
-  handleStoreClicked(store) {
-      console.log(store);
-      // browserHistory.push({
-          // pathname: '/store_details',
-          // state: {
-              // store
-          // },
-      // });
-      browserHistory.push('/store_details');
-  }
-
-  convertDistanceString(distance) {
-    if (distance == null) {
-        return 'Unknown';
-    }
-    return (distance >= 1000)? ((distance / 1000.0).toFixed(1) + '公里') : (distance + '公尺');
-  }
-
   render() {
     const { children } = this.props;
     return (
@@ -141,22 +123,11 @@ class MyCoffee extends Component {
             showMenuIconButton={true}
             isInitiallyOpen={true}
         />
-        <List>
-          {
-            this.state.data.map((store) => (
-              <ListItem 
-                primaryText={store.name} 
-                secondaryText={`${store.address} (${::this.convertDistanceString(store.distance)})`}
-                onClick={() => ::this.handleStoreClicked(store)}
-              />
-            ))
-          }
-        </List>
+        {React.cloneElement(children, {...this.state})}
         <Drawer open={this.state.open}>
             <MenuItem>Menu Item</MenuItem>
             <MenuItem>Menu Item 2</MenuItem>
         </Drawer>
-          {children}
       </div>
     );
   }

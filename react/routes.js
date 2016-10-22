@@ -1,7 +1,8 @@
 import React from 'react';
-import { Route } from 'react-router';
+import { Route, IndexRoute } from 'react-router';
 import App from './containers/App';
 import StoreDetails from './containers/StoreDetails';
+import ListStore from './containers/ListStore';
 
 /*
 export default (
@@ -15,7 +16,7 @@ export default (
 */
 export default (
   <Route path="/" component={App}>
-      <Route path="store_details" component={StoreDetails}>
-      </Route>
+      <IndexRoute component={ListStore} />
+      <Route path="/store_details" component={StoreDetails} />
   </Route>
 )
