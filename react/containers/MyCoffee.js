@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { browserHistory } from 'react-router'
+import { browserHistory, router } from 'react-router'
 import AppBar from 'material-ui/AppBar'
 import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
@@ -37,10 +37,15 @@ function storeLastStoreInRange(latitude, longitude) {
 }
 
 class MyCoffee extends Component {
+
+    static propTypes = {
+      data: PropTypes.object
+    };
+
   constructor(props) {
     super(props)
     this.state = {data: props.data, open: false}
-    this.handleToggle.bind(this)
+    this.handleToggle = this.handleToggle.bind(this)
     getCurrentLocation((pos) => {
         let { data } = this.state;
         // if(DBG)console.log("++ successGetGeoInfo");
@@ -107,7 +112,26 @@ class MyCoffee extends Component {
       this.setState({open: !this.state.open})
   }
 
+  handleStoreClicked(store) {
+      console.log(store);
+      // browserHistory.push({
+          // pathname: '/store_details',
+          // state: {
+              // store
+          // },
+      // });
+      browserHistory.push('/store_details');
+  }
+
+  convertDistanceString(distance) {
+    if (distance == null) {
+        return 'Unknown';
+    }
+    return (distance >= 1000)? ((distance / 1000.0).toFixed(1) + '公里') : (distance + '公尺');
+  }
+
   render() {
+    const { children } = this.props;
     return (
       <div>
         <AppBar
@@ -119,10 +143,11 @@ class MyCoffee extends Component {
         />
         <List>
           {
-            this.state.data.map((item) => (
+            this.state.data.map((store) => (
               <ListItem 
-                primaryText={item.name} 
-                secondaryText={item.address}
+                primaryText={store.name} 
+                secondaryText={`${store.address} (${::this.convertDistanceString(store.distance)})`}
+                onClick={() => ::this.handleStoreClicked(store)}
               />
             ))
           }
@@ -131,13 +156,10 @@ class MyCoffee extends Component {
             <MenuItem>Menu Item</MenuItem>
             <MenuItem>Menu Item 2</MenuItem>
         </Drawer>
+          {children}
       </div>
-    )
+    );
   }
-}
-
-MyCoffee.propTypes = {
-  data: PropTypes.object
 }
 
 export default MyCoffee
