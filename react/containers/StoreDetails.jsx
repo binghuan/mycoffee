@@ -1,6 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import FontIcon from 'material-ui/FontIcon';
 import { getTodayOpeningHour, isOpeningNow } from '../utils/helper';
+import GoogleMap from 'google-map-react';
+import { config } from '../config';
+
+const iconColor = {
+    info: 'blue',
+    phone: 'green',
+    location: 'red',
+};
 
 export default class StoreDetails extends Component {
     constructor(props) {
@@ -29,7 +37,7 @@ export default class StoreDetails extends Component {
                 <h2>{store.name}</h2>
                 <div>
                     <a href={`//maps.google.com.tw/?q=${store.address}`} target="_blank">
-                        <FontIcon className="material-icons">location_on</FontIcon>
+                        <FontIcon className="material-icons" color={iconColor.location}>location_on</FontIcon>
                         <span>{store.address}</span>
                     </a>
                 </div>
@@ -37,25 +45,34 @@ export default class StoreDetails extends Component {
                 {store.phone &&
                     <div>
                         <a href={`tel:${store.phone}`} target="_blank">
-                            <FontIcon className="material-icons">phone</FontIcon>
-                            {store.phone}
+                            <FontIcon className="material-icons" color={iconColor.phone}>phone</FontIcon>
+                            <span>{store.phone}</span>
                         </a>
                     </div>
                 }
                 {openingHourString &&
                     <div>
-                        <FontIcon className="material-icons">info</FontIcon>
+                        <FontIcon className="material-icons" color={iconColor.info}>info</FontIcon>
                         <span>{openingHourString}</span>
                     </div>
                 }
                 {store.openTime &&
                     <div>
-                        <FontIcon className="material-icons">info</FontIcon>
+                        <FontIcon className="material-icons" color={iconColor.info}>info</FontIcon>
                         <span>{store.openTime}</span>
                     </div>
                 }
-                <iframe src="//maps.google.com.tw/maps/?q={{address}}&z=16&output=embed" frameborder="0" width="100%"></iframe>
+                <GoogleMap
+                    defaultZoom={16}
+                    bootstrapURLKeys={{
+                        key: config.GOOGLE_API_KEY,
+                        language: 'zh-tw',
+                        q: store.address,
+                    }}
+                    >
+                </GoogleMap>
             </div>
         );
     }
 }
+                // <iframe id="mapview" src={`//www.google.com.tw/maps/embed/v1/place?q=${store.address}&zoom=16`} frameborder="0" width="100%"></iframe>

@@ -9,6 +9,7 @@
   "dependencies": {
     "babel-polyfill": "^6.3.14",
     "babel-preset-stage-0": "^6.5.0",
+    "google-map-react": "^0.20.1",
     "humps": "^0.6.0",
     "isomorphic-fetch": "^2.1.1",
     "lodash": "^4.0.0",
