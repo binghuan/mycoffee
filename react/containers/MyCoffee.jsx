@@ -7,33 +7,9 @@ import MenuItem from 'material-ui/MenuItem'
 // import {GridList, GridTile} from 'material-ui/GridList'
 // import IconButton from 'material-ui/IconButton'
 // import StarBorder from 'material-ui/svg-icons/toggle/star-border'
-import {getCurrentLocation, getLastGeolocation, setLastGeolocation, getDistance} from '../utils/Geolocation'
+import { getCurrentLocation, getLastGeolocation, setLastGeolocation, getDistance } from '../utils/Geolocation'
 
 let DBG = true;
-
-function storeLastStoreInRange(latitude, longitude) {
-
-  if(DBG)console.log("+ storeLastStoreInRange with geo: " + latitude + "," + longitude);
-  var limitRange = $('#selectRangeCondition').val();
-
-  var storeNearBy = [];
-  var distance = 0;
-  var i = 0;
-  var dataList = data;
-  for (i =0; i< dataList.length; i++) {
-    distance = getDistance(latitude, longitude,
-                               dataList[i].latitude, dataList[i].longitude);
-    if(distance <= limitRange) {
-      dataList[i].distance = distance;
-      storeNearBy.push(dataList[i]);
-    }
-  }
-
-  if(DBG)console.log("+ storeLastStoreInRange count: " + storeNearBy.length);
-  if(DBG)console.log("+ storeLastStoreInRange -> ok");
-
-  return storeNearBy;
-}
 
 class MyCoffee extends Component {
 
@@ -50,7 +26,6 @@ class MyCoffee extends Component {
         let { data } = this.state;
         // if(DBG)console.log("++ successGetGeoInfo");
         let latlon = pos.coords.latitude + "," + pos.coords.longitude;
-        let img_url = "http://maps.googleapis.com/maps/api/staticmap?center=" + latlon + "&zoom=14&size=240x320&sensor=false";
 
         if(DBG)console.log("get current possision is " + latlon);
 
@@ -83,15 +58,6 @@ class MyCoffee extends Component {
 
         this.setState({data: data});
 
-        // var now = new Date();
-        // var hour = now.getHours() + "";
-        // var min = now.getMinutes() + "";
-        // var sec = now.getSeconds() + "";
-
-        // min = (min.length === 1)? "0" + min : min;
-        // sec = (sec.length === 1)? "0" + sec : sec;
-
-        // var lastUpdate = hour + ":" + min + ":" + sec;
         // TODO: update current address
         if(navigator.onLine === true && typeof GMap !== 'undefined') {
             // GMap.utils.getCurrentAddress(currentGeolocation).done(function(address) {
@@ -133,4 +99,10 @@ class MyCoffee extends Component {
   }
 }
 
-export default MyCoffee
+function mapStateToProps(state, ownProps) {
+  return {
+  }
+}
+
+export default connect(mapStateToProps)(MyCoffee);
+// export default MyCoffee

@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { browserHistory } from 'react-router';
 import {List, ListItem} from 'material-ui/List';
+import { convertDistanceString } from '../utils/helper';
 
 export default class ListStore extends Component {
 
@@ -12,13 +13,6 @@ export default class ListStore extends Component {
         };
     }
 
-    convertDistanceString(distance) {
-        if (distance == null) {
-            return 'Unknown';
-        }
-        return (distance >= 1000)? ((distance / 1000.0).toFixed(1) + '公里') : (distance + '公尺');
-    }
-
     handleStoreClicked(store) {
         console.log(store);
         browserHistory.push({
@@ -27,7 +21,6 @@ export default class ListStore extends Component {
               store
           },
         });
-        // browserHistory.push('/store_details');
     }
 
     render() {
@@ -38,7 +31,7 @@ export default class ListStore extends Component {
                 this.state.data.map((store) => (
                     <ListItem 
                     primaryText={store.name} 
-                    secondaryText={`${store.address} (${::this.convertDistanceString(store.distance)})`}
+                    secondaryText={`${store.address} (${convertDistanceString(store.distance)})`}
                     onClick={() => ::this.handleStoreClicked(store)}
                     />
                 ))
