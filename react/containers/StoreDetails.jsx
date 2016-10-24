@@ -10,6 +10,8 @@ const iconColor = {
     location: 'red',
 };
 
+require('../styles/index.scss');
+
 export default class StoreDetails extends Component {
     constructor(props) {
         super(props);
@@ -37,29 +39,29 @@ export default class StoreDetails extends Component {
                 <h2>{store.name}</h2>
                 <div>
                     <a href={`//maps.google.com.tw/?q=${store.address}`} target="_blank">
-                        <FontIcon className="material-icons" color={iconColor.location}>location_on</FontIcon>
-                        <span>{store.address}</span>
+                        <FontIcon className="material-icons vertical-align-center" color={iconColor.location}>location_on</FontIcon>
+                        <span className="vertical-align-center">{store.address}</span>
                     </a>
                 </div>
 
                 {store.phone &&
                     <div>
                         <a href={`tel:${store.phone}`} target="_blank">
-                            <FontIcon className="material-icons" color={iconColor.phone}>phone</FontIcon>
-                            <span>{store.phone}</span>
+                            <FontIcon className="material-icons vertical-align-center" color={iconColor.phone}>phone</FontIcon>
+                            <span className="vertical-align-center">{store.phone}</span>
                         </a>
                     </div>
                 }
                 {openingHourString &&
                     <div>
-                        <FontIcon className="material-icons" color={iconColor.info}>info</FontIcon>
-                        <span>{openingHourString}</span>
+                        <FontIcon className="material-icons vertical-align-center" color={iconColor.info}>info</FontIcon>
+                        <span className="vertical-align-center">{openingHourString}</span>
                     </div>
                 }
                 {store.openTime &&
                     <div>
-                        <FontIcon className="material-icons" color={iconColor.info}>info</FontIcon>
-                        <span>{store.openTime}</span>
+                        <FontIcon className="material-icons vertical-align-center" color={iconColor.info}>info</FontIcon>
+                        <span className="vertical-align-center">{store.openTime}</span>
                     </div>
                 }
                 <GoogleMap
