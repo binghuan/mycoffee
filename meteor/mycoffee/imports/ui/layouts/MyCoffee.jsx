@@ -12,10 +12,9 @@ import { getCurrentLocation, getLastGeolocation, setLastGeolocation, getDistance
 let DBG = true;
 
 class MyCoffee extends Component {
-
     static propTypes = {
-      data: PropTypes.object,
-      children: PropTypes.object,
+      data: PropTypes.array.isRequired,
+      children: PropTypes.object.isRequired,
     };
 
   constructor(props) {
@@ -85,7 +84,6 @@ class MyCoffee extends Component {
             title="My Coffee" 
             onLeftIconButtonTouchTap={this.handleToggle}
             showMenuIconButton={true}
-            isInitiallyOpen={true}
         />
         {React.cloneElement(children, {...this.state})}
         <Drawer open={this.state.open} onTap={this.handleToggle}>
@@ -102,5 +100,4 @@ function mapStateToProps(state, ownProps) {
   }
 }
 
-// export default connect(mapStateToProps)(MyCoffee);
-export default MyCoffee
+export default connect(mapStateToProps)(MyCoffee);

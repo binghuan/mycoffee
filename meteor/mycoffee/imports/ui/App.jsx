@@ -28,13 +28,9 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
-}
-
 function mapStateToProps(state, ownProps) {
   return {
   }
 }
 
-// export default connect(mapStateToProps)(App)
-export default App;
+export default connect(mapStateToProps)(App)

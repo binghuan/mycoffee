@@ -24,15 +24,16 @@ export default class ListStore extends Component {
     }
 
     render() {
-
+        let id = 0;
         return (
             <List>
             {
                 this.state.data.map((store) => (
                     <ListItem 
-                    primaryText={store.name} 
-                    secondaryText={`${store.address} (${convertDistanceString(store.distance)})`}
-                    onClick={() => ::this.handleStoreClicked(store)}
+                        primaryText={store.name} 
+                        secondaryText={`${store.address} (${convertDistanceString(store.distance)})`}
+                        onClick={() => ::this.handleStoreClicked(store)}
+                        key={id++}
                     />
                 ))
             }
